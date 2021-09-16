@@ -1,18 +1,13 @@
 package istin;
 
-public class Autor {
-    private int id;
-    private String nome;
+public class Autor extends Pessoa{
     private Jogo[] publicacoes;
 
-    public int getId() {
-        return id;
+    public Autor(Jogo[] publicacoes, int id, String nome, String email) {
+        super(id, nome, email);
+        this.publicacoes = publicacoes;
     }
-
-    public String getNome() {
-        return nome;
-    }
-
+    
     public Jogo[] getPublicacoes() {
         return publicacoes;
     }
