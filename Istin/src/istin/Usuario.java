@@ -1,17 +1,15 @@
 package istin;
 
-public class Usuario {
-
-    private int id;
-    private String nome;
-    private String email;
+public class Usuario extends Pessoa {
     private Jogo[] biblioteca;
     private float saldo;
 
-    public int getId() {
-        return id;
+    public Usuario(Jogo[] biblioteca, float saldo, int id, String nome, String email) {
+        super(id, nome, email);
+        this.biblioteca = biblioteca;
+        this.saldo = saldo;
     }
-
+    
     public float getSaldo() {
         return saldo;
     }
