@@ -15,6 +15,7 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public TelaLogin() {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(36, 40, 47));
     }
 
     /**
@@ -35,12 +36,19 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(36, 40, 47));
 
+        labelLogin.setForeground(new java.awt.Color(255, 255, 255));
         labelLogin.setText("Login:");
 
+        labelSenha.setForeground(new java.awt.Color(255, 255, 255));
         labelSenha.setText("Senha:");
 
+        btEntrar.setBackground(new java.awt.Color(0, 0, 0));
+        btEntrar.setForeground(new java.awt.Color(255, 255, 255));
         btEntrar.setText("Entrar");
+        btEntrar.setBorderPainted(false);
+        btEntrar.setFocusPainted(false);
         btEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEntrarActionPerformed(evt);
@@ -50,6 +58,7 @@ public class TelaLogin extends javax.swing.JFrame {
         btRegistrar.setText("Registrar");
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Istin");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -88,7 +97,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
