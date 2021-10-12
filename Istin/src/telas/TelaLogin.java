@@ -4,7 +4,7 @@ import istin.Login;
 import javax.swing.JOptionPane;
 
 public class TelaLogin extends javax.swing.JFrame {
-    
+        
     private Login login;
 
     public TelaLogin() {
@@ -52,6 +52,11 @@ public class TelaLogin extends javax.swing.JFrame {
         });
 
         btRegistrar.setText("Registrar");
+        btRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistrarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -116,16 +121,19 @@ public class TelaLogin extends javax.swing.JFrame {
         String nome = txtLogin.getText();
         String senha = txtSenha.getText();
         
-        if(nome.equals("") || senha.equals("")) {
-            txtLogin.setText("");
-            txtSenha.setText("");
-            txtLogin.requestFocus();
-            
-            JOptionPane.showMessageDialog(null, "Campos de login e senha devem estar preenchidos");
+        if(login.validaLogin(nome, senha)) {
+             JOptionPane.showMessageDialog(null, "Login efetivado com sucesso");
         } else {
-            login.criaNovaConta(nome, senha);
+             JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
         }
+
     }//GEN-LAST:event_btEntrarActionPerformed
+
+    private void btRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarActionPerformed
+        
+        new TelaNovaConta().setVisible(true);
+        
+    }//GEN-LAST:event_btRegistrarActionPerformed
 
     /**
      * @param args the command line arguments

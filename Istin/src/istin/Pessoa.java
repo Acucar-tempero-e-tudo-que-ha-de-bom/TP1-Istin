@@ -41,4 +41,7 @@ public class Pessoa {
         this.listaIdJogos = listaIdJogos;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 }
