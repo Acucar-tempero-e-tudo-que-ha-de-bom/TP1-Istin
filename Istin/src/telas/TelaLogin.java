@@ -1,21 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package telas;
 
-/**
- *
- * @author anasofia
- */
-public class TelaLogin extends javax.swing.JFrame {
+import istin.Login;
+import javax.swing.JOptionPane;
 
-    /**
-     * Creates new form TelaLogin
-     */
+public class TelaLogin extends javax.swing.JFrame {
+    
+    private Login login;
+
     public TelaLogin() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
+        
+        login = new Login();
     }
 
     /**
@@ -112,10 +108,23 @@ public class TelaLogin extends javax.swing.JFrame {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {labelSenha, txtSenha});
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
-        // TODO add your handling code here:
+        
+        String nome = txtLogin.getText();
+        String senha = txtSenha.getText();
+        
+        if(nome.equals("") || senha.equals("")) {
+            txtLogin.setText("");
+            txtSenha.setText("");
+            txtLogin.requestFocus();
+            
+            JOptionPane.showMessageDialog(null, "Campos de login e senha devem estar preenchidos");
+        } else {
+            login.criaNovaConta(nome, senha);
+        }
     }//GEN-LAST:event_btEntrarActionPerformed
 
     /**
