@@ -1,1 +1,19 @@
-[{"senha":"aaa","nome":"ana","saldo":0.0,"email":"aaa"},{"senha":"aaa","nome":"davi","email":"aaa"}]
+[
+    {
+        "senha": "aaa",
+        "nome": "ana",
+        "saldo": 0,
+        "email": "aaa"
+    },
+    {
+        "senha": "aaa",
+        "nome": "davi",
+        "email": "aaa"
+    },
+    {
+        "senha": "aaa",
+        "nome": "davi",
+        "saldo": 0,
+        "email": "abc"
+    }
+]
