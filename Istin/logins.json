@@ -1,5 +1,13 @@
-[{
-    "senha": "vagabundo",
-    "nome": "mosquito",
-    "email": "comiasuaprima@gmail.com"
-}]
+[
+    {
+        "senha": "vagabundo",
+        "nome": "mosquito",
+        "email": "comiasuaprima@gmail.com"
+    },
+    {
+        "senha": "ana",
+        "nome": "ana",
+        "saldo": 0,
+        "email": "ana"
+    }
+]
