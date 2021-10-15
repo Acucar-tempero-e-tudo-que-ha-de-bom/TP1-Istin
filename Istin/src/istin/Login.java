@@ -18,7 +18,7 @@ public class Login {
     
     public Login() {
         try {
-            FileInputStream is = new FileInputStream(new File("logins.json"));
+            FileInputStream is = new FileInputStream("logins.json");
             JSONTokener tokener = new JSONTokener(is);
             logins = new JSONArray(tokener);
         } catch(FileNotFoundException e) {

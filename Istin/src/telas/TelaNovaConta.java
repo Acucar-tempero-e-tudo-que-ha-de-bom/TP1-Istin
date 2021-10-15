@@ -45,7 +45,6 @@ public class TelaNovaConta extends javax.swing.JFrame {
         rbtAutor = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btCriar.setText("Criar Conta");
         btCriar.addActionListener(new java.awt.event.ActionListener() {
@@ -53,27 +52,19 @@ public class TelaNovaConta extends javax.swing.JFrame {
                 btCriarActionPerformed(evt);
             }
         });
-        getContentPane().add(btCriar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, -1));
-        getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 110, -1));
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 170, -1));
-        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 170, -1));
 
-        lbUsername.setText("Username:");
-        getContentPane().add(lbUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+        lbUsername.setText("Nome de usuário");
 
-        lbEmail.setText("Email:");
-        getContentPane().add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+        lbEmail.setText("Email");
 
-        lbSenha.setText("Senha:");
-        getContentPane().add(lbSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        lbSenha.setText("Senha");
 
-        btVoltar.setText("<");
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/letterx_83737.png"))); // NOI18N
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVoltarActionPerformed(evt);
             }
         });
-        getContentPane().add(btVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
         buttonGroup.add(rbtCliente);
         rbtCliente.setText("Cliente");
@@ -82,11 +73,65 @@ public class TelaNovaConta extends javax.swing.JFrame {
                 rbtClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(rbtCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
         buttonGroup.add(rbtAutor);
         rbtAutor.setText("Autor");
-        getContentPane().add(rbtAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(btVoltar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btCriar)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbEmail)
+                                    .addComponent(lbUsername)
+                                    .addComponent(lbSenha))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rbtCliente)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(rbtAutor))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                        .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING)))))))
+                .addGap(47, 47, 47))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(btVoltar)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbEmail)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbUsername))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbSenha))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtAutor)
+                    .addComponent(rbtCliente))
+                .addGap(18, 18, 18)
+                .addComponent(btCriar)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
 
         pack();
         setLocationRelativeTo(null);

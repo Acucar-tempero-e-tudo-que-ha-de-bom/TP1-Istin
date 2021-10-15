@@ -1,6 +1,6 @@
 package istin;
 
-public class Cliente extends Pessoa {
+public class Cliente extends Usuario {
     private float saldo;
 
     public Cliente(float saldo, int id, String nome, String email, String senha, int[] listaIdJogos) {

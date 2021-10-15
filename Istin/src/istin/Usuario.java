@@ -2,14 +2,14 @@ package istin;
 
 import java.util.ArrayList;
 
-public class Pessoa {
+public class Usuario {
     private int id;
     private String nome;
     private String email;
     private String senha;
     private int[] listaIdJogos;
 
-    public Pessoa(int id, String nome, String email, String senha, int[] listaIdJogos) {
+    public Usuario(int id, String nome, String email, String senha, int[] listaIdJogos) {
         this.id = id;
         this.nome = nome;
         this.email = email;
