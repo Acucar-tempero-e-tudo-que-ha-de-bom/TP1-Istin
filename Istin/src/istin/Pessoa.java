@@ -1,16 +1,22 @@
 package istin;
 
+import java.util.ArrayList;
+
 public class Pessoa {
     private int id;
     private String nome;
     private String email;
+    private String senha;
+    private int[] listaIdJogos;
 
-    public Pessoa(int id, String nome, String email) {
+    public Pessoa(int id, String nome, String email, String senha, int[] listaIdJogos) {
         this.id = id;
         this.nome = nome;
         this.email = email;
+        this.senha = senha;
+        this.listaIdJogos = listaIdJogos;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -23,15 +29,16 @@ public class Pessoa {
         return email;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public int[] getListaIdJogos() {
+        return listaIdJogos;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setListaIdJogos(int[] listaIdJogos) {
+        this.listaIdJogos = listaIdJogos;
     }
+
 }
