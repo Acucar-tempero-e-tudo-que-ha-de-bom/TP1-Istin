@@ -12,7 +12,7 @@ public class TelaLogin extends javax.swing.JFrame {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         
-        login = new Login();
+        login = Login.getInstance();
     }
 
     /**

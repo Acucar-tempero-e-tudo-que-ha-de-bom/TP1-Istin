@@ -14,6 +14,7 @@ import org.json.JSONTokener;
 
 
 public class Login {
+    private static Login instance;
     private JSONArray logins;
     
     public Login() {
@@ -63,5 +64,12 @@ public class Login {
     
     public boolean validaLogin(String nomeInserido, String senhaInserida) {
         return logins.toList().stream().map(o -> (HashMap) o).anyMatch(o -> o.get("nome").equals(nomeInserido) && o.get("senha").equals(senhaInserida));
+    }
+    
+    public static Login getInstance() {
+        if (instance == null) {
+            instance = new Login();
+        }
+        return instance;
     }
 }

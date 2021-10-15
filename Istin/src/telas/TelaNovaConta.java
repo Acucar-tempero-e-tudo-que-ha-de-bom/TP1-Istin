@@ -20,7 +20,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
     public TelaNovaConta() {
         initComponents();
         
-        login = new Login();
+        login = Login.getInstance();
     }
 
     /**
