@@ -122,7 +122,9 @@ public class TelaLogin extends javax.swing.JFrame {
         String senha = txtSenha.getText();
         
         if(login.validaLogin(nome, senha)) {
-             JOptionPane.showMessageDialog(null, "Login efetivado com sucesso");
+            JOptionPane.showMessageDialog(null, "Login efetivado com sucesso");
+            new TelaLoja().setVisible(true);
+            this.setVisible(false);
         } else {
              JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
         }
