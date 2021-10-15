@@ -1,6 +1,5 @@
 package istin;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -13,12 +12,17 @@ import org.json.JSONArray;
 import org.json.JSONTokener;
 
 
-public class Login {
+public class Login implements GerenciadorJson{
     private static Login instance;
     private JSONArray logins;
     
     public Login() {
-        try {
+        carregaJson();
+    }
+    
+    @Override
+    public void carregaJson() {
+         try {
             FileInputStream is = new FileInputStream("logins.json");
             JSONTokener tokener = new JSONTokener(is);
             logins = new JSONArray(tokener);
@@ -27,6 +31,7 @@ public class Login {
         }
     }
     
+    @Override
     public void salvarJson() {
         try {
             FileWriter escreve = new FileWriter("logins.json");
@@ -72,4 +77,7 @@ public class Login {
         }
         return instance;
     }
+
+
+
 }
