@@ -1,5 +1,6 @@
 package telas;
 
+
 import istin.Login;
 import javax.swing.JOptionPane;
 
@@ -23,105 +24,124 @@ public class TelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelLogin = new javax.swing.JLabel();
-        txtLogin = new javax.swing.JTextField();
-        labelSenha = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        txtNomeUsuario = new javax.swing.JTextField();
+        lblSenha = new javax.swing.JLabel();
         txtSenha = new javax.swing.JTextField();
-        btEntrar = new javax.swing.JButton();
-        btRegistrar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        btnEntrar = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        lblIstin = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
+        lblNomeUsuario = new javax.swing.JLabel();
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Iniciar sessão na Istin");
+        setAutoRequestFocus(false);
         setBackground(new java.awt.Color(36, 40, 47));
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
 
-        labelLogin.setForeground(new java.awt.Color(255, 255, 255));
-        labelLogin.setText("Login:");
+        lblSenha.setForeground(new java.awt.Color(255, 255, 255));
+        lblSenha.setText("Senha:");
 
-        labelSenha.setForeground(new java.awt.Color(255, 255, 255));
-        labelSenha.setText("Senha:");
-
-        btEntrar.setBackground(new java.awt.Color(0, 0, 0));
-        btEntrar.setForeground(new java.awt.Color(255, 255, 255));
-        btEntrar.setText("Entrar");
-        btEntrar.setBorderPainted(false);
-        btEntrar.setFocusPainted(false);
-        btEntrar.addActionListener(new java.awt.event.ActionListener() {
+        btnEntrar.setBackground(new java.awt.Color(36, 40, 47));
+        btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEntrar.setText("Entrar");
+        btnEntrar.setBorderPainted(false);
+        btnEntrar.setFocusPainted(false);
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEntrarActionPerformed(evt);
+                btnEntrarActionPerformed(evt);
             }
         });
 
-        btRegistrar.setText("Registrar");
-        btRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrar.setBackground(new java.awt.Color(0, 0, 0));
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setText("Não tem uma conta? Registre-se");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btRegistrarActionPerformed(evt);
+                btnRegistrarActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Istin");
+        lblIstin.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        lblIstin.setForeground(new java.awt.Color(255, 255, 255));
+        lblIstin.setText("Istin");
+
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinNegative64x64.png"))); // NOI18N
+        lblLogo.setToolTipText("");
+
+        lblNomeUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblNomeUsuario.setText("Nome de usuário:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(186, 186, 186))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btRegistrar)
-                        .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
+                .addGap(0, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtSenha)
-                        .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 147, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(lblLogo)
+                        .addGap(16, 16, 16)
+                        .addComponent(lblIstin))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblNomeUsuario)
+                        .addGap(11, 11, 11)
+                        .addComponent(txtNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(lblSenha)
+                        .addGap(11, 11, 11)
+                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(btnRegistrar)))
+                .addGap(0, 18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(0, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btEntrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btRegistrar)
-                .addContainerGap())
+                    .addComponent(lblLogo)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblIstin)))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(btnEntrar)
+                .addGap(36, 36, 36)
+                .addComponent(btnRegistrar)
+                .addGap(0, 28, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {labelLogin, txtLogin});
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {labelSenha, txtSenha});
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         
-        String nome = txtLogin.getText();
+        String nome = txtNomeUsuario.getText();
         String senha = txtSenha.getText();
         
-        if(login.validaLogin(nome, senha)) {
+        
+        if (txtNomeUsuario.getText().equals("") || txtSenha.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Nome de usuário e/ou senha não informados", "Erro", JOptionPane.PLAIN_MESSAGE);
+        } else if(login.validaLogin(nome, senha)) {
             JOptionPane.showMessageDialog(null, "Login efetivado com sucesso");
             new TelaLoja().setVisible(true);
             this.setVisible(false);
@@ -129,13 +149,13 @@ public class TelaLogin extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
         }
 
-    }//GEN-LAST:event_btEntrarActionPerformed
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
-    private void btRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarActionPerformed
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         
         new TelaNovaConta().setVisible(true);
         
-    }//GEN-LAST:event_btRegistrarActionPerformed
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,12 +193,14 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btEntrar;
-    private javax.swing.JButton btRegistrar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel labelLogin;
-    private javax.swing.JLabel labelSenha;
-    private javax.swing.JTextField txtLogin;
+    private javax.swing.JButton btnEntrar;
+    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblIstin;
+    private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblNomeUsuario;
+    private javax.swing.JLabel lblSenha;
+    private javax.swing.JTextField txtNomeUsuario;
     private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
