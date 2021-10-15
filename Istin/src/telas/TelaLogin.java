@@ -43,7 +43,7 @@ public class TelaLogin extends javax.swing.JFrame {
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
 
         lblSenha.setForeground(new java.awt.Color(255, 255, 255));
-        lblSenha.setText("Senha:");
+        lblSenha.setText("Senha");
 
         btnEntrar.setBackground(new java.awt.Color(36, 40, 47));
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -74,7 +74,7 @@ public class TelaLogin extends javax.swing.JFrame {
         lblLogo.setToolTipText("");
 
         lblNomeUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblNomeUsuario.setText("Nome de usuário:");
+        lblNomeUsuario.setText("Nome de usuário");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -138,10 +138,9 @@ public class TelaLogin extends javax.swing.JFrame {
         String nome = txtNomeUsuario.getText();
         String senha = txtSenha.getText();
         
-        
-        if (txtNomeUsuario.getText().equals("") || txtSenha.getText().equals("")){
+        if (nome.equals("") || senha.equals("")){
             JOptionPane.showMessageDialog(null, "Nome de usuário e/ou senha não informados", "Erro", JOptionPane.PLAIN_MESSAGE);
-        } else if(login.validaLogin(nome, senha)) {
+        } else if(login.validaLogin(nome, senha)) { // senha válida
             JOptionPane.showMessageDialog(null, "Login efetivado com sucesso");
             new TelaLoja().setVisible(true);
             this.setVisible(false);

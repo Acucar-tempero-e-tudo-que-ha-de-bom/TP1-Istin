@@ -1,26 +1,5 @@
-[
-    {
-        "senha": "ana",
-        "nome": "ana",
-        "saldo": 0,
-        "email": "1893401894839"
-    },
-    {
-        "senha": "teste",
-        "nome": "teste",
-        "saldo": 0,
-        "email": "teste"
-    },
-    {
-        "senha": "teste",
-        "nome": "teste",
-        "saldo": 0,
-        "email": "teste"
-    },
-    {
-        "senha": "a",
-        "nome": "a",
-        "saldo": 0,
-        "email": "a"
-    }
-]
+[{
+    "senha": "vagabundo",
+    "nome": "mosquito",
+    "email": "comiasuaprima@gmail.com"
+}]

@@ -269,7 +269,7 @@ public class TelaLoja extends javax.swing.JFrame {
             }
         });
 
-        mPerfil.setText("Peril");
+        mPerfil.setText("Perfil");
 
         miInformaçoes.setText("Detalhes");
         miInformaçoes.addActionListener(new java.awt.event.ActionListener() {

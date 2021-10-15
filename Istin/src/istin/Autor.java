@@ -1,6 +1,6 @@
 package istin;
 
-public class Autor extends Pessoa{
+public class Autor extends Usuario{
 
     public Autor(int id, String nome, String email, String senha, int[] listaIdJogos) {
         super(id, nome, email, senha, listaIdJogos);
