@@ -59,7 +59,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
 
         lbSenha.setText("Senha");
 
-        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/letterx_83737.png"))); // NOI18N
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/x.png"))); // NOI18N
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVoltarActionPerformed(evt);
@@ -130,7 +130,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
                     .addComponent(rbtCliente))
                 .addGap(18, 18, 18)
                 .addComponent(btCriar)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
