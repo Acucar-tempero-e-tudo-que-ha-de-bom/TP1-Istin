@@ -4,6 +4,7 @@ package telas;
 import istin.Login;
 import istin.exceptions.InvalidUserException;
 import javax.swing.JOptionPane;
+import telas.helpers.SimpleDocumentListener;
 
 public class TelaLogin extends javax.swing.JFrame {
         
@@ -14,6 +15,14 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         
         login = Login.getInstance();
+        
+        txtSenha.getDocument().addDocumentListener((SimpleDocumentListener) e -> {
+            atualizarBotaoEntrar();
+        });
+        
+        txtNomeUsuario.getDocument().addDocumentListener((SimpleDocumentListener) e -> {
+            atualizarBotaoEntrar();
+        });
     }
     
     private void logar() {
@@ -32,6 +41,12 @@ public class TelaLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
             }
         }
+    }
+    
+    private void atualizarBotaoEntrar() {
+        String nome = txtNomeUsuario.getText();
+        String senha = txtSenha.getText();
+        btnEntrar.setEnabled(!nome.equals("") && !senha.equals(""));
     }
 
     @SuppressWarnings("unchecked")
@@ -56,6 +71,12 @@ public class TelaLogin extends javax.swing.JFrame {
         setBackground(new java.awt.Color(36, 40, 47));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
 
+        txtNomeUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNomeUsuarioKeyTyped(evt);
+            }
+        });
+
         lblSenha.setForeground(new java.awt.Color(255, 255, 255));
         lblSenha.setText("Senha");
 
@@ -64,11 +85,17 @@ public class TelaLogin extends javax.swing.JFrame {
                 txtSenhaActionPerformed(evt);
             }
         });
+        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSenhaKeyTyped(evt);
+            }
+        });
 
         btnEntrar.setBackground(new java.awt.Color(36, 40, 47));
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrar.setText("Entrar");
         btnEntrar.setBorderPainted(false);
+        btnEntrar.setEnabled(false);
         btnEntrar.setFocusPainted(false);
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,12 +187,19 @@ public class TelaLogin extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         
         new TelaNovaConta().setVisible(true);
-        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         logar();
     }//GEN-LAST:event_txtSenhaActionPerformed
+
+    private void txtSenhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyTyped
+        atualizarBotaoEntrar();
+    }//GEN-LAST:event_txtSenhaKeyTyped
+
+    private void txtNomeUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeUsuarioKeyTyped
+        atualizarBotaoEntrar();
+    }//GEN-LAST:event_txtNomeUsuarioKeyTyped
 
     /**
      * @param args the command line arguments
