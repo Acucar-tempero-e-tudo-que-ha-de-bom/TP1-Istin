@@ -26,7 +26,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
     
     public TelaCadastroJogo() {
         initComponents();
-        
+        getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         loja = Loja.getInstance();
     }
 
@@ -42,14 +42,17 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
         lblNome = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         lblPreco = new javax.swing.JLabel();
-        txtPreco = new javax.swing.JTextField();
         btnInserirImagem = new javax.swing.JButton();
         lblpreviaImagem = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         btnOK = new javax.swing.JButton();
+        frmPreco = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastrar jogo");
+        setBackground(new java.awt.Color(36, 40, 47));
 
+        lblNome.setForeground(new java.awt.Color(255, 255, 255));
         lblNome.setText("Nome");
 
         txtNome.setToolTipText("");
@@ -59,8 +62,11 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
             }
         });
 
+        lblPreco.setForeground(new java.awt.Color(255, 255, 255));
         lblPreco.setText("Preço");
 
+        btnInserirImagem.setBackground(new java.awt.Color(36, 40, 47));
+        btnInserirImagem.setForeground(new java.awt.Color(255, 255, 255));
         btnInserirImagem.setText("Inserir Imagem");
         btnInserirImagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,15 +74,16 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
             }
         });
 
-        lblpreviaImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
-
-        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
+        btnCancelar.setBackground(new java.awt.Color(36, 40, 47));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/seta-esquerda.png"))); // NOI18N
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
 
+        btnOK.setBackground(new java.awt.Color(36, 40, 47));
+        btnOK.setForeground(new java.awt.Color(255, 255, 255));
         btnOK.setText("OK");
         btnOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,33 +95,27 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblPreco)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(233, 233, 233)
+                        .addComponent(btnOK)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblPreco)
+                            .addComponent(lblNome))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 185, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblNome)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNome)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnInserirImagem)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(lblpreviaImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(56, 56, 56))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(btnOK)
-                            .addGap(28, 28, 28)))))
+                            .addComponent(frmPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNome))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnInserirImagem)
+                            .addComponent(lblpreviaImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,17 +124,16 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblpreviaImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNome)
-                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNome))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPreco)
-                            .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(frmPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnInserirImagem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnOK))
@@ -141,6 +141,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
@@ -175,7 +176,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
        
         String nome = txtNome.getText();
-        String preco = txtPreco.getText();
+        String preco = frmPreco.getText();
         
         if(nome.equals("") || preco.equals("")) {
             JOptionPane.showMessageDialog(null, "Campos não preenchidos");
@@ -227,10 +228,10 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnInserirImagem;
     private javax.swing.JButton btnOK;
+    private javax.swing.JFormattedTextField frmPreco;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblPreco;
     private javax.swing.JLabel lblpreviaImagem;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
 }
