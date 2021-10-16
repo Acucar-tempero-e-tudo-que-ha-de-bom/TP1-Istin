@@ -1,10 +1,12 @@
 package istin;
 
+import istin.exceptions.InvalidUserException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,6 +17,7 @@ import org.json.JSONTokener;
 public class Login implements GerenciadorJson{
     private static Login instance;
     private JSONArray logins;
+    private Usuario logado;
     
     public Login() {
         carregaJson();
@@ -49,7 +52,6 @@ public class Login implements GerenciadorJson{
         informacoesCliente.put("senha", cliente.getSenha());
         informacoesCliente.put("saldo", cliente.getSaldo());
         
-        cliente.setId(logins.length());
         logins.put(informacoesCliente);
         
         this.salvarJson();
@@ -61,14 +63,25 @@ public class Login implements GerenciadorJson{
         informacoesAutor.put("email", autor.getEmail());
         informacoesAutor.put("senha", autor.getSenha());
         
-        autor.setId(logins.length() + 100);
         logins.put(informacoesAutor);
         
         this.salvarJson();
     }
     
-    public boolean validaLogin(String nomeInserido, String senhaInserida) {
-        return logins.toList().stream().map(o -> (HashMap) o).anyMatch(o -> o.get("nome").equals(nomeInserido) && o.get("senha").equals(senhaInserida));
+    public void validaLogin(String nomeInserido, String senhaInserida) throws InvalidUserException {
+        Optional<HashMap> optionalUser = logins.toList().stream().map(o -> (HashMap) o).filter(o -> o.get("nome").equals(nomeInserido) && o.get("senha").equals(senhaInserida)).findFirst();
+        
+        if (optionalUser.isEmpty()){
+            throw new InvalidUserException("Esse usuário não existe");
+        } else {
+            HashMap userMap = optionalUser.get();
+            logado = new Usuario(
+                (String) userMap.get("nome"),
+                (String) userMap.get("email"),
+                (String) userMap.get("senha"),
+                new int[0]
+            );
+        }
     }
     
     public static Login getInstance() {

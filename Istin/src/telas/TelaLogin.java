@@ -2,6 +2,7 @@ package telas;
 
 
 import istin.Login;
+import istin.exceptions.InvalidUserException;
 import javax.swing.JOptionPane;
 
 public class TelaLogin extends javax.swing.JFrame {
@@ -13,6 +14,24 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         
         login = Login.getInstance();
+    }
+    
+    private void logar() {
+        String nome = txtNomeUsuario.getText();
+        String senha = txtSenha.getText();
+        
+        if (nome.equals("") || senha.equals("")){
+            JOptionPane.showMessageDialog(null, "Nome de usuário e/ou senha não informados", "Erro", JOptionPane.PLAIN_MESSAGE);
+        } else {
+            try {
+                login.validaLogin(nome, senha);
+                JOptionPane.showMessageDialog(null, "Login efetivado com sucesso");
+                new TelaLoja().setVisible(true);
+            this.setVisible(false);
+            } catch (InvalidUserException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -35,10 +54,16 @@ public class TelaLogin extends javax.swing.JFrame {
         setTitle("Iniciar sessão na Istin");
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(36, 40, 47));
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
 
         lblSenha.setForeground(new java.awt.Color(255, 255, 255));
         lblSenha.setText("Senha");
+
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaActionPerformed(evt);
+            }
+        });
 
         btnEntrar.setBackground(new java.awt.Color(36, 40, 47));
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -65,7 +90,7 @@ public class TelaLogin extends javax.swing.JFrame {
         lblIstin.setText("Istin");
 
         lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinNegative64x64.png"))); // NOI18N
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinNegative64x64.png"))); // NOI18N
         lblLogo.setToolTipText("");
 
         lblNomeUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,20 +154,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        
-        String nome = txtNomeUsuario.getText();
-        String senha = txtSenha.getText();
-        
-        if (nome.equals("") || senha.equals("")){
-            JOptionPane.showMessageDialog(null, "Nome de usuário e/ou senha não informados", "Erro", JOptionPane.PLAIN_MESSAGE);
-        } else if(login.validaLogin(nome, senha)) { // senha válida
-            JOptionPane.showMessageDialog(null, "Login efetivado com sucesso");
-            new TelaLoja().setVisible(true);
-            this.setVisible(false);
-        } else {
-             JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
-        }
-
+        logar();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
@@ -150,6 +162,10 @@ public class TelaLogin extends javax.swing.JFrame {
         new TelaNovaConta().setVisible(true);
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
+        logar();
+    }//GEN-LAST:event_txtSenhaActionPerformed
 
     /**
      * @param args the command line arguments
