@@ -20,20 +20,18 @@ public class TelaLoja extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlPainel = new javax.swing.JPanel();
-        pnlJogo0 = new javax.swing.JPanel();
-        pnlJogo1 = new javax.swing.JPanel();
-        pnlJogo2 = new javax.swing.JPanel();
-        pnlJogo3 = new javax.swing.JPanel();
-        pnlJogo4 = new javax.swing.JPanel();
-        pnlJogo5 = new javax.swing.JPanel();
-        pnlJogo6 = new javax.swing.JPanel();
-        pnlJogo7 = new javax.swing.JPanel();
-        pnlJogo8 = new javax.swing.JPanel();
-        pnlJogo9 = new javax.swing.JPanel();
-        pnlJogo10 = new javax.swing.JPanel();
-        pnlJogo11 = new javax.swing.JPanel();
         btPublicar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lojaPanel = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
+        lblpreviaImagem = new javax.swing.JLabel();
+        lblpreviaImagem1 = new javax.swing.JLabel();
+        lblpreviaImagem2 = new javax.swing.JLabel();
+        lblpreviaImagem3 = new javax.swing.JLabel();
+        lblpreviaImagem4 = new javax.swing.JLabel();
+        lblpreviaImagem5 = new javax.swing.JLabel();
+        lblpreviaImagem6 = new javax.swing.JLabel();
+        lblpreviaImagem7 = new javax.swing.JLabel();
         mbMenu = new javax.swing.JMenuBar();
         mPerfil = new javax.swing.JMenu();
         miInformaçoes = new javax.swing.JMenuItem();
@@ -45,233 +43,6 @@ public class TelaLoja extends javax.swing.JFrame {
         setTitle("Istin");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
 
-        pnlPainel.setBackground(new java.awt.Color(36, 40, 47));
-        pnlPainel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Loja", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
-        pnlPainel.setForeground(new java.awt.Color(255, 255, 255));
-
-        pnlJogo0.setBackground(new java.awt.Color(36, 40, 47));
-        pnlJogo0.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout pnlJogo0Layout = new javax.swing.GroupLayout(pnlJogo0);
-        pnlJogo0.setLayout(pnlJogo0Layout);
-        pnlJogo0Layout.setHorizontalGroup(
-            pnlJogo0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
-        );
-        pnlJogo0Layout.setVerticalGroup(
-            pnlJogo0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 116, Short.MAX_VALUE)
-        );
-
-        pnlJogo1.setBackground(new java.awt.Color(36, 40, 47));
-        pnlJogo1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout pnlJogo1Layout = new javax.swing.GroupLayout(pnlJogo1);
-        pnlJogo1.setLayout(pnlJogo1Layout);
-        pnlJogo1Layout.setHorizontalGroup(
-            pnlJogo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
-        );
-        pnlJogo1Layout.setVerticalGroup(
-            pnlJogo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 116, Short.MAX_VALUE)
-        );
-
-        pnlJogo2.setBackground(new java.awt.Color(36, 40, 47));
-        pnlJogo2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout pnlJogo2Layout = new javax.swing.GroupLayout(pnlJogo2);
-        pnlJogo2.setLayout(pnlJogo2Layout);
-        pnlJogo2Layout.setHorizontalGroup(
-            pnlJogo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
-        );
-        pnlJogo2Layout.setVerticalGroup(
-            pnlJogo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 116, Short.MAX_VALUE)
-        );
-
-        pnlJogo3.setBackground(new java.awt.Color(36, 40, 47));
-        pnlJogo3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout pnlJogo3Layout = new javax.swing.GroupLayout(pnlJogo3);
-        pnlJogo3.setLayout(pnlJogo3Layout);
-        pnlJogo3Layout.setHorizontalGroup(
-            pnlJogo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
-        );
-        pnlJogo3Layout.setVerticalGroup(
-            pnlJogo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 116, Short.MAX_VALUE)
-        );
-
-        pnlJogo4.setBackground(new java.awt.Color(36, 40, 47));
-        pnlJogo4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout pnlJogo4Layout = new javax.swing.GroupLayout(pnlJogo4);
-        pnlJogo4.setLayout(pnlJogo4Layout);
-        pnlJogo4Layout.setHorizontalGroup(
-            pnlJogo4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
-        );
-        pnlJogo4Layout.setVerticalGroup(
-            pnlJogo4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 116, Short.MAX_VALUE)
-        );
-
-        pnlJogo5.setBackground(new java.awt.Color(36, 40, 47));
-        pnlJogo5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout pnlJogo5Layout = new javax.swing.GroupLayout(pnlJogo5);
-        pnlJogo5.setLayout(pnlJogo5Layout);
-        pnlJogo5Layout.setHorizontalGroup(
-            pnlJogo5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
-        );
-        pnlJogo5Layout.setVerticalGroup(
-            pnlJogo5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 116, Short.MAX_VALUE)
-        );
-
-        pnlJogo6.setBackground(new java.awt.Color(36, 40, 47));
-        pnlJogo6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout pnlJogo6Layout = new javax.swing.GroupLayout(pnlJogo6);
-        pnlJogo6.setLayout(pnlJogo6Layout);
-        pnlJogo6Layout.setHorizontalGroup(
-            pnlJogo6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
-        );
-        pnlJogo6Layout.setVerticalGroup(
-            pnlJogo6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 116, Short.MAX_VALUE)
-        );
-
-        pnlJogo7.setBackground(new java.awt.Color(36, 40, 47));
-        pnlJogo7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout pnlJogo7Layout = new javax.swing.GroupLayout(pnlJogo7);
-        pnlJogo7.setLayout(pnlJogo7Layout);
-        pnlJogo7Layout.setHorizontalGroup(
-            pnlJogo7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
-        );
-        pnlJogo7Layout.setVerticalGroup(
-            pnlJogo7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 116, Short.MAX_VALUE)
-        );
-
-        pnlJogo8.setBackground(new java.awt.Color(36, 40, 47));
-        pnlJogo8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout pnlJogo8Layout = new javax.swing.GroupLayout(pnlJogo8);
-        pnlJogo8.setLayout(pnlJogo8Layout);
-        pnlJogo8Layout.setHorizontalGroup(
-            pnlJogo8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
-        );
-        pnlJogo8Layout.setVerticalGroup(
-            pnlJogo8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 116, Short.MAX_VALUE)
-        );
-
-        pnlJogo9.setBackground(new java.awt.Color(36, 40, 47));
-        pnlJogo9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout pnlJogo9Layout = new javax.swing.GroupLayout(pnlJogo9);
-        pnlJogo9.setLayout(pnlJogo9Layout);
-        pnlJogo9Layout.setHorizontalGroup(
-            pnlJogo9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
-        );
-        pnlJogo9Layout.setVerticalGroup(
-            pnlJogo9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 116, Short.MAX_VALUE)
-        );
-
-        pnlJogo10.setBackground(new java.awt.Color(36, 40, 47));
-        pnlJogo10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout pnlJogo10Layout = new javax.swing.GroupLayout(pnlJogo10);
-        pnlJogo10.setLayout(pnlJogo10Layout);
-        pnlJogo10Layout.setHorizontalGroup(
-            pnlJogo10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
-        );
-        pnlJogo10Layout.setVerticalGroup(
-            pnlJogo10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 116, Short.MAX_VALUE)
-        );
-
-        pnlJogo11.setBackground(new java.awt.Color(36, 40, 47));
-        pnlJogo11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout pnlJogo11Layout = new javax.swing.GroupLayout(pnlJogo11);
-        pnlJogo11.setLayout(pnlJogo11Layout);
-        pnlJogo11Layout.setHorizontalGroup(
-            pnlJogo11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
-        );
-        pnlJogo11Layout.setVerticalGroup(
-            pnlJogo11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 116, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout pnlPainelLayout = new javax.swing.GroupLayout(pnlPainel);
-        pnlPainel.setLayout(pnlPainelLayout);
-        pnlPainelLayout.setHorizontalGroup(
-            pnlPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPainelLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(pnlPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPainelLayout.createSequentialGroup()
-                        .addComponent(pnlJogo0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlJogo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlJogo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlJogo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlJogo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlJogo5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPainelLayout.createSequentialGroup()
-                        .addComponent(pnlJogo6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlJogo7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlJogo8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlJogo9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlJogo10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlJogo11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18))
-        );
-        pnlPainelLayout.setVerticalGroup(
-            pnlPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlPainelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(pnlPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlJogo5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlJogo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlJogo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlJogo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlJogo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlJogo0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(pnlPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlJogo11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlJogo10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlJogo9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlJogo8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlJogo7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlJogo6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
-
         btPublicar.setBackground(new java.awt.Color(0, 0, 0));
         btPublicar.setForeground(new java.awt.Color(255, 255, 255));
         btPublicar.setText("Publicar");
@@ -280,6 +51,67 @@ public class TelaLoja extends javax.swing.JFrame {
                 btPublicarActionPerformed(evt);
             }
         });
+
+        jPanel1.setBackground(new java.awt.Color(36, 40, 47));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Loja", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        lojaPanel.setBackground(new java.awt.Color(36, 40, 47));
+        lojaPanel.setBorder(null);
+        lojaPanel.setForeground(new java.awt.Color(255, 255, 255));
+        lojaPanel.setToolTipText("");
+        lojaPanel.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        lojaPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jPanel2.setBackground(new java.awt.Color(36, 40, 47));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(874, 409));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblpreviaImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
+        jPanel2.add(lblpreviaImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 117, 150));
+
+        lblpreviaImagem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
+        jPanel2.add(lblpreviaImagem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 234, 117, 150));
+
+        lblpreviaImagem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
+        jPanel2.add(lblpreviaImagem2, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 25, 117, 150));
+
+        lblpreviaImagem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
+        jPanel2.add(lblpreviaImagem3, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 25, 117, 150));
+
+        lblpreviaImagem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
+        jPanel2.add(lblpreviaImagem4, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 234, 117, 150));
+
+        lblpreviaImagem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
+        jPanel2.add(lblpreviaImagem5, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 234, 117, 150));
+
+        lblpreviaImagem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
+        jPanel2.add(lblpreviaImagem6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 25, 117, 150));
+
+        lblpreviaImagem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
+        jPanel2.add(lblpreviaImagem7, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 234, 117, 150));
+
+        lojaPanel.setViewportView(jPanel2);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lojaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lojaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        lojaPanel.getAccessibleContext().setAccessibleName("Loja");
 
         mbMenu.setBackground(new java.awt.Color(36, 40, 47));
 
@@ -311,19 +143,19 @@ public class TelaLoja extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlPainel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btPublicar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlPainel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btPublicar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -378,24 +210,22 @@ public class TelaLoja extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btPublicar;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblpreviaImagem;
+    private javax.swing.JLabel lblpreviaImagem1;
+    private javax.swing.JLabel lblpreviaImagem2;
+    private javax.swing.JLabel lblpreviaImagem3;
+    private javax.swing.JLabel lblpreviaImagem4;
+    private javax.swing.JLabel lblpreviaImagem5;
+    private javax.swing.JLabel lblpreviaImagem6;
+    private javax.swing.JLabel lblpreviaImagem7;
+    private javax.swing.JScrollPane lojaPanel;
     private javax.swing.JMenu mBiblioteca;
     private javax.swing.JMenu mPerfil;
     private javax.swing.JMenuBar mbMenu;
     private javax.swing.JMenuItem miHome;
     private javax.swing.JMenuItem miInformaçoes;
     private javax.swing.JMenuItem miSair;
-    private javax.swing.JPanel pnlJogo0;
-    private javax.swing.JPanel pnlJogo1;
-    private javax.swing.JPanel pnlJogo10;
-    private javax.swing.JPanel pnlJogo11;
-    private javax.swing.JPanel pnlJogo2;
-    private javax.swing.JPanel pnlJogo3;
-    private javax.swing.JPanel pnlJogo4;
-    private javax.swing.JPanel pnlJogo5;
-    private javax.swing.JPanel pnlJogo6;
-    private javax.swing.JPanel pnlJogo7;
-    private javax.swing.JPanel pnlJogo8;
-    private javax.swing.JPanel pnlJogo9;
-    private javax.swing.JPanel pnlPainel;
     // End of variables declaration//GEN-END:variables
 }
