@@ -63,7 +63,7 @@ public class Loja implements GerenciadorJson {
             dadosJogo.put("preco", jogo.getPreco());
             dadosJogo.put("mediaAvaliacao", jogo.getMediaAvaliacao());
             dadosJogo.put("quantidadeAvaliacao", jogo.getNumeroAvaliacoes());
-            dadosJogo.put("imagem", Base64.getEncoder().encode(jogo.getImagem()));
+            dadosJogo.put("imagem", new String(Base64.getEncoder().encode(jogo.getImagem())));
             
             jogo.setId(jogosJson.length());
             jogosJson.put(dadosJogo);
