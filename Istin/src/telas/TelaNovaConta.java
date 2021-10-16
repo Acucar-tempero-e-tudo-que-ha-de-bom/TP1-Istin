@@ -20,7 +20,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
     public TelaNovaConta() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
-        
+        txtEmail.requestFocus(true);
         login = Login.getInstance();
     }
 
@@ -45,8 +45,10 @@ public class TelaNovaConta extends javax.swing.JFrame {
         rbtCliente = new javax.swing.JRadioButton();
         rbtAutor = new javax.swing.JRadioButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        btCriar.setBackground(new java.awt.Color(36, 40, 47));
+        btCriar.setForeground(new java.awt.Color(255, 255, 255));
         btCriar.setText("Criar Conta");
         btCriar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,13 +56,18 @@ public class TelaNovaConta extends javax.swing.JFrame {
             }
         });
 
+        lbUsername.setForeground(new java.awt.Color(255, 255, 255));
         lbUsername.setText("Nome de usuário");
 
+        lbEmail.setForeground(new java.awt.Color(255, 255, 255));
         lbEmail.setText("Email");
 
+        lbSenha.setForeground(new java.awt.Color(255, 255, 255));
         lbSenha.setText("Senha");
 
-        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/x.png"))); // NOI18N
+        btVoltar.setBackground(new java.awt.Color(36, 40, 47));
+        btVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/seta-esquerda.png"))); // NOI18N
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVoltarActionPerformed(evt);
@@ -68,6 +75,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
         });
 
         buttonGroup.add(rbtCliente);
+        rbtCliente.setForeground(new java.awt.Color(255, 255, 255));
         rbtCliente.setText("Cliente");
         rbtCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +84,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
         });
 
         buttonGroup.add(rbtAutor);
+        rbtAutor.setForeground(new java.awt.Color(255, 255, 255));
         rbtAutor.setText("Autor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
