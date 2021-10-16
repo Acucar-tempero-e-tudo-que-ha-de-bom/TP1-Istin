@@ -1,14 +1,47 @@
 package istin;
 
-public class Usuario extends Pessoa {
-    private float saldo;
+import java.util.ArrayList;
 
-    public Usuario(float saldo, int id, String nome, String email, String senha, int[] listaIdJogos) {
-        super(id, nome, email, senha, listaIdJogos);
-        this.saldo = saldo;
+public class Usuario {
+    private int id;
+    private String nome;
+    private String email;
+    private String senha;
+    private int[] listaIdJogos;
+
+    public Usuario(int id, String nome, String email, String senha, int[] listaIdJogos) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.listaIdJogos = listaIdJogos;
     }
-    
-    public float getSaldo() {
-        return saldo;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public int[] getListaIdJogos() {
+        return listaIdJogos;
+    }
+
+    public void setListaIdJogos(int[] listaIdJogos) {
+        this.listaIdJogos = listaIdJogos;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

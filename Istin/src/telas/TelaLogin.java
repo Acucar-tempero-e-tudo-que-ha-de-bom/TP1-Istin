@@ -1,23 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package telas;
 
+
+import istin.Login;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author anasofia
- */
 public class TelaLogin extends javax.swing.JFrame {
+        
+    private Login login;
 
-    /**
-     * Creates new form TelaLogin
-     */
     public TelaLogin() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
+        
+        login = Login.getInstance();
     }
 
     /**
@@ -48,7 +43,7 @@ public class TelaLogin extends javax.swing.JFrame {
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
 
         lblSenha.setForeground(new java.awt.Color(255, 255, 255));
-        lblSenha.setText("Senha:");
+        lblSenha.setText("Senha");
 
         btnEntrar.setBackground(new java.awt.Color(36, 40, 47));
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -79,7 +74,7 @@ public class TelaLogin extends javax.swing.JFrame {
         lblLogo.setToolTipText("");
 
         lblNomeUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblNomeUsuario.setText("Nome de usuário:");
+        lblNomeUsuario.setText("Nome de usuário");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,13 +134,26 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        if (txtNomeUsuario.getText().equals("") || txtSenha.getText().equals("")){
+        
+        String nome = txtNomeUsuario.getText();
+        String senha = txtSenha.getText();
+        
+        if (nome.equals("") || senha.equals("")){
             JOptionPane.showMessageDialog(null, "Nome de usuário e/ou senha não informados", "Erro", JOptionPane.PLAIN_MESSAGE);
+        } else if(login.validaLogin(nome, senha)) { // senha válida
+            JOptionPane.showMessageDialog(null, "Login efetivado com sucesso");
+            new TelaLoja().setVisible(true);
+            this.setVisible(false);
+        } else {
+             JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
         }
+
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        //new TelaCadastrarPessoa().setVisible(true);
+        
+        new TelaNovaConta().setVisible(true);
+        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
