@@ -12,7 +12,7 @@ public class TelaLoja extends javax.swing.JFrame {
     
     public TelaLoja() {
         initComponents();
-        
+        getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         loja = Loja.getInstance();   
     }
 
@@ -42,9 +42,14 @@ public class TelaLoja extends javax.swing.JFrame {
         miHome = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Istin");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
 
-        pnlPainel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Loja", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
+        pnlPainel.setBackground(new java.awt.Color(36, 40, 47));
+        pnlPainel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Loja", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        pnlPainel.setForeground(new java.awt.Color(255, 255, 255));
 
+        pnlJogo0.setBackground(new java.awt.Color(36, 40, 47));
         pnlJogo0.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout pnlJogo0Layout = new javax.swing.GroupLayout(pnlJogo0);
@@ -58,6 +63,7 @@ public class TelaLoja extends javax.swing.JFrame {
             .addGap(0, 116, Short.MAX_VALUE)
         );
 
+        pnlJogo1.setBackground(new java.awt.Color(36, 40, 47));
         pnlJogo1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout pnlJogo1Layout = new javax.swing.GroupLayout(pnlJogo1);
@@ -71,6 +77,7 @@ public class TelaLoja extends javax.swing.JFrame {
             .addGap(0, 116, Short.MAX_VALUE)
         );
 
+        pnlJogo2.setBackground(new java.awt.Color(36, 40, 47));
         pnlJogo2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout pnlJogo2Layout = new javax.swing.GroupLayout(pnlJogo2);
@@ -84,6 +91,7 @@ public class TelaLoja extends javax.swing.JFrame {
             .addGap(0, 116, Short.MAX_VALUE)
         );
 
+        pnlJogo3.setBackground(new java.awt.Color(36, 40, 47));
         pnlJogo3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout pnlJogo3Layout = new javax.swing.GroupLayout(pnlJogo3);
@@ -97,6 +105,7 @@ public class TelaLoja extends javax.swing.JFrame {
             .addGap(0, 116, Short.MAX_VALUE)
         );
 
+        pnlJogo4.setBackground(new java.awt.Color(36, 40, 47));
         pnlJogo4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout pnlJogo4Layout = new javax.swing.GroupLayout(pnlJogo4);
@@ -110,6 +119,7 @@ public class TelaLoja extends javax.swing.JFrame {
             .addGap(0, 116, Short.MAX_VALUE)
         );
 
+        pnlJogo5.setBackground(new java.awt.Color(36, 40, 47));
         pnlJogo5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout pnlJogo5Layout = new javax.swing.GroupLayout(pnlJogo5);
@@ -123,6 +133,7 @@ public class TelaLoja extends javax.swing.JFrame {
             .addGap(0, 116, Short.MAX_VALUE)
         );
 
+        pnlJogo6.setBackground(new java.awt.Color(36, 40, 47));
         pnlJogo6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout pnlJogo6Layout = new javax.swing.GroupLayout(pnlJogo6);
@@ -136,6 +147,7 @@ public class TelaLoja extends javax.swing.JFrame {
             .addGap(0, 116, Short.MAX_VALUE)
         );
 
+        pnlJogo7.setBackground(new java.awt.Color(36, 40, 47));
         pnlJogo7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout pnlJogo7Layout = new javax.swing.GroupLayout(pnlJogo7);
@@ -149,6 +161,7 @@ public class TelaLoja extends javax.swing.JFrame {
             .addGap(0, 116, Short.MAX_VALUE)
         );
 
+        pnlJogo8.setBackground(new java.awt.Color(36, 40, 47));
         pnlJogo8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout pnlJogo8Layout = new javax.swing.GroupLayout(pnlJogo8);
@@ -162,6 +175,7 @@ public class TelaLoja extends javax.swing.JFrame {
             .addGap(0, 116, Short.MAX_VALUE)
         );
 
+        pnlJogo9.setBackground(new java.awt.Color(36, 40, 47));
         pnlJogo9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout pnlJogo9Layout = new javax.swing.GroupLayout(pnlJogo9);
@@ -175,6 +189,7 @@ public class TelaLoja extends javax.swing.JFrame {
             .addGap(0, 116, Short.MAX_VALUE)
         );
 
+        pnlJogo10.setBackground(new java.awt.Color(36, 40, 47));
         pnlJogo10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout pnlJogo10Layout = new javax.swing.GroupLayout(pnlJogo10);
@@ -188,6 +203,7 @@ public class TelaLoja extends javax.swing.JFrame {
             .addGap(0, 116, Short.MAX_VALUE)
         );
 
+        pnlJogo11.setBackground(new java.awt.Color(36, 40, 47));
         pnlJogo11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout pnlJogo11Layout = new javax.swing.GroupLayout(pnlJogo11);
@@ -256,12 +272,16 @@ public class TelaLoja extends javax.swing.JFrame {
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
+        btPublicar.setBackground(new java.awt.Color(0, 0, 0));
+        btPublicar.setForeground(new java.awt.Color(255, 255, 255));
         btPublicar.setText("Publicar");
         btPublicar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPublicarActionPerformed(evt);
             }
         });
+
+        mbMenu.setBackground(new java.awt.Color(36, 40, 47));
 
         mPerfil.setText("Perfil");
 
@@ -307,6 +327,7 @@ public class TelaLoja extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void miInformaçoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miInformaçoesActionPerformed
