@@ -4,17 +4,31 @@
  */
 package telas;
 
+import istin.Jogo;
+import istin.Loja;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author anasofia
  */
 public class TelaJogo extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form TelaJogo
      */
-    public TelaJogo() {
+    public TelaJogo(Jogo jogo) {
         initComponents();
+        
+        ImageIcon imageIcon = new ImageIcon(jogo.getImagem());
+        Image image = imageIcon.getImage();
+        Image newimg = image.getScaledInstance(117, 150, Image.SCALE_SMOOTH);
+        capaJogo.setIcon(new ImageIcon(newimg));
+
+        nomeJogo.setText(jogo.getNome());
+        
+        labelPreco.setText(String.valueOf(jogo.getPreco()));
     }
 
     /**
@@ -35,7 +49,7 @@ public class TelaJogo extends javax.swing.JFrame {
         btComprar = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         capaJogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Agreste-pequeno.png"))); // NOI18N
 
@@ -149,7 +163,7 @@ public class TelaJogo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaJogo().setVisible(true);
+                new TelaJogo(Loja.getInstance().getJogos().get(0)).setVisible(true);
             }
         });
     }

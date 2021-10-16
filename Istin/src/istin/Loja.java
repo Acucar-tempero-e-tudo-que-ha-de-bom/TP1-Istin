@@ -7,8 +7,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javax.swing.JPanel;
 import org.json.JSONArray;
 import org.json.JSONTokener;
@@ -16,14 +18,11 @@ import org.json.JSONTokener;
 public class Loja implements GerenciadorJson {
         
         private static Loja instance;
-        private ArrayList<Jogo> jogos;
-        private ArrayList<JPanel> paineis;
+        private List<Jogo> jogos;
         private JSONArray jogosJson;
         
         public Loja () {
             carregaJson();
-            jogos = new ArrayList<Jogo>();
-            paineis = new ArrayList<JPanel>();
         }
         
         public static Loja getInstance() {
@@ -50,12 +49,24 @@ public class Loja implements GerenciadorJson {
                 FileInputStream is = new FileInputStream("jogos.json");
                 JSONTokener tokener = new JSONTokener(is);
                 jogosJson = new JSONArray(tokener);
+                jogos = jogosJson.toList().stream().map(o -> (HashMap) o).map(o -> 
+                        new Jogo(
+                                (String) o.get("nome"),
+                                (int) o.get("preco"),
+                                Base64.getDecoder().decode((String) o.get("imagem")
+                                )
+                        )
+                ).collect(Collectors.toList());
+                
+             
             } catch(FileNotFoundException e) {
                 jogosJson = new JSONArray();
             }
         }
         
         public void criarJogo(Jogo jogo) {
+            jogos.add(jogo);
+            
             HashMap dadosJogo = new HashMap();
             
             dadosJogo.put("id", jogo.getId());
@@ -77,8 +88,8 @@ public class Loja implements GerenciadorJson {
             
         }
         
-        public void adicionaPainel(JPanel painel) {
-            paineis.add(painel);
+        public List<Jogo> getJogos() {
+            return jogos;
         }
 
 }

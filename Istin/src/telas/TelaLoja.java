@@ -4,7 +4,14 @@
  */
 package telas;
 
+import istin.Jogo;
 import istin.Loja;
+import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class TelaLoja extends javax.swing.JFrame {
     
@@ -13,7 +20,34 @@ public class TelaLoja extends javax.swing.JFrame {
     public TelaLoja() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
-        loja = Loja.getInstance();   
+        loja = Loja.getInstance();
+        
+        for (int i = 0; i < loja.getJogos().size(); i++) {          
+            Jogo jogo = loja.getJogos().get(i);
+            
+            int x = 25 + (167 * (i / 2));
+            int y = 25 + (209 * (i % 2));
+            
+            JLabel labelJogo = new JLabel();
+            
+            ImageIcon imageIcon = new ImageIcon(jogo.getImagem());
+            Image image = imageIcon.getImage();
+            Image newimg = image.getScaledInstance(117, 150, Image.SCALE_SMOOTH);
+            labelJogo.setIcon(new ImageIcon(newimg));
+            
+            labelJogo.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    new TelaJogo(jogo).setVisible(true);
+                }
+            });
+            
+            painelLoja.add(labelJogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(x, y, 117, 150));
+            
+            if (i == loja.getJogos().size() - 1) {
+                painelLoja.setPreferredSize(new Dimension(x + 132, 409));
+            }
+        }
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -21,17 +55,9 @@ public class TelaLoja extends javax.swing.JFrame {
     private void initComponents() {
 
         btPublicar = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        lojaPanel = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
-        lblpreviaImagem = new javax.swing.JLabel();
-        lblpreviaImagem1 = new javax.swing.JLabel();
-        lblpreviaImagem2 = new javax.swing.JLabel();
-        lblpreviaImagem3 = new javax.swing.JLabel();
-        lblpreviaImagem4 = new javax.swing.JLabel();
-        lblpreviaImagem5 = new javax.swing.JLabel();
-        lblpreviaImagem6 = new javax.swing.JLabel();
-        lblpreviaImagem7 = new javax.swing.JLabel();
+        panelPai = new javax.swing.JPanel();
+        scrollPanel = new javax.swing.JScrollPane();
+        painelLoja = new javax.swing.JPanel();
         mbMenu = new javax.swing.JMenuBar();
         mPerfil = new javax.swing.JMenu();
         miInformaçoes = new javax.swing.JMenuItem();
@@ -52,66 +78,42 @@ public class TelaLoja extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(36, 40, 47));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Loja", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        panelPai.setBackground(new java.awt.Color(36, 40, 47));
+        panelPai.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Loja", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelPai.setForeground(new java.awt.Color(255, 255, 255));
 
-        lojaPanel.setBackground(new java.awt.Color(36, 40, 47));
-        lojaPanel.setBorder(null);
-        lojaPanel.setForeground(new java.awt.Color(255, 255, 255));
-        lojaPanel.setToolTipText("");
-        lojaPanel.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-        lojaPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        scrollPanel.setBackground(new java.awt.Color(36, 40, 47));
+        scrollPanel.setBorder(null);
+        scrollPanel.setForeground(new java.awt.Color(255, 255, 255));
+        scrollPanel.setToolTipText("");
+        scrollPanel.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scrollPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jPanel2.setBackground(new java.awt.Color(36, 40, 47));
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(874, 409));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        painelLoja.setBackground(new java.awt.Color(36, 40, 47));
+        painelLoja.setForeground(new java.awt.Color(255, 255, 255));
+        painelLoja.setPreferredSize(new java.awt.Dimension(874, 409));
+        painelLoja.setRequestFocusEnabled(false);
+        painelLoja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        scrollPanel.setViewportView(painelLoja);
 
-        lblpreviaImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
-        jPanel2.add(lblpreviaImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 117, 150));
-
-        lblpreviaImagem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
-        jPanel2.add(lblpreviaImagem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 234, 117, 150));
-
-        lblpreviaImagem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
-        jPanel2.add(lblpreviaImagem2, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 25, 117, 150));
-
-        lblpreviaImagem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
-        jPanel2.add(lblpreviaImagem3, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 25, 117, 150));
-
-        lblpreviaImagem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
-        jPanel2.add(lblpreviaImagem4, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 234, 117, 150));
-
-        lblpreviaImagem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
-        jPanel2.add(lblpreviaImagem5, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 234, 117, 150));
-
-        lblpreviaImagem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
-        jPanel2.add(lblpreviaImagem6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 25, 117, 150));
-
-        lblpreviaImagem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png"))); // NOI18N
-        jPanel2.add(lblpreviaImagem7, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 234, 117, 150));
-
-        lojaPanel.setViewportView(jPanel2);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelPaiLayout = new javax.swing.GroupLayout(panelPai);
+        panelPai.setLayout(panelPaiLayout);
+        panelPaiLayout.setHorizontalGroup(
+            panelPaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPaiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lojaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+                .addComponent(scrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        panelPaiLayout.setVerticalGroup(
+            panelPaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lojaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        lojaPanel.getAccessibleContext().setAccessibleName("Loja");
+        scrollPanel.getAccessibleContext().setAccessibleName("Loja");
 
         mbMenu.setBackground(new java.awt.Color(36, 40, 47));
 
@@ -147,12 +149,12 @@ public class TelaLoja extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btPublicar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelPai, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelPai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btPublicar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -210,22 +212,14 @@ public class TelaLoja extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btPublicar;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblpreviaImagem;
-    private javax.swing.JLabel lblpreviaImagem1;
-    private javax.swing.JLabel lblpreviaImagem2;
-    private javax.swing.JLabel lblpreviaImagem3;
-    private javax.swing.JLabel lblpreviaImagem4;
-    private javax.swing.JLabel lblpreviaImagem5;
-    private javax.swing.JLabel lblpreviaImagem6;
-    private javax.swing.JLabel lblpreviaImagem7;
-    private javax.swing.JScrollPane lojaPanel;
     private javax.swing.JMenu mBiblioteca;
     private javax.swing.JMenu mPerfil;
     private javax.swing.JMenuBar mbMenu;
     private javax.swing.JMenuItem miHome;
     private javax.swing.JMenuItem miInformaçoes;
     private javax.swing.JMenuItem miSair;
+    private javax.swing.JPanel painelLoja;
+    private javax.swing.JPanel panelPai;
+    private javax.swing.JScrollPane scrollPanel;
     // End of variables declaration//GEN-END:variables
 }
