@@ -13,7 +13,7 @@ public class TelaLoja extends javax.swing.JFrame {
     public TelaLoja() {
         initComponents();
         
-        loja = Loja.getInstance();   
+        loja = Loja.getInstance();
     }
 
     @SuppressWarnings("unchecked")

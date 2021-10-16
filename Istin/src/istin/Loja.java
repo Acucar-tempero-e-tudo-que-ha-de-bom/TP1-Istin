@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -62,6 +63,7 @@ public class Loja implements GerenciadorJson {
             dadosJogo.put("preco", jogo.getPreco());
             dadosJogo.put("mediaAvaliacao", jogo.getMediaAvaliacao());
             dadosJogo.put("quantidadeAvaliacao", jogo.getNumeroAvaliacoes());
+            dadosJogo.put("imagem", Base64.getEncoder().encode(jogo.getImagem()));
             
             jogo.setId(jogosJson.length());
             jogosJson.put(dadosJogo);

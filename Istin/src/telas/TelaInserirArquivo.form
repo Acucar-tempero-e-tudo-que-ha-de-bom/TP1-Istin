@@ -34,6 +34,12 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JFileChooser" name="jFileChooser1">
+      <Properties>
+        <Property name="acceptAllFileFilterUsed" type="boolean" value="false"/>
+        <Property name="fileFilter" type="javax.swing.filechooser.FileFilter" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.filechooser.FileNameExtensionFilter(&quot;Arquivos de imagem&quot;, &quot;png&quot;, &quot;jpg&quot;, &quot;jpeg&quot;)" type="code"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

@@ -7,10 +7,12 @@ public class Jogo {
     private float preco;
     private float mediaAvaliacao;
     private int numeroAvaliacoes;
+    private byte[] imagem;
 
-    public Jogo(String nome, float preco) {
+    public Jogo(String nome, float preco, byte[] imagem) {
         this.nome = nome;
         this.preco = preco;
+        this.imagem = imagem;
     }
 
     public int getId() {
@@ -43,6 +45,14 @@ public class Jogo {
 
     public void setNumeroAvaliacoes(int numeroAvaliacoes) {
         this.numeroAvaliacoes = numeroAvaliacoes;
+    }
+
+    public byte[] getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
     }
 
     

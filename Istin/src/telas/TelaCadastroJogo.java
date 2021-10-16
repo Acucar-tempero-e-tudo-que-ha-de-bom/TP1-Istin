@@ -6,7 +6,14 @@ package telas;
 
 import istin.Jogo;
 import istin.Loja;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -15,6 +22,7 @@ import javax.swing.JOptionPane;
 public class TelaCadastroJogo extends javax.swing.JFrame {
 
     public Loja loja;
+    private byte[] bytesArquivo;
     
     public TelaCadastroJogo() {
         initComponents();
@@ -102,7 +110,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
                     .addComponent(btnInserirImagem)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(lblpreviaImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblpreviaImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(56, 56, 56))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(btnOK)
@@ -113,7 +121,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblpreviaImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblpreviaImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -140,7 +148,24 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void btnInserirImagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirImagemActionPerformed
-        new TelaInserirArquivo().setVisible(true);
+        JFileChooser inserirArquivo = new JFileChooser();
+        inserirArquivo.setAcceptAllFileFilterUsed(false);
+        inserirArquivo.setFileFilter(new FileNameExtensionFilter("Arquivos de imagem", "png", "jpg", "jpeg"));
+        int resultado = inserirArquivo.showOpenDialog(this);
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            File arquivoSelecionado = inserirArquivo.getSelectedFile();
+            try {
+                bytesArquivo = Files.readAllBytes(arquivoSelecionado.toPath());
+                
+                ImageIcon imageIcon = new ImageIcon(bytesArquivo);
+                Image image = imageIcon.getImage();
+                Image newimg = image.getScaledInstance(94, 120, Image.SCALE_SMOOTH);
+
+                lblpreviaImagem.setIcon(new ImageIcon(newimg));
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Não foi possível ler o arquivo selecionado");
+            }
+        }
     }//GEN-LAST:event_btnInserirImagemActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -155,7 +180,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
         if(nome.equals("") || preco.equals("")) {
             JOptionPane.showMessageDialog(null, "Campos não preenchidos");
         } else {
-            Jogo jogo = new Jogo(nome, Float.parseFloat(preco));
+            Jogo jogo = new Jogo(nome, Float.parseFloat(preco), bytesArquivo);
             loja.criarJogo(jogo);
             JOptionPane.showMessageDialog(null, "Jogo cadastrado com sucesso");
             this.setVisible(false);
