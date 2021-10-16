@@ -91,7 +91,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        btnEntrar.setBackground(new java.awt.Color(36, 40, 47));
+        btnEntrar.setBackground(new java.awt.Color(0, 0, 0));
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrar.setText("Entrar");
         btnEntrar.setBorderPainted(false);
