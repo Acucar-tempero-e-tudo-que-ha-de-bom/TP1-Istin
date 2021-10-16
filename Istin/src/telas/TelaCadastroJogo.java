@@ -15,6 +15,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
      */
     public TelaCadastroJogo() {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(36, 40, 47));
     }
 
     /**

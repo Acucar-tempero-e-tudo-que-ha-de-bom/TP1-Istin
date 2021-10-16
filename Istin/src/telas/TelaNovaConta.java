@@ -19,6 +19,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
     
     public TelaNovaConta() {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         
         login = Login.getInstance();
     }
