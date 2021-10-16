@@ -74,6 +74,8 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
             }
         });
 
+        lblpreviaImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/interrogacao.png"))); // NOI18N
+
         btnCancelar.setBackground(new java.awt.Color(36, 40, 47));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/seta-esquerda.png"))); // NOI18N
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
