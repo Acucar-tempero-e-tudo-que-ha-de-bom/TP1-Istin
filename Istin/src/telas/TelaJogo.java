@@ -20,7 +20,8 @@ public class TelaJogo extends javax.swing.JFrame {
      */
     public TelaJogo(Jogo jogo) {
         initComponents();
-        
+        getContentPane().setBackground(new java.awt.Color(36, 40, 47));
+        this.setTitle(jogo.getNome());
         ImageIcon imageIcon = new ImageIcon(jogo.getImagem());
         Image image = imageIcon.getImage();
         Image newimg = image.getScaledInstance(117, 150, Image.SCALE_SMOOTH);
@@ -50,23 +51,32 @@ public class TelaJogo extends javax.swing.JFrame {
         btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        capaJogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Agreste-pequeno.png"))); // NOI18N
+        setBackground(new java.awt.Color(36, 40, 47));
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
 
         nomeJogo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        nomeJogo.setForeground(new java.awt.Color(255, 255, 255));
         nomeJogo.setText("NOME DO JOGO");
 
+        nomeAutor.setForeground(new java.awt.Color(255, 255, 255));
         nomeAutor.setText("AutorNome");
 
         labelPreco.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        labelPreco.setForeground(new java.awt.Color(255, 255, 255));
         labelPreco.setText("Preço: R$ 00,00");
 
+        labelNota.setForeground(new java.awt.Color(255, 255, 255));
         labelNota.setText("Nota:");
 
+        labelGenero.setForeground(new java.awt.Color(255, 255, 255));
         labelGenero.setText("Genero:");
 
+        btComprar.setBackground(new java.awt.Color(36, 40, 47));
+        btComprar.setForeground(new java.awt.Color(255, 255, 255));
         btComprar.setText("Comprar");
 
+        btVoltar.setBackground(new java.awt.Color(36, 40, 47));
+        btVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/seta-esquerda.png"))); // NOI18N
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,10 +137,11 @@ public class TelaJogo extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_btVoltarActionPerformed
 
     /**
