@@ -4,7 +4,7 @@ import istin.generic.JsonSerializavel;
 import java.util.Base64;
 import org.json.JSONObject;
 
-public class Jogo extends JsonSerializavel {
+public class Jogo implements JsonSerializavel {
 
     private int id;
     private final String nome;
@@ -14,7 +14,6 @@ public class Jogo extends JsonSerializavel {
     private byte[] imagem;
     
     public Jogo(JSONObject json) {
-        super(json);
         id = json.getInt("id");
         nome = json.getString("nome");
         preco = json.getFloat("preco");
@@ -24,7 +23,6 @@ public class Jogo extends JsonSerializavel {
     }
     
     public Jogo(String nome, float preco, byte[] imagem) {
-        super(null);
         this.nome = nome;
         this.preco = preco;
         this.imagem = imagem;
