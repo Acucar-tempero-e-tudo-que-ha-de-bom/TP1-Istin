@@ -1,7 +1,18 @@
-[{
-    "senha": "ana",
-    "tipo": "Autor",
-    "nome": "ana",
-    "email": "ana",
-    "jogos": []
-}]
+[
+    {
+        "senha": "a",
+        "tipo": "Autor",
+        "nome": "a",
+        "jogosPublicados": [],
+        "email": "a",
+        "jogos": []
+    },
+    {
+        "senha": "ana",
+        "tipo": "Cliente",
+        "nome": "ana",
+        "saldo": 0,
+        "email": "ana",
+        "jogos": []
+    }
+]

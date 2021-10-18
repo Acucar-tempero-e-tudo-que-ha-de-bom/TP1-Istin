@@ -4,7 +4,9 @@
  */
 package telas;
 
+import istin.Autor;
 import istin.Jogo;
+import istin.Login;
 import istin.Loja;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -20,6 +22,13 @@ public class TelaLoja extends javax.swing.JFrame {
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         loja = Loja.getInstance();
         atualizarLoja();
+        
+        // Se usuario logado for um autor, mostra o botão de publicar
+        if (Login.getInstance().getUsuarioLogado() instanceof Autor) {
+            btPublicar.setVisible(true);
+        } else {
+            btPublicar.setVisible(false);
+        }
     }
     
     public void atualizarLoja() {
@@ -204,10 +213,8 @@ public class TelaLoja extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaLoja().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaLoja().setVisible(true);
         });
     }
 

@@ -19,13 +19,20 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 
-public class Login implements GerenciadorJson{
+public class Login implements GerenciadorJson {
     private static Login instance;
     private List<Usuario> logins;
     private Usuario logado;
     
     public Login() {
         carregaJson();
+    }
+    
+    public static Login getInstance() {
+        if (instance == null) {
+            instance = new Login();
+        }
+        return instance;
     }
     
     @Override
@@ -94,13 +101,5 @@ public class Login implements GerenciadorJson{
     public Usuario getUsuarioLogado() {
         return logado;
     }
-    
-    public static Login getInstance() {
-        if (instance == null) {
-            instance = new Login();
-        }
-        return instance;
-    }
-
 
 }

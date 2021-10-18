@@ -1,5 +1,6 @@
 package istin;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.json.JSONObject;
@@ -15,6 +16,13 @@ public class Usuario implements JsonSerializavel {
         this.email = email;
         this.senha = senha;
         this.listaIdJogos = listaIdJogos;
+    }
+    
+    public Usuario(String nome, String email, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.listaIdJogos = new ArrayList<>();
     }
     
     public Usuario(JSONObject json) {

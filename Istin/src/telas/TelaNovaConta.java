@@ -169,10 +169,10 @@ public class TelaNovaConta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Já existe uma conta com esse email");
         } else {
             if(rbtCliente.isSelected()){
-                Cliente novoCliente = new Cliente(0.0f, nome, email, senha, null);
+                Cliente novoCliente = new Cliente(0.0f, nome, email, senha);
                 login.criaNovaConta(novoCliente);
             } else {
-                Autor novoAutor = new Autor(nome, email, senha, null);
+                Autor novoAutor = new Autor(nome, email, senha);
                 login.criaNovaConta(novoAutor);
             }
             
@@ -220,10 +220,8 @@ public class TelaNovaConta extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaNovaConta().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaNovaConta().setVisible(true);
         });
     }
 
