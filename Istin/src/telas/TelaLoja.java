@@ -8,20 +8,22 @@ import istin.Jogo;
 import istin.Loja;
 import java.awt.Dimension;
 import java.awt.Image;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class TelaLoja extends javax.swing.JFrame {
     
-    private Loja loja;
+    private final Loja loja;
     
     public TelaLoja() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         loja = Loja.getInstance();
-        
+        atualizarLoja();
+    }
+    
+    public void atualizarLoja() {
+        painelLoja.removeAll();
         for (int i = 0; i < loja.getJogos().size(); i++) {          
             Jogo jogo = loja.getJogos().get(i);
             
@@ -47,7 +49,6 @@ public class TelaLoja extends javax.swing.JFrame {
                 painelLoja.setPreferredSize(new Dimension(x + 132, 409));
             }
         }
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -170,7 +171,7 @@ public class TelaLoja extends javax.swing.JFrame {
 
     private void btPublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPublicarActionPerformed
         
-        new TelaCadastroJogo().setVisible(true);
+        new TelaCadastroJogo(this).setVisible(true);
         
     }//GEN-LAST:event_btPublicarActionPerformed
 
