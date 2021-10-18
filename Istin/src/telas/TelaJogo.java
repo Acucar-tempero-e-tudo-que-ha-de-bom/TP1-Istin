@@ -52,7 +52,7 @@ public class TelaJogo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(36, 40, 47));
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png")).getImage());
 
         lblnomeJogo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         lblnomeJogo.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,7 +77,7 @@ public class TelaJogo extends javax.swing.JFrame {
 
         btnVoltar.setBackground(new java.awt.Color(36, 40, 47));
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
-        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/seta-esquerda.png"))); // NOI18N
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/seta-esquerda.png"))); // NOI18N
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
