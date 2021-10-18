@@ -3,22 +3,16 @@ package istin;
 import java.util.ArrayList;
 
 public class Usuario {
-    private int id;
     private String nome;
     private String email;
     private String senha;
     private int[] listaIdJogos;
 
-    public Usuario(int id, String nome, String email, String senha, int[] listaIdJogos) {
-        this.id = id;
+    public Usuario(String nome, String email, String senha, int[] listaIdJogos) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.listaIdJogos = listaIdJogos;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getNome() {
@@ -39,9 +33,5 @@ public class Usuario {
 
     public void setListaIdJogos(int[] listaIdJogos) {
         this.listaIdJogos = listaIdJogos;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }
