@@ -53,6 +53,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastrar jogo");
         setBackground(new java.awt.Color(36, 40, 47));
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
 
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
         lblNome.setText("Nome");

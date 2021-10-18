@@ -20,15 +20,16 @@ public class TelaJogo extends javax.swing.JFrame {
      */
     public TelaJogo(Jogo jogo) {
         initComponents();
-        
+        getContentPane().setBackground(new java.awt.Color(36, 40, 47));
+        this.setTitle(jogo.getNome());
         ImageIcon imageIcon = new ImageIcon(jogo.getImagem());
         Image image = imageIcon.getImage();
         Image newimg = image.getScaledInstance(117, 150, Image.SCALE_SMOOTH);
-        capaJogo.setIcon(new ImageIcon(newimg));
+        lblcapaJogo.setIcon(new ImageIcon(newimg));
 
-        nomeJogo.setText(jogo.getNome());
+        lblnomeJogo.setText(jogo.getNome());
         
-        labelPreco.setText(String.valueOf(jogo.getPreco()));
+        lblPreco.setText(String.valueOf(jogo.getPreco()));
     }
 
     /**
@@ -40,37 +41,46 @@ public class TelaJogo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        capaJogo = new javax.swing.JLabel();
-        nomeJogo = new javax.swing.JLabel();
-        nomeAutor = new javax.swing.JLabel();
-        labelPreco = new javax.swing.JLabel();
-        labelNota = new javax.swing.JLabel();
-        labelGenero = new javax.swing.JLabel();
-        btComprar = new javax.swing.JButton();
-        btVoltar = new javax.swing.JButton();
+        lblcapaJogo = new javax.swing.JLabel();
+        lblnomeJogo = new javax.swing.JLabel();
+        lblnomeAutor = new javax.swing.JLabel();
+        lblPreco = new javax.swing.JLabel();
+        lblNota = new javax.swing.JLabel();
+        lblGenero = new javax.swing.JLabel();
+        btnComprar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(36, 40, 47));
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
 
-        capaJogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Agreste-pequeno.png"))); // NOI18N
+        lblnomeJogo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        lblnomeJogo.setForeground(new java.awt.Color(255, 255, 255));
+        lblnomeJogo.setText("NOME DO JOGO");
 
-        nomeJogo.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        nomeJogo.setText("NOME DO JOGO");
+        lblnomeAutor.setForeground(new java.awt.Color(255, 255, 255));
+        lblnomeAutor.setText("AutorNome");
 
-        nomeAutor.setText("AutorNome");
+        lblPreco.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        lblPreco.setForeground(new java.awt.Color(255, 255, 255));
+        lblPreco.setText("Preço: R$ 00,00");
 
-        labelPreco.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        labelPreco.setText("Preço: R$ 00,00");
+        lblNota.setForeground(new java.awt.Color(255, 255, 255));
+        lblNota.setText("Nota:");
 
-        labelNota.setText("Nota:");
+        lblGenero.setForeground(new java.awt.Color(255, 255, 255));
+        lblGenero.setText("Genero:");
 
-        labelGenero.setText("Genero:");
+        btnComprar.setBackground(new java.awt.Color(36, 40, 47));
+        btnComprar.setForeground(new java.awt.Color(255, 255, 255));
+        btnComprar.setText("Comprar");
 
-        btComprar.setText("Comprar");
-
-        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/seta-esquerda.png"))); // NOI18N
-        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setBackground(new java.awt.Color(36, 40, 47));
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/seta-esquerda.png"))); // NOI18N
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btVoltarActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
 
@@ -83,55 +93,56 @@ public class TelaJogo extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(labelNota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(capaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblNota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblcapaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nomeJogo)
-                                    .addComponent(nomeAutor)))
+                                    .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblnomeJogo)
+                                    .addComponent(lblnomeAutor)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btComprar)
+                                .addComponent(btnComprar)
                                 .addGap(42, 42, 42))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btVoltar)))
+                        .addComponent(btnVoltar)))
                 .addContainerGap(117, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btVoltar)
+                .addComponent(btnVoltar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(capaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblcapaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(nomeJogo)
+                        .addComponent(lblnomeJogo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nomeAutor)
+                        .addComponent(lblnomeAutor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(labelNota, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblNota, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btComprar)
+                .addComponent(btnComprar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btVoltarActionPerformed
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,13 +180,13 @@ public class TelaJogo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btComprar;
-    private javax.swing.JButton btVoltar;
-    private javax.swing.JLabel capaJogo;
-    private javax.swing.JLabel labelGenero;
-    private javax.swing.JLabel labelNota;
-    private javax.swing.JLabel labelPreco;
-    private javax.swing.JLabel nomeAutor;
-    private javax.swing.JLabel nomeJogo;
+    private javax.swing.JButton btnComprar;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel lblGenero;
+    private javax.swing.JLabel lblNota;
+    private javax.swing.JLabel lblPreco;
+    private javax.swing.JLabel lblcapaJogo;
+    private javax.swing.JLabel lblnomeAutor;
+    private javax.swing.JLabel lblnomeJogo;
     // End of variables declaration//GEN-END:variables
 }
