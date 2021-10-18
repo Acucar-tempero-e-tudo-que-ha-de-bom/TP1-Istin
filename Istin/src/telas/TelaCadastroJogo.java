@@ -23,11 +23,13 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
 
     public Loja loja;
     private byte[] bytesArquivo;
+    private TelaLoja lojaPai;
     
-    public TelaCadastroJogo() {
+    public TelaCadastroJogo(TelaLoja lojaPai) {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         loja = Loja.getInstance();
+        this.lojaPai = lojaPai;
     }
 
     /**
@@ -74,8 +76,6 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
                 btnInserirImagemActionPerformed(evt);
             }
         });
-
-        lblpreviaImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/interrogacao.png"))); // NOI18N
 
         btnCancelar.setBackground(new java.awt.Color(36, 40, 47));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/seta-esquerda.png"))); // NOI18N
@@ -188,6 +188,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
             loja.criarJogo(jogo);
             JOptionPane.showMessageDialog(null, "Jogo cadastrado com sucesso");
             this.setVisible(false);
+            lojaPai.atualizarLoja();
         }
         
     }//GEN-LAST:event_btnOKActionPerformed
@@ -222,7 +223,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroJogo().setVisible(true);
+                new TelaCadastroJogo(new TelaLoja()).setVisible(true);
             }
         });
     }
