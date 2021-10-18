@@ -1,18 +1,27 @@
 package istin;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import org.json.JSONObject;
 
-public class Usuario {
-    private String nome;
-    private String email;
-    private String senha;
-    private int[] listaIdJogos;
+public class Usuario implements JsonSerializavel {
+    private final String nome;
+    private final String email;
+    private final String senha;
+    private List<Integer> listaIdJogos;
 
-    public Usuario(String nome, String email, String senha, int[] listaIdJogos) {
+    public Usuario(String nome, String email, String senha, List<Integer> listaIdJogos) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.listaIdJogos = listaIdJogos;
+    }
+    
+    public Usuario(JSONObject json) {
+        this.nome = json.getString("nome");
+        this.email = json.getString("email");
+        this.senha = json.getString("senha");
+        this.listaIdJogos = json.getJSONArray("jogos").toList().stream().map(o -> (Integer) o).collect(Collectors.toList());
     }
 
     public String getNome() {
@@ -27,11 +36,24 @@ public class Usuario {
         return senha;
     }
 
-    public int[] getListaIdJogos() {
+    public List<Integer> getListaIdJogos() {
         return listaIdJogos;
     }
 
-    public void setListaIdJogos(int[] listaIdJogos) {
+    public void setListaIdJogos(List<Integer> listaIdJogos) {
         this.listaIdJogos = listaIdJogos;
+    }
+    
+    @Override
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        
+        json.put("nome", nome);
+        json.put("email", email);
+        json.put("senha", senha);
+        json.put("jogos", listaIdJogos);
+        json.put("tipo", this.getClass().getSimpleName());
+        
+        return json;
     }
 }

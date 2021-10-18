@@ -163,9 +163,13 @@ public class TelaNovaConta extends javax.swing.JFrame {
             
         } else if(!rbtAutor.isSelected() && !rbtCliente.isSelected()) {
             JOptionPane.showMessageDialog(null, "Selecione o tipo de conta");
-        }else {
+        } else if(login.existeContaNome(nome)) {
+            JOptionPane.showMessageDialog(null, "Já existe uma conta com esse nome de usuário");
+        }  else if(login.existeContaEmail(email)) {
+            JOptionPane.showMessageDialog(null, "Já existe uma conta com esse email");
+        } else {
             if(rbtCliente.isSelected()){
-                Cliente novoCliente = new Cliente(0, nome, email, senha, null);
+                Cliente novoCliente = new Cliente(0.0f, nome, email, senha, null);
                 login.criaNovaConta(novoCliente);
             } else {
                 Autor novoAutor = new Autor(nome, email, senha, null);

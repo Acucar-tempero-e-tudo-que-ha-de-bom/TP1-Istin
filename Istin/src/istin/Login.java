@@ -5,18 +5,23 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.json.JSONTokener;
 
 
 public class Login implements GerenciadorJson{
     private static Login instance;
-    private JSONArray logins;
+    private List<Usuario> logins;
     private Usuario logado;
     
     public Login() {
@@ -24,64 +29,70 @@ public class Login implements GerenciadorJson{
     }
     
     @Override
-    public void carregaJson() {
+    public final void carregaJson() {
          try {
             FileInputStream is = new FileInputStream("logins.json");
             JSONTokener tokener = new JSONTokener(is);
-            logins = new JSONArray(tokener);
+            
+            JSONArray loginsJson = new JSONArray(tokener);
+            logins = IntStream.range(0, loginsJson.length()).mapToObj(i -> {
+                JSONObject json = loginsJson.getJSONObject(i);
+                switch (json.getString("tipo")) {
+                    case "Cliente" -> {
+                        return new Cliente(json);
+                    }
+                    case "Autor" -> {
+                        return new Autor(json);
+                    }
+                    default -> Logger.getLogger(Login.class.getName()).log(Level.WARNING, "Tipo de usuario invalido");
+                }
+                return new Usuario(json);
+            }).collect(Collectors.toList());
         } catch(FileNotFoundException e) {
-            logins = new JSONArray();
+            logins = new ArrayList<>();
+        } catch(JSONException e) {
+            logins = new ArrayList<>();
+            salvarJson(); // Salva o JSON vazio
         }
     }
     
     @Override
     public void salvarJson() {
-        try {
-            FileWriter escreve = new FileWriter("logins.json");
-            escreve.write(logins.toString(4));
-            escreve.close();
+        try (FileWriter escreve = new FileWriter("logins.json")) {
+            JSONArray loginsJson = new JSONArray(logins.stream().map(Usuario::toJSON).collect(Collectors.toList()));
+            escreve.write(loginsJson.toString(4));
         } catch(IOException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void criaNovaConta(Cliente cliente) {
-        HashMap informacoesCliente = new HashMap();
-        informacoesCliente.put("nome", cliente.getNome());
-        informacoesCliente.put("email", cliente.getEmail());
-        informacoesCliente.put("senha", cliente.getSenha());
-        informacoesCliente.put("saldo", cliente.getSaldo());
-        
-        logins.put(informacoesCliente);
-        
-        this.salvarJson();
-    }
-
-    public void criaNovaConta(Autor autor) {
-        HashMap informacoesAutor = new HashMap();
-        informacoesAutor.put("nome", autor.getNome());
-        informacoesAutor.put("email", autor.getEmail());
-        informacoesAutor.put("senha", autor.getSenha());
-        
-        logins.put(informacoesAutor);
-        
+    public void criaNovaConta(Usuario autor) {
+        logins.add(autor);
         this.salvarJson();
     }
     
+    public boolean existeContaNome(String nomeInserido) {
+        Optional<Usuario> optionalUsuario = logins.stream().filter(u -> u.getNome().equals(nomeInserido)).findFirst();
+        return optionalUsuario.isPresent();
+    }
+    
+    public boolean existeContaEmail(String emailInserido) {
+        Optional<Usuario> optionalUsuario = logins.stream().filter(u -> u.getEmail().equals(emailInserido)).findFirst();
+        return optionalUsuario.isPresent();
+    }
+    
     public void validaLogin(String nomeInserido, String senhaInserida) throws InvalidUserException {
-        Optional<HashMap> optionalUser = logins.toList().stream().map(o -> (HashMap) o).filter(o -> o.get("nome").equals(nomeInserido) && o.get("senha").equals(senhaInserida)).findFirst();
+        Optional<Usuario> optionalUsuario = logins.stream().filter(u -> (u.getNome().equals(nomeInserido) && u.getSenha().equals(senhaInserida))).findFirst();
         
-        if (optionalUser.isEmpty()){
+        if (optionalUsuario.isEmpty()){
             throw new InvalidUserException("Esse usuário não existe");
         } else {
-            HashMap userMap = optionalUser.get();
-            logado = new Usuario(
-                (String) userMap.get("nome"),
-                (String) userMap.get("email"),
-                (String) userMap.get("senha"),
-                new int[0]
-            );
+            logado = optionalUsuario.get();
         }
+    }
+    
+    public Usuario getUsuarioLogado() {
+        return logado;
     }
     
     public static Login getInstance() {
@@ -90,7 +101,6 @@ public class Login implements GerenciadorJson{
         }
         return instance;
     }
-
 
 
 }

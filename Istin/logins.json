@@ -1,6 +1,7 @@
 [{
     "senha": "ana",
+    "tipo": "Autor",
     "nome": "ana",
-    "saldo": 0,
-    "email": "anaboboca@gmail.com"
+    "email": "ana",
+    "jogos": []
 }]

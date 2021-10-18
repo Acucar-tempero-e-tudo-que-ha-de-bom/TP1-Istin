@@ -1,10 +1,13 @@
 package istin;
 
-public class Jogo {
+import java.util.Base64;
+import org.json.JSONObject;
+
+public class Jogo implements JsonSerializavel {
 
     private int id;
-    private String nome;
-    private float preco;
+    private final String nome;
+    private final float preco;
     private float mediaAvaliacao;
     private int numeroAvaliacoes;
     private byte[] imagem;
@@ -13,6 +16,15 @@ public class Jogo {
         this.nome = nome;
         this.preco = preco;
         this.imagem = imagem;
+    }
+
+    public Jogo(JSONObject json) {
+        id = json.getInt("id");
+        nome = json.getString("nome");
+        preco = json.getFloat("preco");
+        mediaAvaliacao = json.getFloat("mediaAvaliacao");
+        numeroAvaliacoes = json.getInt("quantidadeAvaliacao");
+        imagem = Base64.getDecoder().decode(json.getString("imagem"));
     }
 
     public int getId() {
@@ -55,6 +67,18 @@ public class Jogo {
         this.imagem = imagem;
     }
 
-    
+    @Override
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        
+        json.put("id", id);
+        json.put("nome", nome);
+        json.put("preco", preco);
+        json.put("mediaAvaliacao", mediaAvaliacao);
+        json.put("quantidadeAvaliacao", numeroAvaliacoes);
+        json.put("imagem", new String(Base64.getEncoder().encode(imagem)));
+        
+        return json;
+    }
     
 }
