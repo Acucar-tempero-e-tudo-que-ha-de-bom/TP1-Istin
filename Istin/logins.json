@@ -14,5 +14,13 @@
         "saldo": 0,
         "email": "ana",
         "jogos": []
+    },
+    {
+        "senha": "zap",
+        "tipo": "Cliente",
+        "nome": "zap",
+        "saldo": 0,
+        "email": "zap",
+        "jogos": []
     }
 ]

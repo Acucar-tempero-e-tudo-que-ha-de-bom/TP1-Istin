@@ -1,9 +1,10 @@
 package istin;
 
+import istin.generic.JsonSerializavel;
 import java.util.Base64;
 import org.json.JSONObject;
 
-public class Jogo implements JsonSerializavel {
+public class Jogo extends JsonSerializavel {
 
     private int id;
     private final String nome;
@@ -11,20 +12,22 @@ public class Jogo implements JsonSerializavel {
     private float mediaAvaliacao;
     private int numeroAvaliacoes;
     private byte[] imagem;
-
-    public Jogo(String nome, float preco, byte[] imagem) {
-        this.nome = nome;
-        this.preco = preco;
-        this.imagem = imagem;
-    }
-
+    
     public Jogo(JSONObject json) {
+        super(json);
         id = json.getInt("id");
         nome = json.getString("nome");
         preco = json.getFloat("preco");
         mediaAvaliacao = json.getFloat("mediaAvaliacao");
         numeroAvaliacoes = json.getInt("quantidadeAvaliacao");
         imagem = Base64.getDecoder().decode(json.getString("imagem"));
+    }
+    
+    public Jogo(String nome, float preco, byte[] imagem) {
+        super(null);
+        this.nome = nome;
+        this.preco = preco;
+        this.imagem = imagem;
     }
 
     public int getId() {

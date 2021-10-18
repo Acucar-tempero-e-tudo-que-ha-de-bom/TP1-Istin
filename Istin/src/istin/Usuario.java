@@ -1,17 +1,19 @@
 package istin;
 
+import istin.generic.JsonSerializavel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.json.JSONObject;
 
-public class Usuario implements JsonSerializavel {
+public class Usuario extends JsonSerializavel {
     private final String nome;
     private final String email;
     private final String senha;
     private List<Integer> listaIdJogos;
 
     public Usuario(String nome, String email, String senha, List<Integer> listaIdJogos) {
+        super(null);
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -19,6 +21,7 @@ public class Usuario implements JsonSerializavel {
     }
     
     public Usuario(String nome, String email, String senha) {
+        super(null);
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -26,6 +29,7 @@ public class Usuario implements JsonSerializavel {
     }
     
     public Usuario(JSONObject json) {
+        super(json);
         this.nome = json.getString("nome");
         this.email = json.getString("email");
         this.senha = json.getString("senha");
