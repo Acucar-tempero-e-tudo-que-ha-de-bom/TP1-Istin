@@ -8,7 +8,7 @@ import telas.helpers.SimpleDocumentListener;
 
 public class TelaLogin extends javax.swing.JFrame {
         
-    private Login login;
+    private final Login login;
 
     public TelaLogin() {
         initComponents();

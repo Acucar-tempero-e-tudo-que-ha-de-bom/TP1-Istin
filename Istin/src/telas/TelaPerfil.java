@@ -58,7 +58,7 @@ public class TelaPerfil extends javax.swing.JFrame{
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Perfil Istin");
         setBackground(new java.awt.Color(36, 40, 47));
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png")).getImage());
 
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
         lblNome.setText("NOMEEEEE");
