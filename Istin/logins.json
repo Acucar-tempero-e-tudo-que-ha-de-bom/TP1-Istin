@@ -22,5 +22,13 @@
         "saldo": 0,
         "email": "zap",
         "jogos": []
+    },
+    {
+        "senha": "victor",
+        "tipo": "Cliente",
+        "nome": "victor",
+        "saldo": 0,
+        "email": "victor@meudeusquantacontaquesaco.com.br",
+        "jogos": []
     }
 ]

@@ -42,7 +42,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         }
     }
-    
+
     private void atualizarBotaoEntrar() {
         String nome = txtNomeUsuario.getText();
         String senha = txtSenha.getText();

@@ -6,6 +6,7 @@ package telas;
 
 import istin.Jogo;
 import istin.Loja;
+import istin.Compra;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -76,6 +77,11 @@ public class TelaJogo extends javax.swing.JFrame {
         btnComprar.setBackground(new java.awt.Color(36, 40, 47));
         btnComprar.setForeground(new java.awt.Color(255, 255, 255));
         btnComprar.setText("Comprar");
+        btnComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprarActionPerformed(evt);
+            }
+        });
 
         btnVoltar.setBackground(new java.awt.Color(36, 40, 47));
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,14 +152,11 @@ public class TelaJogo extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-<<<<<<< Updated upstream
-=======
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
         Compra compra = new Compra();
         compra.comprar(jogo);
     }//GEN-LAST:event_btnComprarActionPerformed
 
->>>>>>> Stashed changes
     /**
      * @param args the command line arguments
      */

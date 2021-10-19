@@ -70,7 +70,7 @@ public class TelaLoja extends javax.swing.JFrame {
         painelLoja = new javax.swing.JPanel();
         mbMenu = new javax.swing.JMenuBar();
         mPerfil = new javax.swing.JMenu();
-        miInformaçoes = new javax.swing.JMenuItem();
+        miDetalhes = new javax.swing.JMenuItem();
         miSair = new javax.swing.JMenuItem();
         mBiblioteca = new javax.swing.JMenu();
         miHome = new javax.swing.JMenuItem();
@@ -129,13 +129,13 @@ public class TelaLoja extends javax.swing.JFrame {
 
         mPerfil.setText("Perfil");
 
-        miInformaçoes.setText("Detalhes");
-        miInformaçoes.addActionListener(new java.awt.event.ActionListener() {
+        miDetalhes.setText("Detalhes");
+        miDetalhes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miInformaçoesActionPerformed(evt);
+                miDetalhesActionPerformed(evt);
             }
         });
-        mPerfil.add(miInformaçoes);
+        mPerfil.add(miDetalhes);
 
         miSair.setText("Sair");
         mPerfil.add(miSair);
@@ -174,9 +174,9 @@ public class TelaLoja extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void miInformaçoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miInformaçoesActionPerformed
+    private void miDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miDetalhesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_miInformaçoesActionPerformed
+    }//GEN-LAST:event_miDetalhesActionPerformed
 
     private void btPublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPublicarActionPerformed
         
@@ -223,8 +223,8 @@ public class TelaLoja extends javax.swing.JFrame {
     private javax.swing.JMenu mBiblioteca;
     private javax.swing.JMenu mPerfil;
     private javax.swing.JMenuBar mbMenu;
+    private javax.swing.JMenuItem miDetalhes;
     private javax.swing.JMenuItem miHome;
-    private javax.swing.JMenuItem miInformaçoes;
     private javax.swing.JMenuItem miSair;
     private javax.swing.JPanel painelLoja;
     private javax.swing.JPanel panelPai;
