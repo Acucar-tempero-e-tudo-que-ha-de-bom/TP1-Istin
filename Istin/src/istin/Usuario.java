@@ -23,7 +23,11 @@ public class Usuario implements JsonSerializavel {
     }
     
     public Usuario(String nome, String email, String senha, byte[] fotoPerfil) {
-        super(nome, email, senha, fotoPerfil, new ArrayList<>())
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.fotoPerfil = fotoPerfil;
+        this.listaIdJogos = new ArrayList<>();
     }
     
     public Usuario(JSONObject json) {
@@ -71,7 +75,7 @@ public class Usuario implements JsonSerializavel {
         json.put("email", email);
         json.put("senha", senha);
         json.put("jogos", listaIdJogos);
-        json.put("fotoPerfil", new String(Base64.getEncoder().encode(fotoPerfil)))
+        json.put("fotoPerfil", new String(Base64.getEncoder().encode(fotoPerfil)));
         json.put("tipo", this.getClass().getSimpleName());
         
         return json;

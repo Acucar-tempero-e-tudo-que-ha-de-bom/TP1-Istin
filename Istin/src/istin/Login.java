@@ -2,28 +2,11 @@ package istin;
 
 import istin.generic.GerenciadorJson;
 import istin.exceptions.InvalidUserException;
-<<<<<<< HEAD
-=======
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.Iterator;
->>>>>>> origin/main
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-<<<<<<< HEAD
 import org.json.JSONObject;
-=======
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONTokener;
->>>>>>> origin/main
-
 
 public class Login extends GerenciadorJson<Usuario> {
     private static Login instance;

@@ -1,19 +1,14 @@
 package telas;
 
-import istin.GerenciadorJson;
 import istin.Login;
 import java.awt.Image;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import org.json.JSONArray;
-import org.json.JSONTokener;
 
 public class TelaPerfil extends javax.swing.JFrame{
 
@@ -25,13 +20,13 @@ public class TelaPerfil extends javax.swing.JFrame{
         
         login = Login.getInstance();
         
-        ImageIcon imageIcon = new ImageIcon(login.getLogado().getFotoPerfil());
+        ImageIcon imageIcon = new ImageIcon(login.getUsuarioLogado().getFotoPerfil());
         Image image = imageIcon.getImage();
         Image newimg = image.getScaledInstance(99, 99, Image.SCALE_SMOOTH);
 
         lblFotoPerfil.setIcon(new ImageIcon(newimg));
         
-        lblNome.setText(login.getLogado().getNome());
+        lblNome.setText(login.getUsuarioLogado().getNome());
         
         /*
         No caso da classe login ela tem um certo Usuario logado, como ele n tem saldo eu deixei comentado
@@ -180,8 +175,8 @@ public class TelaPerfil extends javax.swing.JFrame{
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
         
-        login.getLogado().setFotoPerfil(bytesArquivo);        
-        login.salvaFotoPerfil();
+        login.getUsuarioLogado().setFotoPerfil(bytesArquivo);        
+        login.salvarJson();
         JOptionPane.showMessageDialog(null, "Foto alterada com sucesso");
     }//GEN-LAST:event_btnOKActionPerformed
     

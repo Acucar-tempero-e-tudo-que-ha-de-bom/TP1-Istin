@@ -25,7 +25,7 @@ public abstract class GerenciadorJson<T extends JsonSerializavel> {
         carregaJson();
     }
     
-    protected void salvarJson () {
+    public void salvarJson () {
         try (FileWriter escreve = new FileWriter(arquivo)) {
             JSONArray json = new JSONArray(jsonTratado.stream().map(T::toJSON).collect(Collectors.toList()));
             escreve.write(json.toString(4));

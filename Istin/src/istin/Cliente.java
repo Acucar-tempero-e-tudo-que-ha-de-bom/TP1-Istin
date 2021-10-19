@@ -1,5 +1,6 @@
 package istin;
 
+import java.util.List;
 import org.json.JSONObject;
 
 public class Cliente extends Usuario {
@@ -10,7 +11,7 @@ public class Cliente extends Usuario {
         this.saldo = saldo;
     }
     
-    public Cliente(float saldo, String nome, String email, String senha, byte[] fotoPerfil, int[] listaIdJogos) {
+    public Cliente(float saldo, String nome, String email, String senha, byte[] fotoPerfil, List<Integer> listaIdJogos) {
         super(nome, email, senha, fotoPerfil, listaIdJogos);
         this.saldo = saldo;
     }
