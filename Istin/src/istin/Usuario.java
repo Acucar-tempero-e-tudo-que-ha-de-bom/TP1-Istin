@@ -7,14 +7,16 @@ public class Usuario {
     private String email;
     private String senha;
     private int[] listaIdJogos;
+    private byte[] fotoPerfil;
 
-    public Usuario(String nome, String email, String senha, int[] listaIdJogos) {
+    public Usuario(String nome, String email, String senha, int[] listaIdJogos, byte[] fotoPerfil) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.listaIdJogos = listaIdJogos;
+        this.fotoPerfil = fotoPerfil;
     }
-
+    
     public String getNome() {
         return nome;
     }
@@ -31,7 +33,17 @@ public class Usuario {
         return listaIdJogos;
     }
 
+    public byte[] getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(byte[] fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
+    }
+
     public void setListaIdJogos(int[] listaIdJogos) {
         this.listaIdJogos = listaIdJogos;
     }
+    
+    
 }

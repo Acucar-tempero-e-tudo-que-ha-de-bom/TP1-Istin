@@ -5,12 +5,15 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Base64;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.json.JSONTokener;
 
 
@@ -51,6 +54,7 @@ public class Login implements GerenciadorJson{
         informacoesCliente.put("email", cliente.getEmail());
         informacoesCliente.put("senha", cliente.getSenha());
         informacoesCliente.put("saldo", cliente.getSaldo());
+        informacoesCliente.put("imagem", new String(Base64.getEncoder().encode(cliente.getFotoPerfil())));
         
         logins.put(informacoesCliente);
         
@@ -62,6 +66,7 @@ public class Login implements GerenciadorJson{
         informacoesAutor.put("nome", autor.getNome());
         informacoesAutor.put("email", autor.getEmail());
         informacoesAutor.put("senha", autor.getSenha());
+        informacoesAutor.put("imagem", new String(Base64.getEncoder().encode(autor.getFotoPerfil())));
         
         logins.put(informacoesAutor);
         
@@ -79,7 +84,8 @@ public class Login implements GerenciadorJson{
                 (String) userMap.get("nome"),
                 (String) userMap.get("email"),
                 (String) userMap.get("senha"),
-                new int[0]
+                new int[0],
+                Base64.getDecoder().decode((String) userMap.get("imagem"))
             );
         }
     }
@@ -91,6 +97,23 @@ public class Login implements GerenciadorJson{
         return instance;
     }
 
-
+    public Usuario getLogado() {
+        return logado;
+    }
+    
+    public void salvaFotoPerfil()
+    {
+        Iterator<Object> iterator = logins.iterator();
+        while(iterator.hasNext()){
+            JSONObject usuario = (JSONObject) iterator.next();
+            if(usuario.get("email").equals(logado.getEmail())){
+                System.out.println(logado.getFotoPerfil());
+                usuario.put("imagem", new String(Base64.getEncoder().encode(logado.getFotoPerfil())));
+                break;
+            }
+        }
+        this.salvarJson();
+    }
+    
 
 }

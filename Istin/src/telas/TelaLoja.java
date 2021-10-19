@@ -166,7 +166,7 @@ public class TelaLoja extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void miInformaçoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miInformaçoesActionPerformed
-        // TODO add your handling code here:
+        new TelaPerfil().setVisible(true);
     }//GEN-LAST:event_miInformaçoesActionPerformed
 
     private void btPublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPublicarActionPerformed
