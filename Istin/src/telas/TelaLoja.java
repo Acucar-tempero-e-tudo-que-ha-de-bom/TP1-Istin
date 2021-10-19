@@ -31,7 +31,7 @@ public class TelaLoja extends javax.swing.JFrame {
         }
     }
     
-    public void atualizarLoja() {
+    public final void atualizarLoja() {
         painelLoja.removeAll();
         for (int i = 0; i < loja.getJogos().size(); i++) {          
             Jogo jogo = loja.getJogos().get(i);

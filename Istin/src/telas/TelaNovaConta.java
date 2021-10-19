@@ -58,7 +58,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Criar nova conta na Istin");
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png")).getImage());
 
         btCriar.setBackground(new java.awt.Color(36, 40, 47));
         btCriar.setForeground(new java.awt.Color(255, 255, 255));
