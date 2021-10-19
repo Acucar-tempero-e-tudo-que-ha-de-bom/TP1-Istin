@@ -11,18 +11,18 @@ public class Autor extends Usuario {
     
     private final List<Integer> jogosPublicados;
     
-     public Autor(String nome, String email, String senha) {
-        super(nome, email, senha);
+     public Autor(String nome, String email, String senha, byte[] fotoPerfil) {
+        super(nome, email, senha, fotoPerfil);
         this.jogosPublicados = new ArrayList<>();
     }
      
-    public Autor(String nome, String email, String senha, List<Integer> listaIdJogos) {
-        super(nome, email, senha, listaIdJogos);
+    public Autor(String nome, String email, String senha, byte[] fotoPerfil, List<Integer> listaIdJogos) {
+        super(nome, email, senha, fotoPerfil, listaIdJogos);
         this.jogosPublicados = new ArrayList<>();
     }
 
-    public Autor(String nome, String email, String senha, List<Integer> listaIdJogos, List<Integer> jogosPublicados) {
-        super(nome, email, senha, listaIdJogos);
+    public Autor(String nome, String email, String senha, byte[] fotoPerfil, List<Integer> listaIdJogos, List<Integer> jogosPublicados) {
+        super(nome, email, senha, fotoPerfil, listaIdJogos);
         this.jogosPublicados = jogosPublicados;
     }
 
@@ -47,4 +47,5 @@ public class Autor extends Usuario {
         json.put("jogosPublicados", jogosPublicados);
         return json;
     }
+    
 }
