@@ -73,7 +73,6 @@ public class TelaLoja extends javax.swing.JFrame {
         miInformaçoes = new javax.swing.JMenuItem();
         miSair = new javax.swing.JMenuItem();
         mBiblioteca = new javax.swing.JMenu();
-        miHome = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Istin");
@@ -138,15 +137,31 @@ public class TelaLoja extends javax.swing.JFrame {
         mPerfil.add(miInformaçoes);
 
         miSair.setText("Sair");
+        miSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miSairMouseClicked(evt);
+            }
+        });
+        miSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miSairActionPerformed(evt);
+            }
+        });
         mPerfil.add(miSair);
 
         mbMenu.add(mPerfil);
 
         mBiblioteca.setText("Biblioteca");
-
-        miHome.setText("Home");
-        mBiblioteca.add(miHome);
-
+        mBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mBibliotecaMouseClicked(evt);
+            }
+        });
+        mBiblioteca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mBibliotecaActionPerformed(evt);
+            }
+        });
         mbMenu.add(mBiblioteca);
 
         setJMenuBar(mbMenu);
@@ -183,6 +198,26 @@ public class TelaLoja extends javax.swing.JFrame {
         new TelaCadastroJogo(this).setVisible(true);
         
     }//GEN-LAST:event_btPublicarActionPerformed
+
+    private void mBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mBibliotecaMouseClicked
+        
+    }//GEN-LAST:event_mBibliotecaMouseClicked
+
+    private void miSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miSairMouseClicked
+
+    }//GEN-LAST:event_miSairMouseClicked
+
+    private void miSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSairActionPerformed
+        Login.getInstance().setUsuarioLogado(null);
+        new TelaLogin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_miSairActionPerformed
+
+    private void mBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mBibliotecaActionPerformed
+        Login.getInstance().setUsuarioLogado(null);
+        new TelaLogin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_mBibliotecaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,7 +258,6 @@ public class TelaLoja extends javax.swing.JFrame {
     private javax.swing.JMenu mBiblioteca;
     private javax.swing.JMenu mPerfil;
     private javax.swing.JMenuBar mbMenu;
-    private javax.swing.JMenuItem miHome;
     private javax.swing.JMenuItem miInformaçoes;
     private javax.swing.JMenuItem miSair;
     private javax.swing.JPanel painelLoja;
