@@ -69,7 +69,7 @@ public class TelaLogin extends javax.swing.JFrame {
         setTitle("Iniciar sessão na Istin");
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(36, 40, 47));
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png")).getImage());
 
         txtNomeUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -117,7 +117,7 @@ public class TelaLogin extends javax.swing.JFrame {
         lblIstin.setText("Istin");
 
         lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinNegative64x64.png"))); // NOI18N
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinNegative64x64.png"))); // NOI18N
         lblLogo.setToolTipText("");
 
         lblNomeUsuario.setForeground(new java.awt.Color(255, 255, 255));

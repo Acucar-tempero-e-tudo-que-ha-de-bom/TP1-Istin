@@ -68,7 +68,7 @@ public class TelaLoja extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Istin");
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png")).getImage());
 
         btPublicar.setBackground(new java.awt.Color(0, 0, 0));
         btPublicar.setForeground(new java.awt.Color(255, 255, 255));
@@ -166,7 +166,7 @@ public class TelaLoja extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void miInformaçoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miInformaçoesActionPerformed
-        // TODO add your handling code here:
+        new TelaPerfil().setVisible(true);
     }//GEN-LAST:event_miInformaçoesActionPerformed
 
     private void btPublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPublicarActionPerformed

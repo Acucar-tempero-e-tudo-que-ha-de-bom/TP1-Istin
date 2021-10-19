@@ -1,22 +1,42 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package telas;
 
+import istin.GerenciadorJson;
+import istin.Login;
+import java.awt.Image;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import org.json.JSONArray;
+import org.json.JSONTokener;
 
-/**
- *
- * @author anasofia
- */
-public class TelaSample extends javax.swing.JFrame {
+public class TelaPerfil extends javax.swing.JFrame{
 
-    /**
-     * Creates new form TelaLogin
-     */
-    public TelaSample() {
+    private byte[] bytesArquivo;
+    private Login login;
+    
+    public TelaPerfil() {
         initComponents();
+        
+        login = Login.getInstance();
+        
+        ImageIcon imageIcon = new ImageIcon(login.getLogado().getFotoPerfil());
+        Image image = imageIcon.getImage();
+        Image newimg = image.getScaledInstance(99, 99, Image.SCALE_SMOOTH);
+
+        lblFotoPerfil.setIcon(new ImageIcon(newimg));
+        
+        lblNome.setText(login.getLogado().getNome());
+        
+        /*
+        No caso da classe login ela tem um certo Usuario logado, como ele n tem saldo eu deixei comentado
+        */
+        //lblValorSaldo.setText(String.valueOf(login.getLogado().getSaldo())); 
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
     }
 
@@ -30,28 +50,141 @@ public class TelaSample extends javax.swing.JFrame {
     private void initComponents() {
 
         jTextField1 = new javax.swing.JTextField();
+        lblFotoPerfil = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
+        lblSaldo = new javax.swing.JLabel();
+        lblValorSaldo = new javax.swing.JLabel();
+        btnAddFoto = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnOK = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(36, 40, 47));
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png")).getImage());
+
+        lblNome.setForeground(new java.awt.Color(255, 255, 255));
+        lblNome.setText("NOMEEEEE");
+
+        lblSaldo.setForeground(new java.awt.Color(255, 255, 255));
+        lblSaldo.setText("Saldo R$:");
+
+        lblValorSaldo.setForeground(new java.awt.Color(255, 255, 255));
+        lblValorSaldo.setText("00.00");
+
+        btnAddFoto.setBackground(new java.awt.Color(36, 40, 47));
+        btnAddFoto.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddFoto.setText("mudar foto");
+        btnAddFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddFotoActionPerformed(evt);
+            }
+        });
+
+        btnCancelar.setBackground(new java.awt.Color(36, 40, 47));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/seta-esquerda.png"))); // NOI18N
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
+        btnOK.setBackground(new java.awt.Color(36, 40, 47));
+        btnOK.setForeground(new java.awt.Color(255, 255, 255));
+        btnOK.setText("OK");
+        btnOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOKActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblValorSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                                .addComponent(btnAddFoto))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(lblSaldo)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(44, 44, 44))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(lblFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(lblValorSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOK))
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAddFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFotoActionPerformed
+        JFileChooser inserirArquivo = new JFileChooser();
+        inserirArquivo.setAcceptAllFileFilterUsed(false);
+        inserirArquivo.setFileFilter(new FileNameExtensionFilter("Arquivos de imagem", "png", "jpg", "jpeg"));
+        int resultado = inserirArquivo.showOpenDialog(this);
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            File arquivoSelecionado = inserirArquivo.getSelectedFile();
+            try {
+                bytesArquivo = Files.readAllBytes(arquivoSelecionado.toPath());
+                
+                ImageIcon imageIcon = new ImageIcon(bytesArquivo);
+                Image image = imageIcon.getImage();
+                Image newimg = image.getScaledInstance(99, 99, Image.SCALE_SMOOTH);
+
+                lblFotoPerfil.setIcon(new ImageIcon(newimg));
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Não foi possível ler o arquivo selecionado");
+            }
+        }
+    }//GEN-LAST:event_btnAddFotoActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
+        
+        login.getLogado().setFotoPerfil(bytesArquivo);        
+        login.salvaFotoPerfil();
+        JOptionPane.showMessageDialog(null, "Foto alterada com sucesso");
+    }//GEN-LAST:event_btnOKActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -69,26 +202,37 @@ public class TelaSample extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaSample.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaSample.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaSample.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaSample.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPerfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaSample().setVisible(true);
+                new TelaPerfil().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddFoto;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnOK;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblFotoPerfil;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblSaldo;
+    private javax.swing.JLabel lblValorSaldo;
     // End of variables declaration//GEN-END:variables
+
+
 }
