@@ -56,8 +56,9 @@ public class TelaPerfil extends javax.swing.JFrame{
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Perfil Istin");
         setBackground(new java.awt.Color(36, 40, 47));
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
 
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
         lblNome.setText("NOMEEEEE");
@@ -70,7 +71,7 @@ public class TelaPerfil extends javax.swing.JFrame{
 
         btnAddFoto.setBackground(new java.awt.Color(36, 40, 47));
         btnAddFoto.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddFoto.setText("mudar foto");
+        btnAddFoto.setText("Mudar foto");
         btnAddFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddFotoActionPerformed(evt);
@@ -110,7 +111,7 @@ public class TelaPerfil extends javax.swing.JFrame{
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
                                         .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                                 .addComponent(btnAddFoto))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(167, 167, 167)
@@ -144,6 +145,8 @@ public class TelaPerfil extends javax.swing.JFrame{
                 .addContainerGap())
         );
 
+        btnAddFoto.getAccessibleContext().setAccessibleName("Mudar Foto");
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -174,10 +177,14 @@ public class TelaPerfil extends javax.swing.JFrame{
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
-        
-        login.getUsuarioLogado().setFotoPerfil(bytesArquivo);        
-        login.salvarJson();
-        JOptionPane.showMessageDialog(null, "Foto alterada com sucesso");
+
+        if (bytesArquivo != null) {
+            login.getUsuarioLogado().setFotoPerfil(bytesArquivo);
+            login.salvarJson();
+            JOptionPane.showMessageDialog(null, "Foto alterada com sucesso");
+        } else {
+            JOptionPane.showMessageDialog(null, "Insira uma nova foto de perfil");
+        }
     }//GEN-LAST:event_btnOKActionPerformed
     
     /**

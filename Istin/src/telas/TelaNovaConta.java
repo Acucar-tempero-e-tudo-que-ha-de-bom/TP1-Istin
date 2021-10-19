@@ -57,6 +57,8 @@ public class TelaNovaConta extends javax.swing.JFrame {
         btnAddFoto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Criar nova conta na Istin");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoIstinIcon32x32.png")).getImage());
 
         btCriar.setBackground(new java.awt.Color(36, 40, 47));
         btCriar.setForeground(new java.awt.Color(255, 255, 255));
@@ -104,7 +106,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
         rbtAutor.setForeground(new java.awt.Color(255, 255, 255));
         rbtAutor.setText("Autor");
 
-        btnAddFoto.setText("mudar foto");
+        btnAddFoto.setText("Mudar foto");
         btnAddFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddFotoActionPerformed(evt);
@@ -211,10 +213,12 @@ public class TelaNovaConta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Já existe uma conta com esse nome de usuário");
             txtUsername.setText("");
             txtUsername.requestFocus();
-        }  else if(login.existeContaEmail(email)) {
+        } else if(login.existeContaEmail(email)) {
             JOptionPane.showMessageDialog(null, "Já existe uma conta com esse email");
             txtEmail.setText("");
             txtEmail.requestFocus();
+        } else if (bytesArquivo == null) {
+            JOptionPane.showMessageDialog(null, "Insira uma foto de perfil");
         } else {
             
             Usuario novoUsuario = rbtCliente.isSelected() ? new Cliente(0.0f, nome, email, senha, bytesArquivo) : new Autor(nome, email, senha, bytesArquivo);
