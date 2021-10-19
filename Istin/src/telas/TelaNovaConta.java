@@ -7,6 +7,7 @@ package telas;
 import istin.Autor;
 import istin.Login;
 import istin.Cliente;
+import istin.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class TelaNovaConta extends javax.swing.JFrame {
 
-    private Login login;
+    private final Login login;
     
     public TelaNovaConta() {
         initComponents();
@@ -165,16 +166,16 @@ public class TelaNovaConta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Selecione o tipo de conta");
         } else if(login.existeContaNome(nome)) {
             JOptionPane.showMessageDialog(null, "Já existe uma conta com esse nome de usuário");
+            txtUsername.setText("");
+            txtUsername.requestFocus();
         }  else if(login.existeContaEmail(email)) {
             JOptionPane.showMessageDialog(null, "Já existe uma conta com esse email");
+            txtEmail.setText("");
+            txtEmail.requestFocus();
         } else {
-            if(rbtCliente.isSelected()){
-                Cliente novoCliente = new Cliente(0.0f, nome, email, senha);
-                login.criaNovaConta(novoCliente);
-            } else {
-                Autor novoAutor = new Autor(nome, email, senha);
-                login.criaNovaConta(novoAutor);
-            }
+            
+            Usuario novoUsuario = rbtCliente.isSelected() ? new Cliente(0.0f, nome, email, senha) : new Autor(nome, email, senha);
+            login.criaNovaConta(novoUsuario);
             
             JOptionPane.showMessageDialog(null, "Conta criada com sucesso");
             
