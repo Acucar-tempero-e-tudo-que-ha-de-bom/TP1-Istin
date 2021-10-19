@@ -15,10 +15,12 @@ import javax.swing.ImageIcon;
  */
 public class TelaJogo extends javax.swing.JFrame {
     
+    private Jogo jogo;
     /**
      * Creates new form TelaJogo
      */
     public TelaJogo(Jogo jogo) {
+        this.jogo = jogo;
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         this.setTitle(jogo.getNome());
@@ -144,6 +146,14 @@ public class TelaJogo extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
+<<<<<<< Updated upstream
+=======
+    private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
+        Compra compra = new Compra();
+        compra.comprar(jogo);
+    }//GEN-LAST:event_btnComprarActionPerformed
+
+>>>>>>> Stashed changes
     /**
      * @param args the command line arguments
      */

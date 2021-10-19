@@ -56,6 +56,7 @@ public class Login extends GerenciadorJson<Usuario> {
         return logado;
     }
 
+<<<<<<< Updated upstream
     // Class overrides
     @Override
     protected Usuario carregarObjeto(JSONObject json) {
@@ -70,5 +71,10 @@ public class Login extends GerenciadorJson<Usuario> {
         }
         return new Usuario(json);
     }
+=======
+    public Usuario getLogado() {
+        return logado;
+    }  
+>>>>>>> Stashed changes
 
 }
