@@ -4,6 +4,7 @@
  */
 package telas;
 
+import istin.Autor;
 import istin.enums.TipoUsuario;
 import istin.Jogo;
 import istin.Login;
@@ -46,6 +47,9 @@ public class TelaJogo extends javax.swing.JFrame {
         lblcapaJogo.setIcon(new ImageIcon(newimg));
         lblnomeJogo.setText(jogo.getNome());
         lblPreco.setText(String.valueOf(jogo.getPreco()));
+        
+        Autor autor = (Autor) login.get(jogo.getAutorId());
+        lblnomeAutor.setText(autor.getNome());
     }
 
     /**
