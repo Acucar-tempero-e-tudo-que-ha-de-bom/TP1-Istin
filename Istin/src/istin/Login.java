@@ -11,7 +11,7 @@ import org.json.JSONObject;
 
 public class Login extends GerenciadorJson<Usuario> {
     private static Login instance;
-    private Usuario logado;
+    private Usuario usuarioLogado;
     
     public Login() {
         super("logins.json");
@@ -49,15 +49,11 @@ public class Login extends GerenciadorJson<Usuario> {
     
     // Setters and Getters
     public void setUsuarioLogado(Usuario logado) {
-        this.logado = logado;
+        this.usuarioLogado = logado;
     }
     
     public Usuario getUsuarioLogado() {
-        return logado;
-    }
-    
-    public Usuario getLogado() {
-        return logado;
+        return usuarioLogado;
     }
 
     // Class overrides
