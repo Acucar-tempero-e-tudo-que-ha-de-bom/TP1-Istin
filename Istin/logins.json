@@ -1,5 +1,5 @@
 {
-    "contadorId": 3,
+    "contadorId": 4,
     "dados": {
         "1": {
             "senha": "ana",
@@ -8,22 +8,7 @@
             "nome": "ana",
             "id": 1,
             "email": "ana",
-            "jogos": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                13,
-                17,
-                18
-            ]
+            "jogos": []
         },
         "2": {
             "senha": "zap",
@@ -32,11 +17,17 @@
             "nome": "zap",
             "id": 2,
             "email": "zap",
-            "jogos": [
-                14,
-                15,
-                16
-            ]
+            "jogos": []
+        },
+        "3": {
+            "senha": "a",
+            "tipo": "CLIENTE",
+            "fotoPerfil": "iVBORw0KGgoAAAANSUhEUgAAAGMAAABjCAIAAAAAWSnCAAAB7klEQVR4Xu2QuXEEQQzELkTln4KCONlqtEGDNR8bBXO5Q+LzCSGEEMImvr8/VD8Kn5Sqw0wp5WGmlPIwU0p5mCmlPMyUUh5mSikPM6WUh5lSysNMKeVhppTyMFNKeZgppTzMlFIeZkqpf7COVccGwihWHRsIo1h1bCCMYtWxgTCKVccGwihWHZsDWxTVHz0PExTVHz0PExTVHz0PExTVHz0PExTVHz0PExTVHz0GD25UH7santeoPnY1PK9RfexqeF6j+tjV8LxG9bGr4XmN6mMXwWMWqwsdC1dfrC50LFx9sbrQIXDRA9Wlt8C1DlSX3gLXOlBdugU+M1CNYuHYQDWKhWMD1SgWjg1Uo1g4NlCNYuHYQDWKhWMD1Sgt8JkD1aW3wLUOVJfeAtc6UF36ELjoYnWhY+Hqi9WFjoWrL1YXugge06g+djU8r1F97Gp4XqP62NXwvEb1savheY3qY1fD8xrVxx6DBxfVHz0PExTVHz0PExTVHz0PExTVHz0PExTVHz0PExTVH82BLaw6NhBGserYQBjFqmMDYRSrjg2EUaw6NhBGserYZFgngTzMlFIeZkopDzOllIeZUsrDTCnlYaaU8jBTSnmYKaU8zJRSHmZKKQ8zpZSHmVLKw0wp5WGmlPIwU0qFEEIIG/kDs+fwSRunj78AAAAASUVORK5CYII=",
+            "nome": "a",
+            "id": 3,
+            "saldo": 0,
+            "email": "a",
+            "jogos": []
         }
     }
 }

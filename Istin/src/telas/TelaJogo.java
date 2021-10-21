@@ -22,15 +22,17 @@ public class TelaJogo extends javax.swing.JFrame {
     private final Loja loja;
     private final Login login;
     private final TelaLoja lojaPai;
+    private final TelaBiblioteca bibPai;
     
     /**
      * Creates new form TelaJogo
      * @param jogo Jogo apresentado na tela
      * @param lojaPai
      */
-    public TelaJogo(Jogo jogo, TelaLoja lojaPai) {
+    public TelaJogo(Jogo jogo, TelaLoja lojaPai, TelaBiblioteca bibPai) {
         this.jogo = jogo;
         this.lojaPai = lojaPai;
+        this.bibPai = bibPai;
         this.loja = Loja.getInstance();
         this.login = Login.getInstance();
         
@@ -51,6 +53,7 @@ public class TelaJogo extends javax.swing.JFrame {
         Autor autor = (Autor) login.get(jogo.getAutorId());
         lblnomeAutor.setText(autor.getNome());
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -193,6 +196,7 @@ public class TelaJogo extends javax.swing.JFrame {
         loja.remove(jogo.getId());
         login.removerJogoPublicado(jogo);
         lojaPai.atualizarLoja();
+        bibPai.atualizarBiblioteca();
         dispose();
 
     }//GEN-LAST:event_btnExcluirActionPerformed
@@ -227,9 +231,10 @@ public class TelaJogo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             TelaLoja lojaPai = new TelaLoja();
+            TelaBiblioteca bibPai = new TelaBiblioteca();
             lojaPai.setVisible(true);
             Jogo jogo = Loja.getInstance().getJogos().iterator().next();
-            new TelaJogo(jogo, lojaPai).setVisible(true);
+            new TelaJogo(jogo, lojaPai, bibPai).setVisible(true);
         });
     }
 
