@@ -72,6 +72,7 @@ public class TelaPerfil extends javax.swing.JFrame{
         btnAddFoto.setBackground(new java.awt.Color(36, 40, 47));
         btnAddFoto.setForeground(new java.awt.Color(255, 255, 255));
         btnAddFoto.setText("Mudar foto");
+        btnAddFoto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAddFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddFotoActionPerformed(evt);
@@ -80,6 +81,7 @@ public class TelaPerfil extends javax.swing.JFrame{
 
         btnCancelar.setBackground(new java.awt.Color(36, 40, 47));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/seta-esquerda.png"))); // NOI18N
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -89,6 +91,7 @@ public class TelaPerfil extends javax.swing.JFrame{
         btnOK.setBackground(new java.awt.Color(36, 40, 47));
         btnOK.setForeground(new java.awt.Color(255, 255, 255));
         btnOK.setText("OK");
+        btnOK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOKActionPerformed(evt);

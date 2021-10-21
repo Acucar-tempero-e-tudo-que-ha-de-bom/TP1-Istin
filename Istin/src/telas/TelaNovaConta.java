@@ -63,6 +63,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
         btCriar.setBackground(new java.awt.Color(36, 40, 47));
         btCriar.setForeground(new java.awt.Color(255, 255, 255));
         btCriar.setText("Criar Conta");
+        btCriar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btCriar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCriarActionPerformed(evt);
@@ -87,6 +88,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
         btVoltar.setBackground(new java.awt.Color(36, 40, 47));
         btVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/seta-esquerda.png"))); // NOI18N
+        btVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVoltarActionPerformed(evt);
@@ -107,6 +109,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
         rbtAutor.setText("Autor");
 
         btnAddFoto.setText("Mudar foto");
+        btnAddFoto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAddFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddFotoActionPerformed(evt);

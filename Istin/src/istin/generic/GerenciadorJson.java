@@ -69,8 +69,12 @@ public abstract class GerenciadorJson<T extends JsonSerializavel> {
         return jsonTratado.values();
     }
     
+    public T get(int id) {
+        return jsonTratado.get(id);
+    }
+    
     // Add
-    public void add(T valor, boolean salvar) {
+    public T add(T valor, boolean salvar) {
         if (valor.getId() == null) {
             valor.setId(contadorId);
             contadorId++;
@@ -80,15 +84,18 @@ public abstract class GerenciadorJson<T extends JsonSerializavel> {
         if (salvar) {
             salvarJson();
         }
+        
+        return valor;
     }
     
-    public void add(T valor) {
-        add(valor, true);
+    public T add(T valor) {
+        return add(valor, true);
     }
     
     // Remove
     public void remove(int key) {
         jsonTratado.remove(key);
+        salvarJson();
     }
     
     public void remove(T valor) {

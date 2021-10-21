@@ -42,6 +42,17 @@ public class Login extends GerenciadorJson<Usuario> {
         }
     }
     
+    public void adicionarJogoPublicado(Autor autor, Jogo jogo) {
+        autor.adicionarJogoPublicado(jogo);
+        salvarJson();
+    }
+    
+    public void removerJogoPublicado(Jogo jogo) {
+        Autor autor = (Autor) jsonTratado.get(jogo.getAutorId());
+        autor.removerJogoPublicado(jogo);
+        salvarJson();
+    }
+    
     // Setters and Getters
     public void setUsuarioLogado(Usuario logado) {
         this.logado = logado;

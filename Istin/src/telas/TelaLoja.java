@@ -8,8 +8,8 @@ import istin.Autor;
 import istin.Jogo;
 import istin.Login;
 import istin.Loja;
+import java.awt.Cursor;
 import java.awt.Dimension;
-import java.awt.Image;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
@@ -47,18 +47,22 @@ public class TelaLoja extends javax.swing.JFrame {
 
             labelJogo.setIcon(new ImageIcon(jogo.getImagem()));
             
+            TelaLoja self = this;
             labelJogo.addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    new TelaJogo(jogo).setVisible(true);
+                    new TelaJogo(jogo, self).setVisible(true);
                 }
             });
+            labelJogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             
             painelLoja.add(labelJogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(x, y, 117, 150));
             
             if (i == loja.getJogos().size() - 1) {
                 painelLoja.setPreferredSize(new Dimension(x + 132, 409));
             }
+            
+            painelLoja.revalidate();
         }
     }
 
@@ -83,6 +87,7 @@ public class TelaLoja extends javax.swing.JFrame {
         btPublicar.setBackground(new java.awt.Color(0, 0, 0));
         btPublicar.setForeground(new java.awt.Color(255, 255, 255));
         btPublicar.setText("Publicar");
+        btPublicar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btPublicar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPublicarActionPerformed(evt);
@@ -102,7 +107,7 @@ public class TelaLoja extends javax.swing.JFrame {
 
         painelLoja.setBackground(new java.awt.Color(36, 40, 47));
         painelLoja.setForeground(new java.awt.Color(255, 255, 255));
-        painelLoja.setPreferredSize(new java.awt.Dimension(874, 409));
+        painelLoja.setPreferredSize(new java.awt.Dimension(674, 409));
         painelLoja.setRequestFocusEnabled(false);
         painelLoja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         scrollPanel.setViewportView(painelLoja);
@@ -113,7 +118,7 @@ public class TelaLoja extends javax.swing.JFrame {
             panelPaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPaiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+                .addComponent(scrollPanel)
                 .addContainerGap())
         );
         panelPaiLayout.setVerticalGroup(
@@ -212,13 +217,13 @@ public class TelaLoja extends javax.swing.JFrame {
     private void miSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSairActionPerformed
         Login.getInstance().setUsuarioLogado(null);
         new TelaLogin().setVisible(true);
-        this.dispose();
+        dispose();
     }//GEN-LAST:event_miSairActionPerformed
 
     private void mBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mBibliotecaActionPerformed
         Login.getInstance().setUsuarioLogado(null);
         new TelaLogin().setVisible(true);
-        this.dispose();
+        dispose();
     }//GEN-LAST:event_mBibliotecaActionPerformed
 
     /**

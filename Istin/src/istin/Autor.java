@@ -26,6 +26,10 @@ public class Autor extends Usuario {
         listaIdJogos.add(jogo.getId());
     }
     
+    public void removerJogoPublicado(Jogo jogo) {
+        listaIdJogos.removeIf(valor -> valor.equals(jogo.getId()));
+    }
+    
     //Overrides
     @Override
     public TipoUsuario getTipo() {
