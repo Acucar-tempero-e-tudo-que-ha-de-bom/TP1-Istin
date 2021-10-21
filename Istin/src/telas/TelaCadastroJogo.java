@@ -23,7 +23,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
 
     public Loja loja;
     private byte[] bytesArquivo;
-    private TelaLoja lojaPai;
+    private final TelaLoja lojaPai;
     
     public TelaCadastroJogo(TelaLoja lojaPai) {
         initComponents();
@@ -185,7 +185,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Campos não preenchidos");
         } else {
             Jogo jogo = new Jogo(nome, Float.parseFloat(preco), bytesArquivo);
-            loja.criarJogo(jogo);
+            loja.add(jogo);
             JOptionPane.showMessageDialog(null, "Jogo cadastrado com sucesso");
             this.setVisible(false);
             lojaPai.atualizarLoja();

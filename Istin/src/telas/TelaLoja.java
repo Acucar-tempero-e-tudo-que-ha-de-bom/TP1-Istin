@@ -10,6 +10,8 @@ import istin.Login;
 import istin.Loja;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -33,20 +35,20 @@ public class TelaLoja extends javax.swing.JFrame {
     
     public final void atualizarLoja() {
         painelLoja.removeAll();
-        for (int i = 0; i < loja.getJogos().size(); i++) {          
-            Jogo jogo = loja.getJogos().get(i);
+        
+        List<Jogo> jogos = loja.getJogos().parallelStream().collect(Collectors.toList());
+        for (int i = 0; i < jogos.size(); i++) {          
+            Jogo jogo = jogos.get(i);
             
             int x = 25 + (167 * (i / 2));
             int y = 25 + (209 * (i % 2));
             
             JLabel labelJogo = new JLabel();
-            
-            ImageIcon imageIcon = new ImageIcon(jogo.getImagem());
-            Image image = imageIcon.getImage();
-            Image newimg = image.getScaledInstance(117, 150, Image.SCALE_SMOOTH);
-            labelJogo.setIcon(new ImageIcon(newimg));
+
+            labelJogo.setIcon(new ImageIcon(jogo.getImagem()));
             
             labelJogo.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                     new TelaJogo(jogo).setVisible(true);
                 }

@@ -1,5 +1,6 @@
 package istin;
 
+import istin.enums.TipoUsuario;
 import java.util.List;
 import org.json.JSONObject;
 
@@ -23,6 +24,12 @@ public class Cliente extends Usuario {
 
     public float getSaldo() {
         return saldo;
+    }
+    
+    // Overrides
+    @Override
+    public TipoUsuario getTipo() {
+        return TipoUsuario.CLIENTE;
     }
     
     @Override

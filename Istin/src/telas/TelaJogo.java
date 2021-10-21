@@ -172,10 +172,8 @@ public class TelaJogo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaJogo(Loja.getInstance().getJogos().get(0)).setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaJogo(Loja.getInstance().getJogos().iterator().next()).setVisible(true);
         });
     }
 

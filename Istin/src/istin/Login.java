@@ -1,5 +1,6 @@
 package istin;
 
+import istin.enums.TipoUsuario;
 import istin.generic.GerenciadorJson;
 import istin.exceptions.InvalidUserException;
 import java.util.Optional;
@@ -22,22 +23,17 @@ public class Login extends GerenciadorJson<Usuario> {
         }
         return instance;
     }
-
-    public void criaNovaConta(Usuario autor) {
-        jsonTratado.add(autor);
-        salvarJson();
-    }
     
     public boolean existeContaNome(String nomeInserido) {
-        return jsonTratado.stream().anyMatch(u -> u.getNome().equals(nomeInserido));
+        return valueCollection().stream().anyMatch(u -> u.getNome().equals(nomeInserido));
     }
     
     public boolean existeContaEmail(String emailInserido) {
-        return jsonTratado.stream().anyMatch(u -> u.getEmail().equals(emailInserido));
+        return valueCollection().stream().anyMatch(u -> u.getEmail().equals(emailInserido));
     }
     
     public void validaLogin(String nomeInserido, String senhaInserida) throws InvalidUserException {
-        Optional<Usuario> optionalUsuario = jsonTratado.stream().filter(u -> (u.getNome().equals(nomeInserido) && u.getSenha().equals(senhaInserida))).findFirst();
+        Optional<Usuario> optionalUsuario = valueCollection().stream().filter(u -> (u.getNome().equals(nomeInserido) && u.getSenha().equals(senhaInserida))).findFirst();
         
         if (optionalUsuario.isEmpty()){
             throw new InvalidUserException("Esse usuário não existe");
@@ -58,11 +54,12 @@ public class Login extends GerenciadorJson<Usuario> {
     // Class overrides
     @Override
     protected Usuario carregarObjeto(JSONObject json) {
-        switch (json.getString("tipo")) {
-            case "Cliente" -> {
+        TipoUsuario tipo = json.getEnum(TipoUsuario.class, "tipo");
+        switch (tipo) {
+            case CLIENTE -> {
                 return new Cliente(json);
             }
-            case "Autor" -> {
+            case AUTOR -> {
                 return new Autor(json);
             }
             default -> Logger.getLogger(Login.class.getName()).log(Level.WARNING, "Tipo de usuario invalido");

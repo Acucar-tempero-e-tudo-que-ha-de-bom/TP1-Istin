@@ -1,12 +1,13 @@
 package istin;
 
 import istin.generic.JsonSerializavel;
+import istin.helpers.CompressorImagem;
 import java.util.Base64;
 import org.json.JSONObject;
 
 public class Jogo implements JsonSerializavel {
 
-    private int id;
+    private Integer id;
     private final String nome;
     private final float preco;
     private float mediaAvaliacao;
@@ -25,11 +26,7 @@ public class Jogo implements JsonSerializavel {
     public Jogo(String nome, float preco, byte[] imagem) {
         this.nome = nome;
         this.preco = preco;
-        this.imagem = imagem;
-    }
-
-    public int getId() {
-        return id;
+        this.setImagem(imagem);
     }
 
     public String getNome() {
@@ -64,10 +61,21 @@ public class Jogo implements JsonSerializavel {
         return imagem;
     }
 
-    public void setImagem(byte[] imagem) {
-        this.imagem = imagem;
+    public final void setImagem(byte[] imagem) {
+        this.imagem = CompressorImagem.comprimir(imagem, 117, 150);
     }
 
+    // Overrides
+    @Override
+    public Integer getId() {
+        return id;
+    }
+    
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
     @Override
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();

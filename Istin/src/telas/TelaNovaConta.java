@@ -222,7 +222,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
         } else {
             
             Usuario novoUsuario = rbtCliente.isSelected() ? new Cliente(0.0f, nome, email, senha, bytesArquivo) : new Autor(nome, email, senha, bytesArquivo);
-            login.criaNovaConta(novoUsuario);
+            login.add(novoUsuario);
             
             JOptionPane.showMessageDialog(null, "Conta criada com sucesso");
             
