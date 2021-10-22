@@ -30,5 +30,13 @@
         "saldo": 0,
         "email": "victor@meudeusquantacontaquesaco.com.br",
         "jogos": []
+    },
+    {
+        "senha": "nome",
+        "tipo": "Cliente",
+        "nome": "senha",
+        "saldo": 0,
+        "email": "meteu@essa.com",
+        "jogos": []
     }
 ]

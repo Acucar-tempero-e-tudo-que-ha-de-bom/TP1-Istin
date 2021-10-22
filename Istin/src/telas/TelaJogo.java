@@ -17,13 +17,14 @@ public class TelaJogo extends javax.swing.JFrame {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         this.setTitle(jogo.getNome());
+        
         ImageIcon imageIcon = new ImageIcon(jogo.getImagem());
         Image image = imageIcon.getImage();
         Image newimg = image.getScaledInstance(117, 150, Image.SCALE_SMOOTH);
-        lblcapaJogo.setIcon(new ImageIcon(newimg));
-
-        lblnomeJogo.setText(jogo.getNome());
         
+        
+        lblcapaJogo.setIcon(new ImageIcon(newimg));
+        lblnomeJogo.setText(jogo.getNome());
         lblPreco.setText(String.valueOf(jogo.getPreco()));
     }
 

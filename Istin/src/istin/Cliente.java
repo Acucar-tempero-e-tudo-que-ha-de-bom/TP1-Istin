@@ -3,7 +3,7 @@ package istin;
 import org.json.JSONObject;
 
 public class Cliente extends Usuario {
-    private final float saldo;
+    private float saldo; // o valor do saldo era final, aí eu tirei. tinha algum motivo pra isso?
 
     public Cliente(float saldo, String nome, String email, String senha) {
         super(nome, email, senha);
@@ -13,6 +13,10 @@ public class Cliente extends Usuario {
     public Cliente(JSONObject json) {
         super(json);
         this.saldo = (float) json.getFloat("saldo");
+    }
+    
+    public void setSaldo(float saldo) {
+        this.saldo = saldo;
     }
     
     public float getSaldo() {

@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 public class TelaAdicionarCredito extends javax.swing.JFrame {
 
+    private Cliente cliente;
     /**
      * Creates new form TelaLogin
      */
@@ -13,7 +14,7 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         
-        Cliente cliente = (Cliente) Login.getInstance().getUsuarioLogado();
+        cliente = (Cliente) Login.getInstance().getUsuarioLogado();
         
         lblSaldo.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lblSaldo.setForeground(new java.awt.Color(255, 255, 255));
@@ -55,6 +56,11 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
                 btnAdicionarMouseClicked(evt);
             }
         });
+        btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,9 +96,22 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdicionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdicionarMouseClicked
+
+    }//GEN-LAST:event_btnAdicionarMouseClicked
+
+    private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         if (txtValor.getText().equals(""))
             JOptionPane.showMessageDialog(null, "Preencha o campo com o valor a ser inserido", "Valor não inserido", JOptionPane.WARNING_MESSAGE);
-    }//GEN-LAST:event_btnAdicionarMouseClicked
+        else {
+            // JOptionPane.showMessageDialog(null, "O valor inserido é inválido.", "Valor inválido", JOptionPane.WARNING_MESSAGE);
+            // Queria colocar isso num try/catch, mas não tive a paciência pra entender como funciona
+
+            cliente.setSaldo(cliente.getSaldo() + Float.parseFloat(txtValor.getText()));
+            txtValor.setText("");
+            JOptionPane.showMessageDialog(null, "Crédito adicionado com sucesso!", "Crédito adicionado", JOptionPane.INFORMATION_MESSAGE);
+            lblSaldo.setText("Saldo: R$ " + String.format("%.2f", cliente.getSaldo()));
+        }
+    }//GEN-LAST:event_btnAdicionarActionPerformed
 
     /**
      * @param args the command line arguments
