@@ -1,11 +1,13 @@
 package telas;
 
 import istin.Autor;
+import istin.Cliente;
 import istin.enums.TipoUsuario;
 import istin.Jogo;
 import istin.Login;
 import istin.Loja;
 import java.awt.Image;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -32,15 +34,28 @@ public class TelaJogo extends javax.swing.JFrame {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         
-        btnExcluir.setVisible(jogo.getAutorId().equals(login.getUsuarioLogado().getId()));
-        btnComprar.setVisible(login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE);
+        boolean ehCliente = false, jaAvaliou = false;
+        if(login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE) {
+            Cliente cliente = (Cliente) login.getUsuarioLogado();
+            for(Integer idJogo : cliente.getIdJogosAvaliados()){
+                System.out.println("id jogo: " + jogo.getId() + " tamo no: " + idJogo);
+                if(idJogo.equals(jogo.getId())) jaAvaliou = true;
+                break;
+            }
+            ehCliente = true;
+        }
         
-        rdbtn1.setVisible(login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE);
-        rdbtn2.setVisible(login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE);
-        rdbtn3.setVisible(login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE);
-        rdbtn4.setVisible(login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE);
-        rdbtn5.setVisible(login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE);
-        btnAvaliar.setVisible(login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE);
+        System.out.println(jaAvaliou);
+        
+        btnExcluir.setVisible(jogo.getAutorId().equals(login.getUsuarioLogado().getId()));
+        btnComprar.setVisible(ehCliente);
+        
+        rdbtn1.setVisible(ehCliente&&!jaAvaliou);
+        rdbtn2.setVisible(ehCliente&&!jaAvaliou);
+        rdbtn3.setVisible(ehCliente&&!jaAvaliou);
+        rdbtn4.setVisible(ehCliente&&!jaAvaliou);
+        rdbtn5.setVisible(ehCliente&&!jaAvaliou);
+        btnAvaliar.setVisible(ehCliente&&!jaAvaliou);
         
         setTitle("Istin - " + jogo.getNome());
         ImageIcon imageIcon = new ImageIcon(jogo.getImagem());
@@ -219,6 +234,9 @@ public class TelaJogo extends javax.swing.JFrame {
                     break;
                 }
             }
+            btnAvaliar.setVisible(false);
+            Cliente cliente = (Cliente) login.getUsuarioLogado();
+            login.adicionarJogoAvaliado(cliente, jogo.getId());
         }
         
     }//GEN-LAST:event_btnAvaliarActionPerformed

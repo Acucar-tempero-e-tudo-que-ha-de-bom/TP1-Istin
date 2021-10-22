@@ -53,6 +53,11 @@ public class Login extends GerenciadorJson<Usuario> {
         salvarJson();
     }
     
+    public void adicionarJogoAvaliado(Cliente cliente, int idJogo) {
+        cliente.adicionaJogoAvaliado(idJogo);
+        salvarJson();
+    }
+    
     // Setters and Getters
     public void setUsuarioLogado(Usuario logado) {
         this.logado = logado;
