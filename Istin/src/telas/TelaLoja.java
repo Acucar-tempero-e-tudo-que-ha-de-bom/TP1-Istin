@@ -1,15 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package telas;
 
 import istin.Autor;
 import istin.Jogo;
 import istin.Login;
 import istin.Loja;
+import java.awt.Cursor;
 import java.awt.Dimension;
-import java.awt.Image;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -31,32 +29,36 @@ public class TelaLoja extends javax.swing.JFrame {
         }
     }
     
-    public void atualizarLoja() {
+    public final void atualizarLoja() {
         painelLoja.removeAll();
-        for (int i = 0; i < loja.getJogos().size(); i++) {          
-            Jogo jogo = loja.getJogos().get(i);
+        
+        List<Jogo> jogos = loja.getJogos().parallelStream().collect(Collectors.toList());
+        for (int i = 0; i < jogos.size(); i++) {          
+            Jogo jogo = jogos.get(i);
             
             int x = 25 + (167 * (i / 2));
             int y = 25 + (209 * (i % 2));
             
             JLabel labelJogo = new JLabel();
+
+            labelJogo.setIcon(new ImageIcon(jogo.getImagem()));
             
-            ImageIcon imageIcon = new ImageIcon(jogo.getImagem());
-            Image image = imageIcon.getImage();
-            Image newimg = image.getScaledInstance(117, 150, Image.SCALE_SMOOTH);
-            labelJogo.setIcon(new ImageIcon(newimg));
-            
+            TelaLoja self = this;
             labelJogo.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    new TelaJogo(jogo).setVisible(true);
+                    new TelaJogo(jogo, self).setVisible(true);
                 }
             });
+            labelJogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             
             painelLoja.add(labelJogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(x, y, 117, 150));
             
             if (i == loja.getJogos().size() - 1) {
                 painelLoja.setPreferredSize(new Dimension(x + 132, 409));
             }
+            
+            painelLoja.revalidate();
         }
     }
 
@@ -73,7 +75,6 @@ public class TelaLoja extends javax.swing.JFrame {
         miDetalhes = new javax.swing.JMenuItem();
         miSair = new javax.swing.JMenuItem();
         mBiblioteca = new javax.swing.JMenu();
-        miHome = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Istin");
@@ -82,6 +83,7 @@ public class TelaLoja extends javax.swing.JFrame {
         btPublicar.setBackground(new java.awt.Color(0, 0, 0));
         btPublicar.setForeground(new java.awt.Color(255, 255, 255));
         btPublicar.setText("Publicar");
+        btPublicar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btPublicar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPublicarActionPerformed(evt);
@@ -101,7 +103,7 @@ public class TelaLoja extends javax.swing.JFrame {
 
         painelLoja.setBackground(new java.awt.Color(36, 40, 47));
         painelLoja.setForeground(new java.awt.Color(255, 255, 255));
-        painelLoja.setPreferredSize(new java.awt.Dimension(874, 409));
+        painelLoja.setPreferredSize(new java.awt.Dimension(674, 409));
         painelLoja.setRequestFocusEnabled(false);
         painelLoja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         scrollPanel.setViewportView(painelLoja);
@@ -112,7 +114,7 @@ public class TelaLoja extends javax.swing.JFrame {
             panelPaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPaiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+                .addComponent(scrollPanel)
                 .addContainerGap())
         );
         panelPaiLayout.setVerticalGroup(
@@ -138,15 +140,31 @@ public class TelaLoja extends javax.swing.JFrame {
         mPerfil.add(miDetalhes);
 
         miSair.setText("Sair");
+        miSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miSairMouseClicked(evt);
+            }
+        });
+        miSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miSairActionPerformed(evt);
+            }
+        });
         mPerfil.add(miSair);
 
         mbMenu.add(mPerfil);
 
         mBiblioteca.setText("Biblioteca");
-
-        miHome.setText("Home");
-        mBiblioteca.add(miHome);
-
+        mBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mBibliotecaMouseClicked(evt);
+            }
+        });
+        mBiblioteca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mBibliotecaActionPerformed(evt);
+            }
+        });
         mbMenu.add(mBiblioteca);
 
         setJMenuBar(mbMenu);
@@ -174,15 +192,35 @@ public class TelaLoja extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void miDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miDetalhesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_miDetalhesActionPerformed
+    private void miInformaçoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miInformaçoesActionPerformed
+        new TelaPerfil().setVisible(true);
+    }//GEN-LAST:event_miInformaçoesActionPerformed
 
     private void btPublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPublicarActionPerformed
         
         new TelaCadastroJogo(this).setVisible(true);
         
     }//GEN-LAST:event_btPublicarActionPerformed
+
+    private void mBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mBibliotecaMouseClicked
+        
+    }//GEN-LAST:event_mBibliotecaMouseClicked
+
+    private void miSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miSairMouseClicked
+
+    }//GEN-LAST:event_miSairMouseClicked
+
+    private void miSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSairActionPerformed
+        Login.getInstance().setUsuarioLogado(null);
+        new TelaLogin().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_miSairActionPerformed
+
+    private void mBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mBibliotecaActionPerformed
+        Login.getInstance().setUsuarioLogado(null);
+        new TelaLogin().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_mBibliotecaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,8 +261,7 @@ public class TelaLoja extends javax.swing.JFrame {
     private javax.swing.JMenu mBiblioteca;
     private javax.swing.JMenu mPerfil;
     private javax.swing.JMenuBar mbMenu;
-    private javax.swing.JMenuItem miDetalhes;
-    private javax.swing.JMenuItem miHome;
+    private javax.swing.JMenuItem miInformaçoes;
     private javax.swing.JMenuItem miSair;
     private javax.swing.JPanel painelLoja;
     private javax.swing.JPanel panelPai;

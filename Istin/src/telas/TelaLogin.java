@@ -8,7 +8,7 @@ import telas.helpers.SimpleDocumentListener;
 
 public class TelaLogin extends javax.swing.JFrame {
         
-    private Login login;
+    private final Login login;
 
     public TelaLogin() {
         initComponents();
@@ -95,6 +95,7 @@ public class TelaLogin extends javax.swing.JFrame {
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrar.setText("Entrar");
         btnEntrar.setBorderPainted(false);
+        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEntrar.setEnabled(false);
         btnEntrar.setFocusPainted(false);
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -106,6 +107,7 @@ public class TelaLogin extends javax.swing.JFrame {
         btnRegistrar.setBackground(new java.awt.Color(0, 0, 0));
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Não tem uma conta? Registre-se");
+        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);

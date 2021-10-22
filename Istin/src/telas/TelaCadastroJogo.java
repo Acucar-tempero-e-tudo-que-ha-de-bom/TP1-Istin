@@ -4,7 +4,9 @@
  */
 package telas;
 
+import istin.Autor;
 import istin.Jogo;
+import istin.Login;
 import istin.Loja;
 import java.awt.Image;
 import java.io.File;
@@ -21,15 +23,18 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class TelaCadastroJogo extends javax.swing.JFrame {
 
-    public Loja loja;
+    private final Loja loja;
+    private final Login login;
     private byte[] bytesArquivo;
-    private TelaLoja lojaPai;
+    private final TelaLoja lojaPai;
     
     public TelaCadastroJogo(TelaLoja lojaPai) {
+        this.lojaPai = lojaPai;
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
+        
         loja = Loja.getInstance();
-        this.lojaPai = lojaPai;
+        login = Login.getInstance();
     }
 
     /**
@@ -184,11 +189,16 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
         if(nome.equals("") || preco.equals("")) {
             JOptionPane.showMessageDialog(null, "Campos não preenchidos");
         } else {
-            Jogo jogo = new Jogo(nome, Float.parseFloat(preco), bytesArquivo);
-            loja.criarJogo(jogo);
+            Autor autor = (Autor) login.getUsuarioLogado();
+            Jogo jogo = new Jogo(nome, Float.parseFloat(preco), bytesArquivo, autor.getId());
+            
+            loja.add(jogo);
+            login.adicionarJogoPublicado(autor, jogo);
+            
             JOptionPane.showMessageDialog(null, "Jogo cadastrado com sucesso");
-            this.setVisible(false);
+            dispose();
             lojaPai.atualizarLoja();
+            lojaPai.requestFocus();
         }
         
     }//GEN-LAST:event_btnOKActionPerformed
@@ -221,10 +231,10 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaCadastroJogo(new TelaLoja()).setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            TelaLoja lojaPai = new TelaLoja();
+            lojaPai.setVisible(true);
+            new TelaCadastroJogo(lojaPai).setVisible(true);
         });
     }
 
