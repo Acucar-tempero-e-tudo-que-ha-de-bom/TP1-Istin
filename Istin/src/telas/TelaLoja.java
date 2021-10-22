@@ -30,7 +30,7 @@ public class TelaLoja extends javax.swing.JFrame {
             btPublicar.setVisible(true);
         } else {
             btPublicar.setVisible(false);
-        }
+        }                                                                                                                                                                                                                                                    
     }
     
     public final void atualizarLoja() {

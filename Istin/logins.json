@@ -8,7 +8,11 @@
             "nome": "ana",
             "id": 1,
             "email": "ana",
-            "jogos": []
+            "jogos": [
+                19,
+                20,
+                21
+            ]
         },
         "2": {
             "senha": "zap",
