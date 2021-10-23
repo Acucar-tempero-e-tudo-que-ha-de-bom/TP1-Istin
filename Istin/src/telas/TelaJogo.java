@@ -93,6 +93,8 @@ public class TelaJogo extends javax.swing.JFrame {
         btnComprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnComprarActionPerformed(evt);
+            }
+        });
         btnExcluir.setBackground(new java.awt.Color(36, 40, 47));
         btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
         btnExcluir.setText("Excluir");

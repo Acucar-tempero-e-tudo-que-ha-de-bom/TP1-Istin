@@ -6,10 +6,12 @@ import istin.Login;
 import istin.Loja;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.PopupMenu;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 
 public class TelaLoja extends javax.swing.JFrame {
     
@@ -72,7 +74,7 @@ public class TelaLoja extends javax.swing.JFrame {
         painelLoja = new javax.swing.JPanel();
         mbMenu = new javax.swing.JMenuBar();
         mPerfil = new javax.swing.JMenu();
-        miDetalhes = new javax.swing.JMenuItem();
+        miInformacoes = new javax.swing.JMenuItem();
         miSair = new javax.swing.JMenuItem();
         mBiblioteca = new javax.swing.JMenu();
 
@@ -131,13 +133,13 @@ public class TelaLoja extends javax.swing.JFrame {
 
         mPerfil.setText("Perfil");
 
-        miDetalhes.setText("Detalhes");
-        miDetalhes.addActionListener(new java.awt.event.ActionListener() {
+        miInformacoes.setText("Informações");
+        miInformacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miDetalhesActionPerformed(evt);
+                miInformacoesActionPerformed(evt);
             }
         });
-        mPerfil.add(miDetalhes);
+        mPerfil.add(miInformacoes);
 
         miSair.setText("Sair");
         miSair.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -222,6 +224,10 @@ public class TelaLoja extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_mBibliotecaActionPerformed
 
+    private void miInformacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miInformacoesActionPerformed
+        new TelaPerfil().setVisible(true);
+    }//GEN-LAST:event_miInformacoesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -261,7 +267,7 @@ public class TelaLoja extends javax.swing.JFrame {
     private javax.swing.JMenu mBiblioteca;
     private javax.swing.JMenu mPerfil;
     private javax.swing.JMenuBar mbMenu;
-    private javax.swing.JMenuItem miInformaçoes;
+    private javax.swing.JMenuItem miInformacoes;
     private javax.swing.JMenuItem miSair;
     private javax.swing.JPanel painelLoja;
     private javax.swing.JPanel panelPai;
