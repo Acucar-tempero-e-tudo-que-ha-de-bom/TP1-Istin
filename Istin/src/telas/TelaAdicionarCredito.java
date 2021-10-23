@@ -20,6 +20,29 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
         lblSaldo.setForeground(new java.awt.Color(255, 255, 255));
         lblSaldo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSaldo.setText("Saldo: R$ " + cliente.getSaldo());
+        txtValor.requestFocus();
+    }
+    
+    private void adicionar() {
+        if (txtValor.getText().equals(""))
+            JOptionPane.showMessageDialog(null, "Preencha o campo com o valor a ser inserido", "Valor não inserido", JOptionPane.WARNING_MESSAGE);
+        else {
+            
+            try {
+                float valor = Float.parseFloat(txtValor.getText());
+                
+                if (valor <= 0f)
+                    throw new NumberFormatException();
+                
+                cliente.setSaldo(cliente.getSaldo() + valor);
+                txtValor.setText("");
+                JOptionPane.showMessageDialog(null, "Crédito adicionado com sucesso!", "Crédito adicionado", JOptionPane.INFORMATION_MESSAGE);
+                lblSaldo.setText("Saldo: R$ " + String.format("%.2f", cliente.getSaldo()));
+            
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Insira um valor válido", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 
     /**
@@ -34,21 +57,30 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
         lblSaldo = new javax.swing.JLabel();
         txtValor = new javax.swing.JTextField();
         btnAdicionar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Adicionar crédito");
         setBackground(new java.awt.Color(36, 40, 47));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png")).getImage());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblSaldo.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lblSaldo.setForeground(new java.awt.Color(255, 255, 255));
         lblSaldo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSaldo.setText("Saldo: R$ 100,00");
+        getContentPane().add(lblSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 15, 468, 146));
 
         txtValor.setColumns(7);
         txtValor.setForeground(new java.awt.Color(0, 0, 0));
         txtValor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtValor.setToolTipText("");
+        txtValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 167, -1, -1));
 
         btnAdicionar.setText("Adicionar");
         btnAdicionar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -61,57 +93,38 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
                 btnAdicionarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 209, 91, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtValor)
-                            .addComponent(btnAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 192, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(lblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAdicionar)
-                .addContainerGap(87, Short.MAX_VALUE))
-        );
+        btnVoltar.setBackground(new java.awt.Color(36, 40, 47));
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/seta-esquerda.png"))); // NOI18N
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdicionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdicionarMouseClicked
-
+        adicionar();
     }//GEN-LAST:event_btnAdicionarMouseClicked
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
-        if (txtValor.getText().equals(""))
-            JOptionPane.showMessageDialog(null, "Preencha o campo com o valor a ser inserido", "Valor não inserido", JOptionPane.WARNING_MESSAGE);
-        else {
-            // JOptionPane.showMessageDialog(null, "O valor inserido é inválido.", "Valor inválido", JOptionPane.WARNING_MESSAGE);
-            // Queria colocar isso num try/catch, mas não tive a paciência pra entender como funciona
-
-            cliente.setSaldo(cliente.getSaldo() + Float.parseFloat(txtValor.getText()));
-            txtValor.setText("");
-            JOptionPane.showMessageDialog(null, "Crédito adicionado com sucesso!", "Crédito adicionado", JOptionPane.INFORMATION_MESSAGE);
-            lblSaldo.setText("Saldo: R$ " + String.format("%.2f", cliente.getSaldo()));
-        }
+        adicionar();
     }//GEN-LAST:event_btnAdicionarActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
+        
+    }//GEN-LAST:event_txtValorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,6 +166,7 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel lblSaldo;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables

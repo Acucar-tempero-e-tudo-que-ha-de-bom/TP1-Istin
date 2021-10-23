@@ -5,7 +5,7 @@ import java.util.List;
 import org.json.JSONObject;
 
 public class Cliente extends Usuario {
-    private float saldo; // o valor do saldo era final, aí eu tirei. tinha algum motivo pra isso?
+    private float saldo;
 
     public Cliente(float saldo, String nome, String email, String senha, byte[] fotoPerfil) {
         super(nome, email, senha, fotoPerfil);

@@ -36,7 +36,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 login.validaLogin(nome, senha);
                 JOptionPane.showMessageDialog(null, "Login efetivado com sucesso");
                 new TelaLoja().setVisible(true);
-            this.setVisible(false);
+                this.setVisible(false);
             } catch (InvalidUserException ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
             }

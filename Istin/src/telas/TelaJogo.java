@@ -1,13 +1,15 @@
 package telas;
 
 import istin.Autor;
+import istin.Cliente;
 import istin.enums.TipoUsuario;
 import istin.Jogo;
 import istin.Login;
 import istin.Loja;
-import istin.Compra;
 import java.awt.Image;
+import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class TelaJogo extends javax.swing.JFrame {
     
@@ -46,6 +48,14 @@ public class TelaJogo extends javax.swing.JFrame {
         Autor autor = (Autor) login.get(jogo.getAutorId());
         lblnomeAutor.setText(autor.getNome());
     }
+    
+    private void comprar(Cliente cliente) {
+        cliente.setSaldo(cliente.getSaldo() - jogo.getPreco());
+        List<Integer> listaIdJogos = cliente.getListaIdJogos();
+        listaIdJogos.add(jogo.getId());
+        cliente.setListaIdJogos(listaIdJogos);
+        JOptionPane.showMessageDialog(null, "Jogo adquirido com sucesso!", "Jogo adquirido", JOptionPane.INFORMATION_MESSAGE);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,7 +71,6 @@ public class TelaJogo extends javax.swing.JFrame {
         lblnomeAutor = new javax.swing.JLabel();
         lblPreco = new javax.swing.JLabel();
         lblNota = new javax.swing.JLabel();
-        lblGenero = new javax.swing.JLabel();
         btnExcluir = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         btnComprar = new javax.swing.JButton();
@@ -84,21 +93,9 @@ public class TelaJogo extends javax.swing.JFrame {
         lblNota.setForeground(new java.awt.Color(255, 255, 255));
         lblNota.setText("Nota:");
 
-        lblGenero.setForeground(new java.awt.Color(255, 255, 255));
-        lblGenero.setText("Genero:");
-
-        btnComprar.setBackground(new java.awt.Color(36, 40, 47));
-        btnComprar.setForeground(new java.awt.Color(255, 255, 255));
-        btnComprar.setText("Comprar");
-        btnComprar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComprarActionPerformed(evt);
-            }
-        });
         btnExcluir.setBackground(new java.awt.Color(36, 40, 47));
         btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
         btnExcluir.setText("Excluir");
-        btnExcluir.setActionCommand("Excluir");
         btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +117,11 @@ public class TelaJogo extends javax.swing.JFrame {
         btnComprar.setForeground(new java.awt.Color(255, 255, 255));
         btnComprar.setText("Comprar");
         btnComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,24 +130,21 @@ public class TelaJogo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblNota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblcapaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblnomeJogo)
-                                    .addComponent(lblnomeAutor)))))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnVoltar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(157, 157, 157)
-                        .addComponent(btnExcluir)))
+                        .addComponent(btnExcluir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblNota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblcapaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblnomeJogo)
+                            .addComponent(lblnomeAutor))))
                 .addContainerGap(117, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -171,9 +170,7 @@ public class TelaJogo extends javax.swing.JFrame {
                         .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(lblNota, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(43, 43, 43)
                 .addComponent(btnExcluir)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,18 +189,25 @@ public class TelaJogo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
-        Compra compra = new Compra();
-        compra.comprar(jogo);
+        Cliente cliente = (Cliente) login.getUsuarioLogado();
+        Object[] opcoes = {"Sim", "Não"};
+        if (cliente.getSaldo() - jogo.getPreco() < 0f) {
+            int opcao = JOptionPane.showOptionDialog(null, "Saldo insuficiente. Gostaria de adicionar mais crédito a sua carteira?", "Saldo insuficiente", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+            if (opcao==0)
+                new TelaAdicionarCredito().setVisible(true);
+        }
+        else {
+            comprar(cliente);
+        }
     }//GEN-LAST:event_btnComprarActionPerformed
-    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
 
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         loja.remove(jogo.getId());
         login.removerJogoPublicado(jogo);
         lojaPai.atualizarLoja();
         dispose();
-
     }//GEN-LAST:event_btnExcluirActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -244,7 +248,6 @@ public class TelaJogo extends javax.swing.JFrame {
     private javax.swing.JButton btnComprar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JLabel lblGenero;
     private javax.swing.JLabel lblNota;
     private javax.swing.JLabel lblPreco;
     private javax.swing.JLabel lblcapaJogo;
