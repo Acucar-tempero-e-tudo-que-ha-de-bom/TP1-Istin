@@ -7,14 +7,14 @@ Lista de tarefas:
 
 Código
 - [ ] Documentação do código
-- [ ] Agregação ou composição
-- [ ] Classe abstrata
-- [ ] Herança
-- [ ] Polimorfismo
-- [ ] Interface
-- [ ] Vetores ou listas de objetos
-- [ ] Interface gráfica
-- [ ] Arquivos e tratamento de exceção
+- [x] Agregação ou composição
+- [x] Classe abstrata
+- [x] Herança
+- [x] Polimorfismo
+- [x] Interface
+- [x] Vetores ou listas de objetos
+- [x] Interface gráfica
+- [x] Arquivos e tratamento de exceção
 
 Relatório final
 - [ ] Descrição do problema
