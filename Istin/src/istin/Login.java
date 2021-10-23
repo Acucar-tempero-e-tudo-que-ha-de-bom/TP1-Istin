@@ -2,6 +2,7 @@ package istin;
 
 import istin.enums.TipoUsuario;
 import istin.generic.GerenciadorJson;
+import istin.exceptions.InvalidPasswordException;
 import istin.exceptions.InvalidUserException;
 import java.util.Optional;
 import java.util.logging.Level;
@@ -32,13 +33,18 @@ public class Login extends GerenciadorJson<Usuario> {
         return valueCollection().stream().anyMatch(u -> u.getEmail().equals(emailInserido));
     }
     
-    public void validaLogin(String nomeInserido, String senhaInserida) throws InvalidUserException {
-        Optional<Usuario> optionalUsuario = valueCollection().stream().filter(u -> (u.getNome().equals(nomeInserido) && u.getSenha().equals(senhaInserida))).findFirst();
+    public void validaLogin(String nomeInserido, String senhaInserida) throws InvalidUserException, InvalidPasswordException {
+        Optional<Usuario> optionalUsuario = valueCollection().stream().filter(u -> u.getNome().equals(nomeInserido)).findFirst();
         
-        if (optionalUsuario.isEmpty()){
+        if (optionalUsuario.isEmpty()) {
             throw new InvalidUserException("Esse usuário não existe");
         } else {
-            this.setUsuarioLogado(optionalUsuario.get());
+            Usuario usuario = optionalUsuario.get();
+            if (usuario.getSenha().equals(senhaInserida)) {
+                this.setUsuarioLogado(usuario);
+            } else {
+                throw new InvalidPasswordException("Senha incorreta");
+            }
         }
     }
     

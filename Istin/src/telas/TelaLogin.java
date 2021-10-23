@@ -2,6 +2,7 @@ package telas;
 
 
 import istin.Login;
+import istin.exceptions.InvalidPasswordException;
 import istin.exceptions.InvalidUserException;
 import javax.swing.JOptionPane;
 import telas.helpers.SimpleDocumentListener;
@@ -36,9 +37,9 @@ public class TelaLogin extends javax.swing.JFrame {
                 login.validaLogin(nome, senha);
                 JOptionPane.showMessageDialog(null, "Login efetivado com sucesso");
                 new TelaLoja().setVisible(true);
-            this.setVisible(false);
-            } catch (InvalidUserException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage());
+                this.setVisible(false);
+            } catch (InvalidUserException | InvalidPasswordException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
