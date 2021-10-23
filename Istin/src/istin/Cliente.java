@@ -26,7 +26,7 @@ public class Cliente extends Usuario {
     public Cliente(JSONObject json) {
         super(json);
         this.saldo = (float) json.getFloat("saldo");
-        this.idJogosAvaliados = json.getJSONArray("jogos").toList().stream().map(o -> (Integer) o).collect(Collectors.toList());
+        this.idJogosAvaliados = json.getJSONArray("jogosAvaliados").toList().stream().map(o -> (Integer) o).collect(Collectors.toList());
     }
 
     public float getSaldo() {

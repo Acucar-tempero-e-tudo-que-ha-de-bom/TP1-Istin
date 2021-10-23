@@ -26,7 +26,7 @@ public class Loja extends GerenciadorJson<Jogo> {
     public Map getMapjogos() {
         return jsonTratado;
     }
-
+    
     @Override
     protected Jogo carregarObjeto(JSONObject json) {
         return new Jogo(json);

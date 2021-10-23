@@ -34,28 +34,21 @@ public class TelaJogo extends javax.swing.JFrame {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         
-        boolean ehCliente = false, jaAvaliou = false;
-        if(login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE) {
+        boolean podeAvaliar = false;
+        if (login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE) {
             Cliente cliente = (Cliente) login.getUsuarioLogado();
-            for(Integer idJogo : cliente.getIdJogosAvaliados()){
-                System.out.println("id jogo: " + jogo.getId() + " tamo no: " + idJogo);
-                if(idJogo.equals(jogo.getId())) jaAvaliou = true;
-                break;
-            }
-            ehCliente = true;
+            podeAvaliar = !cliente.getIdJogosAvaliados().contains(jogo.getId());
         }
         
-        System.out.println(jaAvaliou);
-        
         btnExcluir.setVisible(jogo.getAutorId().equals(login.getUsuarioLogado().getId()));
-        btnComprar.setVisible(ehCliente);
+        btnComprar.setVisible(login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE);
         
-        rdbtn1.setVisible(ehCliente&&!jaAvaliou);
-        rdbtn2.setVisible(ehCliente&&!jaAvaliou);
-        rdbtn3.setVisible(ehCliente&&!jaAvaliou);
-        rdbtn4.setVisible(ehCliente&&!jaAvaliou);
-        rdbtn5.setVisible(ehCliente&&!jaAvaliou);
-        btnAvaliar.setVisible(ehCliente&&!jaAvaliou);
+        rdbtn1.setVisible(podeAvaliar);
+        rdbtn2.setVisible(podeAvaliar);
+        rdbtn3.setVisible(podeAvaliar);
+        rdbtn4.setVisible(podeAvaliar);
+        rdbtn5.setVisible(podeAvaliar);
+        btnAvaliar.setVisible(podeAvaliar);
         
         setTitle("Istin - " + jogo.getNome());
         ImageIcon imageIcon = new ImageIcon(jogo.getImagem());
@@ -231,6 +224,7 @@ public class TelaJogo extends javax.swing.JFrame {
                     jogo.setMediaAvaliacao((numeroAvaliacao*mediaAvaliacao + i  + 1) / (++numeroAvaliacao));
                     jogo.setNumeroAvaliacoes(numeroAvaliacao);
                     lblValorNota.setText(String.format("%.2f",jogo.getMediaAvaliacao()));
+                    loja.salvarJson();
                     break;
                 }
             }
