@@ -189,16 +189,25 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
         if(nome.equals("") || preco.equals("")) {
             JOptionPane.showMessageDialog(null, "Campos não preenchidos");
         } else {
-            Autor autor = (Autor) login.getUsuarioLogado();
-            Jogo jogo = new Jogo(nome, Float.parseFloat(preco), bytesArquivo, autor.getId());
-            
-            loja.add(jogo);
-            login.adicionarJogoPublicado(autor, jogo);
-            
-            JOptionPane.showMessageDialog(null, "Jogo cadastrado com sucesso");
-            dispose();
-            lojaPai.atualizarLoja();
-            lojaPai.requestFocus();
+            try {
+                Autor autor = (Autor) login.getUsuarioLogado();
+                float precoF = Float.parseFloat(preco);
+                if (precoF < 0f || precoF == -0f) {
+                    throw new NumberFormatException();
+                }
+                
+                Jogo jogo = new Jogo(nome, precoF, bytesArquivo, autor.getId());
+
+                loja.add(jogo);
+                login.adicionarJogoPublicado(autor, jogo);
+
+                JOptionPane.showMessageDialog(null, "Jogo cadastrado com sucesso");
+                dispose();
+                lojaPai.atualizarLoja();
+                lojaPai.requestFocus();
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Insira um valor válido", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
         }
         
     }//GEN-LAST:event_btnOKActionPerformed

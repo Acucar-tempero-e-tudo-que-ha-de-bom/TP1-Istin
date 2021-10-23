@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package telas;
 
 import istin.Autor;
@@ -17,10 +13,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-/**
- *
- * @author anasofia
- */
 public class TelaNovaConta extends javax.swing.JFrame {
 
     private final Login login;
@@ -108,6 +100,8 @@ public class TelaNovaConta extends javax.swing.JFrame {
         rbtAutor.setForeground(new java.awt.Color(255, 255, 255));
         rbtAutor.setText("Autor");
 
+        lblFotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/interrogacao.png"))); // NOI18N
+
         btnAddFoto.setText("Mudar foto");
         btnAddFoto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAddFoto.addActionListener(new java.awt.event.ActionListener() {
@@ -123,38 +117,31 @@ public class TelaNovaConta extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(lbEmail)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btCriar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(151, 151, 151)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(rbtCliente)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rbtAutor)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addGap(18, 18, 18))
+                                .addComponent(rbtCliente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rbtAutor))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(39, 39, 39)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lbUsername)
-                                    .addComponent(lbSenha))
+                                    .addComponent(lbSenha)
+                                    .addComponent(lbEmail))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAddFoto))))
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGap(0, 41, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(btVoltar)
@@ -205,7 +192,7 @@ public class TelaNovaConta extends javax.swing.JFrame {
         if(nome.equals("") || email.equals("") || senha.equals("")) {
             txtUsername.setText("");
             txtEmail.setText("");
-            txtSenha.setText("");
+            txtSenha.setText("");  // isso aqui é sacanagem kkkkkkk o usuário esqueceu de preencher um campo e vai ter que digitar tudo de novo
             txtUsername.requestFocus();
             
             JOptionPane.showMessageDialog(null, "Todos os campos de cadastro devem estar preenchidos");
@@ -229,7 +216,8 @@ public class TelaNovaConta extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(null, "Conta criada com sucesso");
             
-            this.setVisible(false);
+            //this.setVisible(false);
+            dispose();
         }
     }//GEN-LAST:event_btCriarActionPerformed
 

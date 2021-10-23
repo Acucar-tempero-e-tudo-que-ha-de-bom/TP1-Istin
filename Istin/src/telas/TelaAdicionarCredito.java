@@ -38,9 +38,12 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
                 txtValor.setText("");
                 JOptionPane.showMessageDialog(null, "Crédito adicionado com sucesso!", "Crédito adicionado", JOptionPane.INFORMATION_MESSAGE);
                 lblSaldo.setText("Saldo: R$ " + String.format("%.2f", cliente.getSaldo()));
-            
+                dispose();
+                
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Insira um valor válido", "Erro", JOptionPane.ERROR_MESSAGE);
+                txtValor.setText("");
+                txtValor.requestFocus();
             }
         }
     }
