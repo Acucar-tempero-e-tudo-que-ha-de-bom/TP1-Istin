@@ -38,6 +38,7 @@ public class TelaJogo extends javax.swing.JFrame {
         if (login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE) {
             Cliente cliente = (Cliente) login.getUsuarioLogado();
             podeAvaliar = !cliente.getIdJogosAvaliados().contains(jogo.getId());
+            System.out.println(podeAvaliar);
         }
         
         btnExcluir.setVisible(jogo.getAutorId().equals(login.getUsuarioLogado().getId()));
@@ -62,6 +63,8 @@ public class TelaJogo extends javax.swing.JFrame {
         
         Autor autor = (Autor) login.get(jogo.getAutorId());
         lblnomeAutor.setText(autor.getNome());
+        
+        revalidate();
     }
     
     private void comprar(Cliente cliente) {
@@ -117,7 +120,7 @@ public class TelaJogo extends javax.swing.JFrame {
 
         lblNota.setForeground(new java.awt.Color(255, 255, 255));
         lblNota.setText("Nota:");
-        getContentPane().add(lblNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 147, -1, -1));
+        getContentPane().add(lblNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
         btnExcluir.setBackground(new java.awt.Color(36, 40, 47));
         btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,68 +148,6 @@ public class TelaJogo extends javax.swing.JFrame {
         btnComprar.setForeground(new java.awt.Color(255, 255, 255));
         btnComprar.setText("Comprar");
         btnComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnComprar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComprarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnVoltar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(btnExcluir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblNota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblcapaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblnomeJogo)
-                            .addComponent(lblnomeAutor))))
-                .addContainerGap(117, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(231, Short.MAX_VALUE)
-                    .addComponent(btnComprar)
-                    .addGap(149, 149, 149)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnVoltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblcapaJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblnomeJogo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblnomeAutor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(lblNota, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(btnExcluir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(255, Short.MAX_VALUE)
-                    .addComponent(btnComprar)
-                    .addContainerGap()))
-        );
         getContentPane().add(btnComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
 
         btnGrpNota.add(rdbtn1);
@@ -246,7 +187,7 @@ public class TelaJogo extends javax.swing.JFrame {
 
         lblValorNota.setForeground(new java.awt.Color(255, 255, 255));
         lblValorNota.setText("5,00");
-        getContentPane().add(lblValorNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 147, -1, -1));
+        getContentPane().add(lblValorNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
 
         btnAvaliar.setText("Avaliar");
         btnAvaliar.addActionListener(new java.awt.event.ActionListener() {
