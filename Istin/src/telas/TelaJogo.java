@@ -63,8 +63,6 @@ public class TelaJogo extends javax.swing.JFrame {
         
         Autor autor = (Autor) login.get(jogo.getAutorId());
         lblnomeAutor.setText(autor.getNome());
-        
-        revalidate();
     }
     
     private void comprar(Cliente cliente) {
@@ -151,6 +149,7 @@ public class TelaJogo extends javax.swing.JFrame {
         getContentPane().add(btnComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
 
         btnGrpNota.add(rdbtn1);
+        rdbtn1.setForeground(new java.awt.Color(255, 255, 255));
         rdbtn1.setText("1");
         rdbtn1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         rdbtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -158,6 +157,7 @@ public class TelaJogo extends javax.swing.JFrame {
         getContentPane().add(rdbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 198, -1, 38));
 
         btnGrpNota.add(rdbtn2);
+        rdbtn2.setForeground(new java.awt.Color(255, 255, 255));
         rdbtn2.setText("2");
         rdbtn2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         rdbtn2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -165,6 +165,7 @@ public class TelaJogo extends javax.swing.JFrame {
         getContentPane().add(rdbtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 198, -1, 38));
 
         btnGrpNota.add(rdbtn3);
+        rdbtn3.setForeground(new java.awt.Color(255, 255, 255));
         rdbtn3.setText("3");
         rdbtn3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         rdbtn3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -172,6 +173,7 @@ public class TelaJogo extends javax.swing.JFrame {
         getContentPane().add(rdbtn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 198, -1, 38));
 
         btnGrpNota.add(rdbtn4);
+        rdbtn4.setForeground(new java.awt.Color(255, 255, 255));
         rdbtn4.setText("4");
         rdbtn4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         rdbtn4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -179,6 +181,7 @@ public class TelaJogo extends javax.swing.JFrame {
         getContentPane().add(rdbtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 198, -1, 38));
 
         btnGrpNota.add(rdbtn5);
+        rdbtn5.setForeground(new java.awt.Color(255, 255, 255));
         rdbtn5.setText("5");
         rdbtn5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         rdbtn5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -189,6 +192,7 @@ public class TelaJogo extends javax.swing.JFrame {
         lblValorNota.setText("5,00");
         getContentPane().add(lblValorNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
 
+        btnAvaliar.setForeground(new java.awt.Color(255, 255, 255));
         btnAvaliar.setText("Avaliar");
         btnAvaliar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
