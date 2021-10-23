@@ -192,7 +192,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
             try {
                 Autor autor = (Autor) login.getUsuarioLogado();
                 float precoF = Float.parseFloat(preco);
-                if (precoF < 0) {
+                if (precoF < 0f || precoF == -0f) {
                     throw new NumberFormatException();
                 }
                 
