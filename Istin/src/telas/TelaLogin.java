@@ -28,7 +28,7 @@ public class TelaLogin extends javax.swing.JFrame {
     
     private void logar() {
         String nome = txtNomeUsuario.getText();
-        String senha = txtSenha.getText();
+        String senha = new String(txtSenha.getPassword());
         
         if (nome.equals("") || senha.equals("")){
             JOptionPane.showMessageDialog(null, "Nome de usuário e/ou senha não informados", "Erro", JOptionPane.PLAIN_MESSAGE);
@@ -57,7 +57,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         txtNomeUsuario = new javax.swing.JTextField();
         lblSenha = new javax.swing.JLabel();
-        txtSenha = new javax.swing.JTextField();
+        txtSenha = new javax.swing.JPasswordField();
         btnEntrar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         lblIstin = new javax.swing.JLabel();
@@ -81,6 +81,7 @@ public class TelaLogin extends javax.swing.JFrame {
         lblSenha.setForeground(new java.awt.Color(255, 255, 255));
         lblSenha.setText("Senha");
 
+        txtSenha.setEchoChar('\u25cf');
         txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSenhaActionPerformed(evt);
@@ -248,6 +249,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblNomeUsuario;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JTextField txtNomeUsuario;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
