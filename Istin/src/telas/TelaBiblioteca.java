@@ -52,7 +52,7 @@ public class TelaBiblioteca extends javax.swing.JFrame {
             
             painelBiblioteca.add(labelJogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(x, y, 117, 150));
             
-            if (i == loja.getJogos().size() - 1) {
+            if (i == idJogos.size() - 1) {
                 painelBiblioteca.setPreferredSize(new Dimension(x + 132, 409));
             }
             
