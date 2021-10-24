@@ -35,11 +35,12 @@ public class TelaJogo extends javax.swing.JFrame {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         
+        this.setSize(Math.max(lblnomeJogo.getWidth() + 134, 474), this.getHeight());
+        
         boolean podeAvaliar = false;
         if (login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE) {
             Cliente cliente = (Cliente) login.getUsuarioLogado();
             podeAvaliar = !cliente.getIdJogosAvaliados().contains(jogo.getId());
-            System.out.println(podeAvaliar);
         }
         
         btnExcluir.setVisible(jogo.getAutorId().equals(login.getUsuarioLogado().getId()));
