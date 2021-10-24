@@ -5,10 +5,7 @@ import istin.Login;
 import istin.Loja;
 import java.awt.Cursor;
 import java.awt.Dimension;
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
