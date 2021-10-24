@@ -34,7 +34,7 @@ public class TelaJogo extends javax.swing.JFrame {
         
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
-        
+
         atualizarBotoes();
 
         setTitle("Istin - " + jogo.getNome());
