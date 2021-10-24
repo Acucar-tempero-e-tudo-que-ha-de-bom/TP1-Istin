@@ -95,6 +95,7 @@ public class TelaPerfil extends javax.swing.JFrame{
         });
 
         btnCancelar.setBackground(new java.awt.Color(36, 40, 47));
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/seta-esquerda.png"))); // NOI18N
         btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +114,7 @@ public class TelaPerfil extends javax.swing.JFrame{
             }
         });
 
-        btnAdicionarCredito.setBackground(new java.awt.Color(0, 0, 0));
+        btnAdicionarCredito.setBackground(new java.awt.Color(36, 40, 47));
         btnAdicionarCredito.setForeground(new java.awt.Color(255, 255, 255));
         btnAdicionarCredito.setText("Adicionar crédito");
         btnAdicionarCredito.addActionListener(new java.awt.event.ActionListener() {
