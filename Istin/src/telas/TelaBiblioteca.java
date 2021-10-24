@@ -29,12 +29,10 @@ public class TelaBiblioteca extends javax.swing.JFrame {
         painelBiblioteca.removeAll();
         
         List<Integer> idJogos = login.getUsuarioLogado().getListaIdJogos();
-        Map<Integer, Jogo> jogos = loja.getMapjogos();
-        
         
         for (int i = 0; i < idJogos.size(); i++) {
             
-            Jogo jogo = jogos.get(idJogos.get(i));
+            Jogo jogo = loja.get(idJogos.get(i));
             
             int x = 25 + (167 * (i / 2));
             int y = 25 + (209 * (i % 2));

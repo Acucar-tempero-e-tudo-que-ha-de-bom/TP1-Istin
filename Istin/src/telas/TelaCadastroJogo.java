@@ -12,6 +12,7 @@ import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.time.LocalDateTime;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -196,7 +197,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
                     throw new NumberFormatException();
                 }
                 
-                Jogo jogo = new Jogo(nome, precoF, bytesArquivo, autor.getId());
+                Jogo jogo = new Jogo(nome, precoF, bytesArquivo, autor.getId(), LocalDateTime.now());
 
                 loja.add(jogo);
                 login.adicionarJogoPublicado(autor, jogo);
