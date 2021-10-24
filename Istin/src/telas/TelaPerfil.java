@@ -2,6 +2,7 @@ package telas;
 
 import istin.Cliente;
 import istin.Login;
+import istin.enums.TipoUsuario;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -29,8 +30,13 @@ public class TelaPerfil extends javax.swing.JFrame{
         
         lblNome.setText(login.getUsuarioLogado().getNome());
         
-        //lblValorSaldo.setText(String.format("%.2f", String.valueOf(((Cliente) login.getUsuarioLogado()).getSaldo())));
-        lblValorSaldo.setText(String.valueOf(((Cliente) login.getUsuarioLogado()).getSaldo()));
+        if(login.getUsuarioLogado().getTipo()== TipoUsuario.CLIENTE){
+            lblValorSaldo.setText(String.valueOf(((Cliente) login.getUsuarioLogado()).getSaldo()));
+        } else {
+            lblValorSaldo.setVisible(false);
+            lblSaldo.setVisible(false);
+        }
+        
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
     }
 
