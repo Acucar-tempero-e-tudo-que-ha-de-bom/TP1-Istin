@@ -31,12 +31,18 @@ public class TelaBiblioteca extends javax.swing.JFrame {
         
         List<Integer> idJogos = login.getUsuarioLogado().getListaIdJogos();
         
+        int compensaIndex = 0;
         for (int i = 0; i < idJogos.size(); i++) {
             
             Jogo jogo = loja.get(idJogos.get(i));
+            if (jogo == null) {
+                compensaIndex++;
+                continue;
+            }
             
-            int x = 25 + (167 * (i / 2));
-            int y = 25 + (209 * (i % 2));
+            int j = i - compensaIndex;
+            int x = 25 + (167 * (j / 2));
+            int y = 25 + (209 * (j % 2));
             
             JLabel labelJogo = new JLabel();
 
@@ -58,6 +64,7 @@ public class TelaBiblioteca extends javax.swing.JFrame {
             }
             
             painelBiblioteca.revalidate();
+            painelBiblioteca.repaint();
         }
     }
 

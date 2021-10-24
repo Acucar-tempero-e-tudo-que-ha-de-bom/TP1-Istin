@@ -63,6 +63,7 @@ public class TelaLoja extends javax.swing.JFrame {
             }
             
             painelLoja.revalidate();
+            painelLoja.repaint();
         }
     }
 

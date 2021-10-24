@@ -97,6 +97,8 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
         });
         getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 167, -1, -1));
 
+        btnAdicionar.setBackground(new java.awt.Color(36, 40, 47));
+        btnAdicionar.setForeground(new java.awt.Color(255, 255, 255));
         btnAdicionar.setText("Adicionar");
         btnAdicionar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
