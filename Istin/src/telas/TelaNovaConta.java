@@ -197,10 +197,6 @@ public class TelaNovaConta extends javax.swing.JFrame {
         lblFotoPerfil.getIcon();
         
         if(nome.equals("") || email.equals("") || senha.equals("")) {
-            txtUsername.setText("");
-            txtEmail.setText("");
-            txtSenha.setText("");  // isso aqui é sacanagem kkkkkkk o usuário esqueceu de preencher um campo e vai ter que digitar tudo de novo
-            txtUsername.requestFocus();
             
             JOptionPane.showMessageDialog(null, "Todos os campos de cadastro devem estar preenchidos");
             
@@ -223,7 +219,6 @@ public class TelaNovaConta extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(null, "Conta criada com sucesso");
             
-            //this.setVisible(false);
             dispose();
         }
     }//GEN-LAST:event_btCriarActionPerformed

@@ -61,11 +61,6 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
         lblNome.setText("Nome");
 
         txtNome.setToolTipText("");
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
-            }
-        });
 
         lblPreco.setForeground(new java.awt.Color(255, 255, 255));
         lblPreco.setText("Preço");
@@ -149,10 +144,6 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
-
     private void btnInserirImagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirImagemActionPerformed
         JFileChooser inserirArquivo = new JFileChooser();
         inserirArquivo.setAcceptAllFileFilterUsed(false);
@@ -207,6 +198,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
                 dispose();
                 lojaPai.atualizarLoja();
                 lojaPai.requestFocus();
+                
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Insira um valor válido", "Erro", JOptionPane.ERROR_MESSAGE);
             }
