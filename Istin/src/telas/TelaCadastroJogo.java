@@ -18,10 +18,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-/**
- *
- * @author anasofia
- */
 public class TelaCadastroJogo extends javax.swing.JFrame {
 
     private final Loja loja;
