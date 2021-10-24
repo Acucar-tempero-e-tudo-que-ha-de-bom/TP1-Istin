@@ -10,6 +10,9 @@ public class TelaLogin extends javax.swing.JFrame {
         
     private final Login login;
 
+    /**
+     * Construtor da TelaLogin
+     */
     public TelaLogin() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
@@ -25,6 +28,9 @@ public class TelaLogin extends javax.swing.JFrame {
         });
     }
     
+    /**
+     * Tenta logar-se na conta com os dados presentes nos campos de texto.
+     */
     private void logar() {
         String nome = txtNomeUsuario.getText();
         String senha = new String(txtSenha.getPassword());
@@ -43,6 +49,9 @@ public class TelaLogin extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Atualiza o botão entrar para ativado somente quando os campos de nome e senha estiverem preenchidos.
+     */
     private void atualizarBotaoEntrar() {
         String nome = txtNomeUsuario.getText();
         String senha = new String(txtSenha.getPassword());
@@ -232,10 +241,8 @@ public class TelaLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaLogin().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaLogin().setVisible(true);
         });
     }
 

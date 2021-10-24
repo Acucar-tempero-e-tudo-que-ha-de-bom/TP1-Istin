@@ -18,6 +18,9 @@ public class TelaNovaConta extends javax.swing.JFrame {
     private final Login login;
     private byte[] bytesArquivo;
     
+    /**
+     * Construtor da TelaNovaConta
+     */
     public TelaNovaConta() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
@@ -182,6 +185,10 @@ public class TelaNovaConta extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Tenta criar uma nova conta com as informações presentes nos campos de texto.
+     * @param evt
+     */
     private void btCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCriarActionPerformed
         
         String nome = txtUsername.getText();
