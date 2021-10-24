@@ -6,9 +6,9 @@ import istin.enums.TipoUsuario;
 import istin.Jogo;
 import istin.Login;
 import istin.Loja;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -35,22 +35,7 @@ public class TelaJogo extends javax.swing.JFrame {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         
-        boolean podeAvaliar = false;
-        if (login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE) {
-            Cliente cliente = (Cliente) login.getUsuarioLogado();
-            podeAvaliar = !cliente.getIdJogosAvaliados().contains(jogo.getId());
-            System.out.println(podeAvaliar);
-        }
-        
-        btnExcluir.setVisible(jogo.getAutorId().equals(login.getUsuarioLogado().getId()));
-        btnComprar.setVisible(login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE);
-        
-        rdbtn1.setVisible(podeAvaliar);
-        rdbtn2.setVisible(podeAvaliar);
-        rdbtn3.setVisible(podeAvaliar);
-        rdbtn4.setVisible(podeAvaliar);
-        rdbtn5.setVisible(podeAvaliar);
-        btnAvaliar.setVisible(podeAvaliar);
+        atualizarBotoes();
 
         setTitle("Istin - " + jogo.getNome());
         ImageIcon imageIcon = new ImageIcon(jogo.getImagem());
@@ -66,6 +51,30 @@ public class TelaJogo extends javax.swing.JFrame {
         lblnomeAutor.setText(autor.getNome());
         
         lblPublicadoEm.setText("Publicado em: " + jogo.getDataPublicacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        
+        Dimension dimension = new Dimension(Math.max(lblnomeJogo.getPreferredSize().width + 184, getWidth()), getHeight());
+        setSize(dimension);
+    }
+    
+    private void atualizarBotoes() {
+        boolean ehCliente = login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE;
+        boolean possuiJogo = false;
+        boolean podeAvaliar = false;
+        if (ehCliente) {
+            Cliente cliente = (Cliente) login.getUsuarioLogado();
+            possuiJogo = cliente.getListaIdJogos().contains(jogo.getId());
+            podeAvaliar = !cliente.getIdJogosAvaliados().contains(jogo.getId()) && possuiJogo;
+        }
+        
+        btnExcluir.setVisible(jogo.getAutorId().equals(login.getUsuarioLogado().getId()));
+        btnComprar.setVisible(!possuiJogo && ehCliente);
+        
+        rdbtn1.setVisible(podeAvaliar);
+        rdbtn2.setVisible(podeAvaliar);
+        rdbtn3.setVisible(podeAvaliar);
+        rdbtn4.setVisible(podeAvaliar);
+        rdbtn5.setVisible(podeAvaliar);
+        btnAvaliar.setVisible(podeAvaliar);
     }
     
     private void comprar(Cliente cliente) {
@@ -74,6 +83,8 @@ public class TelaJogo extends javax.swing.JFrame {
         cliente.adicionaJogo(jogo);
         login.salvarJson();
         JOptionPane.showMessageDialog(null, "Jogo adquirido com sucesso!", "Jogo adquirido", JOptionPane.INFORMATION_MESSAGE);
+        atualizarBotoes();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -272,6 +283,8 @@ public class TelaJogo extends javax.swing.JFrame {
             Cliente cliente = (Cliente) login.getUsuarioLogado();
             login.adicionarJogoAvaliado(cliente, jogo.getId());
         }
+        
+        atualizarBotoes();
         
     }//GEN-LAST:event_btnAvaliarActionPerformed
 
