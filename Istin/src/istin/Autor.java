@@ -8,22 +8,22 @@ public class Autor extends Usuario {
     
     /**
      * Construtor da classe
-     * @param nome           nome do autor
-     * @param email            email do autor 
-     * @param senha          senha do autor
-     * @param fotoPerfil      foto de perfil do autor
+     * @param nome              nome do autor
+     * @param email             email do autor 
+     * @param senha             senha do autor
+     * @param fotoPerfil        foto de perfil do autor
      */
      public Autor(String nome, String email, String senha, byte[] fotoPerfil) {
         super(nome, email, senha, fotoPerfil);
     }
-     
+
      /**
       * Construtor da classe
-      * @param nome            nome do autor
-      * @param email             email do autor
-      * @param senha           senha do autor
+      * @param nome             nome do autor
+      * @param email            email do autor
+      * @param senha            senha do autor
       * @param fotoPerfil       foto de perfil do autor
-      * @param listaIdJogos   lista de ID's dos jogos que o autor publicou
+      * @param listaIdJogos     lista de ID's dos jogos que o autor publicou
       */
     public Autor(String nome, String email, String senha, byte[] fotoPerfil, List<Integer> listaIdJogos) {
         super(nome, email, senha, fotoPerfil, listaIdJogos);
@@ -40,7 +40,7 @@ public class Autor extends Usuario {
     public List<Integer> getJogosPublicados() {
         return listaIdJogos;
     }
-    
+
     /**
      * Adiciona o ID do jogo publicado à lista de ID's dos jogos publicados
      * @param jogo  jogo publicado
@@ -48,7 +48,7 @@ public class Autor extends Usuario {
     public void adicionarJogoPublicado(Jogo jogo) {
         listaIdJogos.add(jogo.getId());
     }
-    
+
     /**
      * Remove o ID do jogo publicado da lista de ID's dos jogos publicados
      * @param jogo jogo removido

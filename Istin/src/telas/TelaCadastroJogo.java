@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package telas;
 
 import istin.Autor;
@@ -25,6 +21,10 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
     private byte[] bytesArquivo;
     private final TelaLoja lojaPai;
     
+    /**
+     * Construtor da TelaCadastroJogo
+     * @param lojaPai 
+     */
     public TelaCadastroJogo(TelaLoja lojaPai) {
         this.lojaPai = lojaPai;
         initComponents();
@@ -175,7 +175,7 @@ public class TelaCadastroJogo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInserirImagemActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
