@@ -66,10 +66,10 @@ public class TelaJogo extends javax.swing.JFrame {
     }
     
     private void comprar(Cliente cliente) {
+        
         cliente.setSaldo(cliente.getSaldo() - jogo.getPreco());
-        List<Integer> listaIdJogos = cliente.getListaIdJogos();
-        listaIdJogos.add(jogo.getId());
-        cliente.setListaIdJogos(listaIdJogos);
+        cliente.adicionaJogo(jogo);
+        login.salvarJson();
         JOptionPane.showMessageDialog(null, "Jogo adquirido com sucesso!", "Jogo adquirido", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -146,6 +146,11 @@ public class TelaJogo extends javax.swing.JFrame {
         btnComprar.setForeground(new java.awt.Color(255, 255, 255));
         btnComprar.setText("Comprar");
         btnComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
 
         btnGrpNota.add(rdbtn1);

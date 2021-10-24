@@ -7,6 +7,8 @@ import javax.swing.JOptionPane;
 public class TelaAdicionarCredito extends javax.swing.JFrame {
 
     private Cliente cliente;
+    private Login login;
+    
     /**
      * Creates new form TelaLogin
      */
@@ -14,7 +16,8 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 40, 47));
         
-        cliente = (Cliente) Login.getInstance().getUsuarioLogado();
+        login = Login.getInstance();
+        cliente = (Cliente) login.getUsuarioLogado();
         
         lblSaldo.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lblSaldo.setForeground(new java.awt.Color(255, 255, 255));
@@ -38,6 +41,8 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
                 txtValor.setText("");
                 JOptionPane.showMessageDialog(null, "Crédito adicionado com sucesso!", "Crédito adicionado", JOptionPane.INFORMATION_MESSAGE);
                 lblSaldo.setText("Saldo: R$ " + String.format("%.2f", cliente.getSaldo()));
+                login.salvarJson();
+                
                 dispose();
                 
             } catch (NumberFormatException ex) {

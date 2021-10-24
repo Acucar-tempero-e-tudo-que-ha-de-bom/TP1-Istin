@@ -37,6 +37,10 @@ public class Cliente extends Usuario {
         return saldo;
     }
 
+    public void adicionaJogo(Jogo jogo) {
+        listaIdJogos.add(jogo.getId());
+    }
+    
     public void adicionaJogoAvaliado(Integer idJogo) {
         idJogosAvaliados.add(idJogo);
     }
