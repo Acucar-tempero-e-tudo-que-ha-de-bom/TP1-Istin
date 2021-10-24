@@ -254,13 +254,7 @@ public class TelaJogo extends javax.swing.JFrame {
         bibPai.atualizarBiblioteca();
         dispose();
     }//GEN-LAST:event_btnExcluirActionPerformed
-
-    /*
-        NÃO ESQUECER DE SALVAR NO JSON
-        FAZER ISSO DPS
-        TO INDO FAZER A PARTE DE CONFIGURAR TODOS OS CADASTROS BONITINHOS
-    */
-    
+  
     private void btnAvaliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvaliarActionPerformed
         
         boolean[] avaliacao = {rdbtn1.isSelected(), rdbtn2.isSelected(), rdbtn3.isSelected(), rdbtn4.isSelected(), rdbtn5.isSelected()};
