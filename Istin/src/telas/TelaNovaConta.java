@@ -65,12 +65,6 @@ public class TelaNovaConta extends javax.swing.JFrame {
             }
         });
 
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
-
         lbUsername.setForeground(new java.awt.Color(255, 255, 255));
         lbUsername.setText("Nome de usuário");
 
@@ -93,11 +87,6 @@ public class TelaNovaConta extends javax.swing.JFrame {
         buttonGroup.add(rbtCliente);
         rbtCliente.setForeground(new java.awt.Color(255, 255, 255));
         rbtCliente.setText("Cliente");
-        rbtCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtClienteActionPerformed(evt);
-            }
-        });
 
         buttonGroup.add(rbtAutor);
         rbtAutor.setForeground(new java.awt.Color(255, 255, 255));
@@ -197,10 +186,6 @@ public class TelaNovaConta extends javax.swing.JFrame {
         lblFotoPerfil.getIcon();
         
         if(nome.equals("") || email.equals("") || senha.equals("")) {
-            txtUsername.setText("");
-            txtEmail.setText("");
-            txtSenha.setText("");  // isso aqui é sacanagem kkkkkkk o usuário esqueceu de preencher um campo e vai ter que digitar tudo de novo
-            txtUsername.requestFocus();
             
             JOptionPane.showMessageDialog(null, "Todos os campos de cadastro devem estar preenchidos");
             
@@ -223,20 +208,15 @@ public class TelaNovaConta extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(null, "Conta criada com sucesso");
             
-            //this.setVisible(false);
             dispose();
         }
     }//GEN-LAST:event_btCriarActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         
-        this.setVisible(false);
+        dispose();
         
     }//GEN-LAST:event_btVoltarActionPerformed
-
-    private void rbtClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtClienteActionPerformed
 
     private void btnAddFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFotoActionPerformed
         JFileChooser inserirArquivo = new JFileChooser();
@@ -258,10 +238,6 @@ public class TelaNovaConta extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnAddFotoActionPerformed
-
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
 
     /**
      * @param args the command line arguments

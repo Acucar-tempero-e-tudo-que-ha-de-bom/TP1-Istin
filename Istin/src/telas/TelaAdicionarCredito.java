@@ -138,7 +138,7 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
-        
+        adicionar();
     }//GEN-LAST:event_txtValorActionPerformed
 
     /**

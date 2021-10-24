@@ -33,10 +33,12 @@ public class TelaPerfil extends javax.swing.JFrame{
         lblFotoPerfil.setIcon(new ImageIcon(newimg));
         
         lblNome.setText(login.getUsuarioLogado().getNome());
+        lblNome.setFont(new java.awt.Font("Dialog", 1, 12));
         
         if(login.getUsuarioLogado().getTipo()== TipoUsuario.CLIENTE){
             lblValorSaldo.setText(String.valueOf(((Cliente) login.getUsuarioLogado()).getSaldo()));
         } else {
+            btnAdicionarCredito.setVisible(false);
             lblValorSaldo.setVisible(false);
             lblSaldo.setVisible(false);
         }
@@ -70,8 +72,11 @@ public class TelaPerfil extends javax.swing.JFrame{
         setBackground(new java.awt.Color(36, 40, 47));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png")).getImage());
 
+        lblNome.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
-        lblNome.setText("NOMEEEEE");
+        lblNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNome.setText("NOME");
+        lblNome.setToolTipText("");
 
         lblSaldo.setForeground(new java.awt.Color(255, 255, 255));
         lblSaldo.setText("Saldo R$:");
@@ -122,16 +127,6 @@ public class TelaPerfil extends javax.swing.JFrame{
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(181, 181, 181)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAddFoto)))
-                .addGap(125, 125, 125))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -145,8 +140,14 @@ public class TelaPerfil extends javax.swing.JFrame{
                 .addGap(44, 44, 44))
             .addGroup(layout.createSequentialGroup()
                 .addGap(181, 181, 181)
-                .addComponent(btnAdicionarCredito)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblFotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAddFoto))
+                    .addComponent(btnAdicionarCredito))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -42,7 +42,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 login.validaLogin(nome, senha);
                 JOptionPane.showMessageDialog(null, "Login efetivado com sucesso");
                 new TelaLoja().setVisible(true);
-                this.setVisible(false);
+                dispose();
             } catch (InvalidUserException | InvalidPasswordException ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             }
