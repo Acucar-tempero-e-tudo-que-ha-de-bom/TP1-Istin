@@ -37,7 +37,7 @@ public abstract class GerenciadorJson<T extends JsonSerializavel> {
      * Map onde os objetos são salvos.
      * Os objetos são salvos chaveados por um ID inteiro.
      */
-    protected Map<Integer, T> jsonTratado = new HashMap<>();;
+    protected Map<Integer, T> jsonTratado = new HashMap<>();
     
     /**
      * Construtor do gerenciador json
