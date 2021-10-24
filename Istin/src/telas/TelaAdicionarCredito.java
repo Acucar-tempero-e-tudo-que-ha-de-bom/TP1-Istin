@@ -10,7 +10,7 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
     private Login login;
     
     /**
-     * Creates new form TelaLogin
+     * Construtor da TelaLogin
      */
     public TelaAdicionarCredito() {
         initComponents();
@@ -27,11 +27,15 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
     }
     
     private void adicionar() {
+        /* Adiciona crédito no saldo do cliente */
         if (txtValor.getText().equals(""))
-            JOptionPane.showMessageDialog(null, "Preencha o campo com o valor a ser inserido", "Valor não inserido", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Preencha o campo com o valor a ser inserido",
+                                           "Valor não inserido", JOptionPane.WARNING_MESSAGE);
         else {
             
             try {
+                /* Estrutura de tratamento de erro caso o usuário digite um valor
+                inválido como por exemplo contendo valores não numéricos ou negativos */
                 float valor = Float.parseFloat(txtValor.getText());
                 
                 if (valor <= 0f)
@@ -39,8 +43,11 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
                 
                 cliente.setSaldo(cliente.getSaldo() + valor);
                 txtValor.setText("");
-                JOptionPane.showMessageDialog(null, "Crédito adicionado com sucesso!", "Crédito adicionado", JOptionPane.INFORMATION_MESSAGE);
                 lblSaldo.setText("Saldo: R$ " + String.format("%.2f", cliente.getSaldo()));
+                
+                JOptionPane.showMessageDialog(null, "Crédito adicionado com sucesso!","Crédito adicionado",
+                                                                            JOptionPane.INFORMATION_MESSAGE);
+                
                 login.salvarJson();
                 
                 dispose();

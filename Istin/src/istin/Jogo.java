@@ -17,6 +17,10 @@ public class Jogo implements JsonSerializavel {
     private Integer autorId;
     private final LocalDateTime dataPublicacao;
     
+    /**
+     * Construtor da classe que recebe os atributos via arquivo JSON
+     * @param json 
+     */
     public Jogo(JSONObject json) {
         id = json.getInt("id");
         nome = json.getString("nome");
@@ -28,6 +32,14 @@ public class Jogo implements JsonSerializavel {
         dataPublicacao = LocalDateTime.parse(json.getString("dataPublicacao"));
     }
     
+    /**
+     * Costrutor da classe que recebe os atributos diretamente
+     * @param nome
+     * @param preco
+     * @param imagem
+     * @param autorId
+     * @param dataPublicacao
+     */
     public Jogo(String nome, float preco, byte[] imagem, int autorId, LocalDateTime dataPublicacao) {
         this.nome = nome;
         this.preco = preco;
