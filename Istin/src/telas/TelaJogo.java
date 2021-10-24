@@ -21,9 +21,10 @@ public class TelaJogo extends javax.swing.JFrame {
     private final TelaBiblioteca bibPai;
     
     /**
-     * Creates new form TelaJogo
+     * Construtor da TelaJogo
      * @param jogo Jogo apresentado na tela
      * @param lojaPai
+     * @param bibPai
      */
     public TelaJogo(Jogo jogo, TelaLoja lojaPai, TelaBiblioteca bibPai) {
         this.jogo = jogo;
@@ -56,6 +57,9 @@ public class TelaJogo extends javax.swing.JFrame {
         setSize(dimension);
     }
     
+    /**
+     * Atualiza os botões de avaliar, comprar e excluir o jogo.
+     */
     private void atualizarBotoes() {
         boolean ehCliente = login.getUsuarioLogado().getTipo() == TipoUsuario.CLIENTE;
         boolean possuiJogo = false;
@@ -77,6 +81,10 @@ public class TelaJogo extends javax.swing.JFrame {
         btnAvaliar.setVisible(podeAvaliar);
     }
     
+    /**
+     * Confirma a compra do jogo.
+     * @param cliente cliente que comprou o jogo
+     */
     private void comprar(Cliente cliente) {
         
         cliente.setSaldo(cliente.getSaldo() - jogo.getPreco());
@@ -239,10 +247,9 @@ public class TelaJogo extends javax.swing.JFrame {
         Object[] opcoes = {"Sim", "Não"};
         if (cliente.getSaldo() - jogo.getPreco() < 0f) {
             int opcao = JOptionPane.showOptionDialog(null, "Saldo insuficiente. Gostaria de adicionar mais crédito a sua carteira?", "Saldo insuficiente", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
-            if (opcao==0)
+            if (opcao == 0)
                 new TelaAdicionarCredito().setVisible(true);
-        }
-        else {
+        } else {
             comprar(cliente);
         }
     }//GEN-LAST:event_btnComprarActionPerformed

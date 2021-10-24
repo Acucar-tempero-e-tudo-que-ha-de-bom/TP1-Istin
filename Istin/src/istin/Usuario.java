@@ -9,6 +9,9 @@ import java.util.stream.Collectors;
 import java.util.Base64;
 import org.json.JSONObject;
 
+/**
+ * Superclasse de Autor e de Cliente
+ */
 public class Usuario implements JsonSerializavel {
     private Integer id;
     private final String nome;
@@ -17,6 +20,14 @@ public class Usuario implements JsonSerializavel {
     private byte[] fotoPerfil;
     protected List<Integer> listaIdJogos;
 
+    /**
+     * Construtor da classe
+     * @param nome          nome do usuario
+     * @param email           email do usuario
+     * @param senha         senha do usuario
+     * @param fotoPerfil     foto do perfil do usuario
+     * @param listaIdJogos lista de ID's de jogos que o usuario possui
+     */
     public Usuario(String nome, String email, String senha, byte[] fotoPerfil, List<Integer> listaIdJogos) {
         this.nome = nome;
         this.email = email;
@@ -25,6 +36,13 @@ public class Usuario implements JsonSerializavel {
         this.listaIdJogos = listaIdJogos;
     }
     
+    /**
+     * Construtor da classe
+     * @param nome          nome do usuario
+     * @param email           email do usuario
+     * @param senha         senha do usuario
+     * @param fotoPerfil     foto do perfil do usuario
+     */
     public Usuario(String nome, String email, String senha, byte[] fotoPerfil) {
         this.nome = nome;
         this.email = email;
@@ -33,6 +51,10 @@ public class Usuario implements JsonSerializavel {
         this.listaIdJogos = new ArrayList<>();
     }
     
+    /**
+     * Construtor da classe
+     * @param json  JSONObject que contém as especificações do usuario
+     */
     public Usuario(JSONObject json) {
         id = json.getInt("id");
         nome = json.getString("nome");
@@ -85,6 +107,10 @@ public class Usuario implements JsonSerializavel {
         this.id = id;
     }
     
+     /**
+     * Retorna JSONObject com informações do cliente
+     * @return informações do usuario em um JSONObject
+     */
     @Override
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();

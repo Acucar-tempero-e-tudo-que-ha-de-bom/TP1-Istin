@@ -17,6 +17,10 @@ public class TelaPerfil extends javax.swing.JFrame{
     private byte[] bytesArquivo;
     private Login login;
     
+    /**
+     * Tela com informações do usuário logado.
+     * Construtor da TelaPerfil
+     */
     public TelaPerfil() {
         initComponents();
         
@@ -244,6 +248,7 @@ public class TelaPerfil extends javax.swing.JFrame{
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new TelaPerfil().setVisible(true);
             }

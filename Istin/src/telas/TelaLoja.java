@@ -6,12 +6,10 @@ import istin.Login;
 import istin.Loja;
 import java.awt.Cursor;
 import java.awt.Dimension;
-import java.awt.PopupMenu;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JMenuItem;
 
 public class TelaLoja extends javax.swing.JFrame {
     
@@ -31,6 +29,10 @@ public class TelaLoja extends javax.swing.JFrame {
         }                                                                                                                                                                                                                                                    
     }
     
+    /**
+     * Carrega jogos que estão na lista de jogos da loja e os mostra
+     * na tela como instâncias de Label's
+     */
     public final void atualizarLoja() {
         painelLoja.removeAll();
         
