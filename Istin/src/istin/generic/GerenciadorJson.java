@@ -14,17 +14,40 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+/**
+ * Responsável por gerenciar um arquivo json.
+ * @param <T> Classe que esse gerenciador armazena.
+ */
 public abstract class GerenciadorJson<T extends JsonSerializavel> {
     
+    /**
+     * Caminho do arquivo json.
+     */
     private final String arquivo;
+    
+    /**
+     * Contador de IDs dos objetos.
+     */
     private int contadorId = 1;
+    
+    /**
+     * Map onde os objetos são salvos.
+     * Os objetos são salvos chaveados por um ID inteiro.
+     */
     protected Map<Integer, T> jsonTratado = new HashMap<>();;
     
+    /**
+     * Construtor do gerenciador json
+     * @param arquivo caminho para o arquivo json
+     */
     public GerenciadorJson(String arquivo) {
         this.arquivo = arquivo;
         carregaJson();
     }
     
+    /**
+     * Salva os dados do Map no arquivo json.
+     */
     public void salvarJson () {
         try (FileWriter escreve = new FileWriter(arquivo)) {
             JSONObject json = new JSONObject();
@@ -42,6 +65,9 @@ public abstract class GerenciadorJson<T extends JsonSerializavel> {
         }
     }
     
+    /**
+     * Carrega os dados do arquivo json para o Map.
+     */
     protected final void carregaJson() {
         try {
             FileInputStream is = new FileInputStream(arquivo);
@@ -64,16 +90,29 @@ public abstract class GerenciadorJson<T extends JsonSerializavel> {
         }   
     }
     
-    // Getters
+    /**
+     * @return Collection coleção dos objetos armazenados no json
+     */
     public Collection<T> valueCollection() {
         return jsonTratado.values();
     }
     
+    /**
+     * Retorna um objeto do Map de acordo com o id fornecido.
+     * @param id id do objeto
+     * @return objeto com o id fornecido
+     */
     public T get(int id) {
         return jsonTratado.get(id);
     }
     
-    // Add
+    /**
+     * Adiciona um objeto ao Map de acordo com o id.
+     * Se o objeto não tiver um id, define o id de acordo com o contador.
+     * @param valor objeto a ser adicionado ao Map
+     * @param salvar quando verdadeiro, salva o arquivo json
+     * @return objeto adicionado
+     */
     public T add(T valor, boolean salvar) {
         if (valor.getId() == null) {
             valor.setId(contadorId);
@@ -88,20 +127,37 @@ public abstract class GerenciadorJson<T extends JsonSerializavel> {
         return valor;
     }
     
+    /**
+     * Alternativa ao metodo add, com valor salvar padrão como true.
+     * @param valor objeto a ser adicionado ao Map
+     * @return objeto adicionado
+     */
     public T add(T valor) {
         return add(valor, true);
     }
     
-    // Remove
+    /**
+     * Remove um objeto do Map de acordo com o id.
+     * @param key id do objeto
+     */
     public void remove(int key) {
         jsonTratado.remove(key);
         salvarJson();
     }
     
+    /**
+     * Remove um objeto do Map.
+     * @param valor objeto a ser removido
+     */
     public void remove(T valor) {
         remove(valor.getId());
     }
     
+    /**
+     * Transforma um objeto json na classe gerenciada.
+     * @param json objeto json
+     * @return instancia da classe gerenciada
+     */
     abstract protected T carregarObjeto(JSONObject json);
     
 }
