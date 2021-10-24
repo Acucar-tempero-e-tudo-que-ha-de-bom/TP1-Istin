@@ -38,6 +38,7 @@ public class TelaPerfil extends javax.swing.JFrame{
         if(login.getUsuarioLogado().getTipo()== TipoUsuario.CLIENTE){
             lblValorSaldo.setText(String.valueOf(((Cliente) login.getUsuarioLogado()).getSaldo()));
         } else {
+            btnAdicionarCredito.setVisible(false);
             lblValorSaldo.setVisible(false);
             lblSaldo.setVisible(false);
         }
