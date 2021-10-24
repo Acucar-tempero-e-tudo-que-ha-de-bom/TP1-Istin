@@ -1,9 +1,12 @@
 package istin.generic;
 
-import java.io.FileInputStream;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -70,8 +73,8 @@ public abstract class GerenciadorJson<T extends JsonSerializavel> {
      */
     protected final void carregaJson() {
         try {
-            FileInputStream is = new FileInputStream(arquivo);
-            JSONTokener tokener = new JSONTokener(is);
+            BufferedReader br = Files.newBufferedReader(FileSystems.getDefault().getPath(arquivo), StandardCharsets.UTF_8);
+            JSONTokener tokener = new JSONTokener(br);
             JSONObject obj = new JSONObject(tokener);
             
             contadorId = obj.optInt("contadorId", 1);
@@ -87,7 +90,9 @@ public abstract class GerenciadorJson<T extends JsonSerializavel> {
         } catch(FileNotFoundException | JSONException ex) {
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
             salvarJson(); // Salva o JSON vazio
-        }   
+        } catch(IOException ex) {
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**
