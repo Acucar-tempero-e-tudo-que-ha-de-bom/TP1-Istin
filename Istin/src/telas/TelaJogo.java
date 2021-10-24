@@ -50,7 +50,7 @@ public class TelaJogo extends javax.swing.JFrame {
         rdbtn4.setVisible(podeAvaliar);
         rdbtn5.setVisible(podeAvaliar);
         btnAvaliar.setVisible(podeAvaliar);
-        
+
         setTitle("Istin - " + jogo.getNome());
         ImageIcon imageIcon = new ImageIcon(jogo.getImagem());
         Image image = imageIcon.getImage();
@@ -197,6 +197,7 @@ public class TelaJogo extends javax.swing.JFrame {
         lblValorNota.setText("5,00");
         getContentPane().add(lblValorNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
 
+        btnAvaliar.setBackground(new java.awt.Color(36, 40, 47));
         btnAvaliar.setForeground(new java.awt.Color(255, 255, 255));
         btnAvaliar.setText("Avaliar");
         btnAvaliar.addActionListener(new java.awt.event.ActionListener() {

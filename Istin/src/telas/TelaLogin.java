@@ -45,7 +45,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void atualizarBotaoEntrar() {
         String nome = txtNomeUsuario.getText();
-        String senha = txtSenha.getText();
+        String senha = new String(txtSenha.getPassword());
         btnEntrar.setEnabled(!nome.equals("") && !senha.equals(""));
     }
 
