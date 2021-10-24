@@ -7,6 +7,7 @@ import istin.Jogo;
 import istin.Login;
 import istin.Loja;
 import java.awt.Image;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -58,11 +59,13 @@ public class TelaJogo extends javax.swing.JFrame {
 
         lblcapaJogo.setIcon(new ImageIcon(newimg));
         lblnomeJogo.setText(jogo.getNome());
-        lblPreco.setText(String.format("%.2f",jogo.getPreco()));
+        lblPreco.setText("Valor: " + String.format("%.2f",jogo.getPreco()));
         lblValorNota.setText(String.valueOf(jogo.getMediaAvaliacao()));
         
         Autor autor = (Autor) login.get(jogo.getAutorId());
         lblnomeAutor.setText(autor.getNome());
+        
+        lblPublicadoEm.setText("Publicado em: " + jogo.getDataPublicacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }
     
     private void comprar(Cliente cliente) {
@@ -78,11 +81,11 @@ public class TelaJogo extends javax.swing.JFrame {
     private void initComponents() {
 
         btnGrpNota = new javax.swing.ButtonGroup();
+        lblPublicadoEm = new javax.swing.JLabel();
         lblcapaJogo = new javax.swing.JLabel();
         lblnomeJogo = new javax.swing.JLabel();
-        lblnomeAutor = new javax.swing.JLabel();
-        lblPreco = new javax.swing.JLabel();
         lblNota = new javax.swing.JLabel();
+        lblnomeAutor = new javax.swing.JLabel();
         btnExcluir = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         btnComprar = new javax.swing.JButton();
@@ -93,11 +96,16 @@ public class TelaJogo extends javax.swing.JFrame {
         rdbtn5 = new javax.swing.JRadioButton();
         lblValorNota = new javax.swing.JLabel();
         btnAvaliar = new javax.swing.JButton();
+        lblPreco = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(36, 40, 47));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoIstinIcon32x32.png")).getImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblPublicadoEm.setForeground(new java.awt.Color(255, 255, 255));
+        lblPublicadoEm.setText("Publicado em: ");
+        getContentPane().add(lblPublicadoEm, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
 
         lblcapaJogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Agreste-pequeno.png"))); // NOI18N
         getContentPane().add(lblcapaJogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 42, -1, -1));
@@ -107,18 +115,13 @@ public class TelaJogo extends javax.swing.JFrame {
         lblnomeJogo.setText("NOME DO JOGO");
         getContentPane().add(lblnomeJogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 50, -1, -1));
 
-        lblnomeAutor.setForeground(new java.awt.Color(255, 255, 255));
-        lblnomeAutor.setText("AutorNome");
-        getContentPane().add(lblnomeAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 91, -1, -1));
-
-        lblPreco.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        lblPreco.setForeground(new java.awt.Color(255, 255, 255));
-        lblPreco.setText("Preço: R$ 00,00");
-        getContentPane().add(lblPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 112, -1, -1));
-
         lblNota.setForeground(new java.awt.Color(255, 255, 255));
         lblNota.setText("Nota:");
         getContentPane().add(lblNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
+
+        lblnomeAutor.setForeground(new java.awt.Color(255, 255, 255));
+        lblnomeAutor.setText("AutorNome");
+        getContentPane().add(lblnomeAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 91, -1, -1));
 
         btnExcluir.setBackground(new java.awt.Color(36, 40, 47));
         btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
@@ -200,6 +203,11 @@ public class TelaJogo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAvaliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 198, -1, 38));
+
+        lblPreco.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        lblPreco.setForeground(new java.awt.Color(255, 255, 255));
+        lblPreco.setText("Preço: R$ 00,00");
+        getContentPane().add(lblPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -306,6 +314,7 @@ public class TelaJogo extends javax.swing.JFrame {
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel lblNota;
     private javax.swing.JLabel lblPreco;
+    private javax.swing.JLabel lblPublicadoEm;
     private javax.swing.JLabel lblValorNota;
     private javax.swing.JLabel lblcapaJogo;
     private javax.swing.JLabel lblnomeAutor;

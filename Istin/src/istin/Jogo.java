@@ -2,6 +2,7 @@ package istin;
 
 import istin.generic.JsonSerializavel;
 import istin.helpers.CompressorImagem;
+import java.time.LocalDateTime;
 import java.util.Base64;
 import org.json.JSONObject;
 
@@ -14,6 +15,7 @@ public class Jogo implements JsonSerializavel {
     private int numeroAvaliacoes;
     private byte[] imagem;
     private Integer autorId;
+    private final LocalDateTime dataPublicacao;
     
     public Jogo(JSONObject json) {
         id = json.getInt("id");
@@ -23,13 +25,15 @@ public class Jogo implements JsonSerializavel {
         numeroAvaliacoes = json.getInt("quantidadeAvaliacao");
         imagem = Base64.getDecoder().decode(json.getString("imagem"));
         autorId = json.getInt("autorId");
+        dataPublicacao = LocalDateTime.parse(json.getString("dataPublicacao"));
     }
     
-    public Jogo(String nome, float preco, byte[] imagem, int autorId) {
+    public Jogo(String nome, float preco, byte[] imagem, int autorId, LocalDateTime dataPublicacao) {
         this.nome = nome;
         this.preco = preco;
         this.setImagem(imagem);
         this.autorId = autorId;
+        this.dataPublicacao = dataPublicacao;
     }
 
     public String getNome() {
@@ -75,6 +79,10 @@ public class Jogo implements JsonSerializavel {
     public void setAutorId(Integer autorId) {
         this.autorId = autorId;
     }
+    
+    public LocalDateTime getDataPublicacao() {
+        return dataPublicacao;
+    }
 
     // Overrides
     @Override
@@ -98,6 +106,7 @@ public class Jogo implements JsonSerializavel {
         json.put("quantidadeAvaliacao", numeroAvaliacoes);
         json.put("imagem", new String(Base64.getEncoder().encode(imagem)));
         json.put("autorId", autorId);
+        json.put("dataPublicacao", dataPublicacao.toString());
         
         return json;
     }
