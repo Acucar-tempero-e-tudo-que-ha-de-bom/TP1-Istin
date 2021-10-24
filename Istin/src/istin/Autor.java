@@ -31,7 +31,7 @@ public class Autor extends Usuario {
 
     /**
      * Construtor da classe
-     * @param json  arquivo do formato .json que contém as especificações do autor
+     * @param json  JSONObject que contém as especificações do autor
      */
     public Autor(JSONObject json) {
         super(json);
@@ -43,7 +43,7 @@ public class Autor extends Usuario {
 
     /**
      * Adiciona o ID do jogo publicado à lista de ID's dos jogos publicados
-     * @param jogo  objeto da classe Jogo
+     * @param jogo  jogo publicado
      */
     public void adicionarJogoPublicado(Jogo jogo) {
         listaIdJogos.add(jogo.getId());
@@ -51,7 +51,7 @@ public class Autor extends Usuario {
 
     /**
      * Remove o ID do jogo publicado da lista de ID's dos jogos publicados
-     * @param jogo objeto da classe Jogo
+     * @param jogo jogo removido
      */
     public void removerJogoPublicado(Jogo jogo) {
         listaIdJogos.removeIf(valor -> valor.equals(jogo.getId()));

@@ -22,6 +22,10 @@ public class TelaBiblioteca extends javax.swing.JFrame {
         atualizarBiblioteca();
     }
     
+    /**
+     * Carrega jogos que estão na lista de jogos que o usuário possui e os mostra
+     * na tela como instâncias de Label's
+     */
     public final void atualizarBiblioteca() {
         painelBiblioteca.removeAll();
         
