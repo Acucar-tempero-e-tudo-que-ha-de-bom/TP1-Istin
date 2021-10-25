@@ -18,6 +18,6 @@ Código
 
 Relatório final
 - [x] Descrição do problema
-- [ ] Definição de regras de negócio
-- [ ] Diagramas de classes final e descrições
-- [ ] Telas e suas descrições
+- [x] Definição de regras de negócio
+- [x] Diagramas de classes final e descrições
+- [x] Telas e suas descrições
