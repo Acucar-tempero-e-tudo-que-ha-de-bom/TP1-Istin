@@ -261,7 +261,7 @@ public class TelaJogo extends javax.swing.JFrame {
         bibPai.atualizarBiblioteca();
         dispose();
     }//GEN-LAST:event_btnExcluirActionPerformed
-  
+
     private void btnAvaliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvaliarActionPerformed
         
         boolean[] avaliacao = {rdbtn1.isSelected(), rdbtn2.isSelected(), rdbtn3.isSelected(), rdbtn4.isSelected(), rdbtn5.isSelected()};
