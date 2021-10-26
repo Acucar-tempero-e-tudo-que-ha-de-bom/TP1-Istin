@@ -8,6 +8,7 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
 
     private Cliente cliente;
     private Login login;
+    private TelaPerfil telaPerfil;
     
     /**
      * Construtor da TelaLogin
@@ -22,7 +23,22 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
         lblSaldo.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lblSaldo.setForeground(new java.awt.Color(255, 255, 255));
         lblSaldo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSaldo.setText("Saldo: R$ " + cliente.getSaldo());
+        lblSaldo.setText("Saldo: R$ " + String.format("%.2f", cliente.getSaldo()));
+        txtValor.requestFocus();
+    }
+    
+    public TelaAdicionarCredito(TelaPerfil telaPerfil) {
+        initComponents();
+        getContentPane().setBackground(new java.awt.Color(36, 40, 47));
+        
+        login = Login.getInstance();
+        cliente = (Cliente) login.getUsuarioLogado();
+        this.telaPerfil = telaPerfil;
+        
+        lblSaldo.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        lblSaldo.setForeground(new java.awt.Color(255, 255, 255));
+        lblSaldo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSaldo.setText("Saldo: R$ " + String.format("%.2f", cliente.getSaldo()));
         txtValor.requestFocus();
     }
     
@@ -47,7 +63,10 @@ public class TelaAdicionarCredito extends javax.swing.JFrame {
                 
                 JOptionPane.showMessageDialog(null, "Crédito adicionado com sucesso!","Crédito adicionado",
                                                                             JOptionPane.INFORMATION_MESSAGE);
-                
+                if (telaPerfil != null) {
+                    telaPerfil.atualizaSaldo(cliente.getSaldo());
+                }
+                    
                 login.salvarJson();
                 
                 dispose();

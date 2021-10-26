@@ -46,7 +46,7 @@ public class TelaJogo extends javax.swing.JFrame {
         lblcapaJogo.setIcon(new ImageIcon(newimg));
         lblnomeJogo.setText(jogo.getNome());
         lblPreco.setText("Valor: " + String.format("%.2f",jogo.getPreco()));
-        lblValorNota.setText(String.valueOf(jogo.getMediaAvaliacao()));
+        lblValorNota.setText(String.format("%.2f", jogo.getMediaAvaliacao()));
         
         Autor autor = (Autor) login.get(jogo.getAutorId());
         lblnomeAutor.setText(autor.getNome());
@@ -275,7 +275,7 @@ public class TelaJogo extends javax.swing.JFrame {
                     float mediaAvaliacao = jogo.getMediaAvaliacao();
                     jogo.setMediaAvaliacao((numeroAvaliacao*mediaAvaliacao + i  + 1) / (++numeroAvaliacao));
                     jogo.setNumeroAvaliacoes(numeroAvaliacao);
-                    lblValorNota.setText(String.format("%.2f",jogo.getMediaAvaliacao()));
+                    lblValorNota.setText(String.format("%.2f", jogo.getMediaAvaliacao()));
                     loja.salvarJson();
                     break;
                 }
